@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="737c5f6e-f6c7-4914-a9f9-764c401a1221" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/practicaClase1/Ejercicio1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/practicaClase1/Ejercicio2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/practicaClase1/Ejercicio3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/Ejercicio2.java" beforeDir="false" />
-    </list>
+    <list default="true" id="737c5f6e-f6c7-4914-a9f9-764c401a1221" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1692033994775</updated>
       <workItem from="1692033995879" duration="9000" />
-      <workItem from="1693089803420" duration="3807000" />
+      <workItem from="1693089803420" duration="4232000" />
     </task>
     <servers />
   </component>
