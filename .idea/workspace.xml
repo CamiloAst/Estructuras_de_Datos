@@ -20,9 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2Tz7KOK4CEFbSiuUrEBbAKvpSZf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -41,6 +41,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "C:/Users/57318/IdeaProjects/Estructuras_de_Datos/src/main/java/uniquindio/estructuras/recursividad/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -54,6 +55,7 @@
       <updated>1692033994775</updated>
       <workItem from="1692033995879" duration="9000" />
       <workItem from="1693089803420" duration="4232000" />
+      <workItem from="1693232251049" duration="1569000" />
     </task>
     <servers />
   </component>
