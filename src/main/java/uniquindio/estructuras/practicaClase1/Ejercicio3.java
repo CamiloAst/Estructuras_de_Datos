@@ -1,4 +1,4 @@
-package uniquindio.estructuras.recursividad.practicaClase1;
+package uniquindio.estructuras.practicaClase1;
 
 public class Ejercicio3 {
     public static void main(String[] args) {

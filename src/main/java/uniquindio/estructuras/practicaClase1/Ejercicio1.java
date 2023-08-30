@@ -1,8 +1,8 @@
-package uniquindio.estructuras.recursividad.practicaClase1;
+package uniquindio.estructuras.practicaClase1;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
-        int [] arreglo = {0,1,0,0,2,3,4,5,6,7,8,9,10,0};
+        int[] arreglo = {0,1,0,0,2,3,4,5,6,7,8,9,10,0};
 
         System.out.println("El numero de ceros en el arreglo es: " + contarCeros(arreglo));
     }
