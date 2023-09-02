@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="737c5f6e-f6c7-4914-a9f9-764c401a1221" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Laboratorio1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio1/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio1/src/main/java/uniquindio/estructuras/Carcel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio1/src/main/java/uniquindio/estructuras/Celda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio1/src/main/java/uniquindio/estructuras/Piso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio1/src/main/java/uniquindio/estructuras/Preso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/src/main/java/uniquindio/estructuras/backtracking/laboratorio/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/src/main/java/uniquindio/estructuras/backtracking/laboratorio/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/laboratorio/src/main/resources/uniquindio/estructuras/backtracking/laboratorio/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backtracking/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/practicaClase1/Ejercicio1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/practicaClase1/Ejercicio1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/practicaClase1/Ejercicio2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/practicaClase1/Ejercicio2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/recursividad/practicaClase1/Ejercicio3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/estructuras/practicaClase1/Ejercicio3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,27 +51,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;project-structure&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/57318/OneDrive/Documentos/GitHub/Estructuras_de_Datos/Laboratorio1/src/main/java/uniquindio/estructuras/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "LaboratorioBack",
+    "jdk.selected.JAVA_MODULE": "17",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "C:/Users/jkami/Documents/GitHub/Estructuras_de_Datos/backtracking/src/main/java/uniquindio/estructuras/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="uniquindio.estructuras" />
@@ -111,8 +113,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/backtracking" />
+    </ignored-roots>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -127,10 +143,15 @@
           <line>26</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backtracking/src/main/java/uniquindio/estructuras/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/uniquindio/estructuras/practicaClase1/Ejercicio2.java</url>
           <line>9</line>
-          <properties class="uniquindio.estructuras.recursividad.practicaClase1.Ejercicio2" method="sumarElementos">
+          <properties class="uniquindio.estructuras.recursividad.practicaClase1.Ejercicio2">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
