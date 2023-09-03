@@ -4,7 +4,7 @@ public class Ejercicio2 {
     public static void main(String[] args) {
         int[][] arreglo = {{1,2,3},{4,5,6},{7,8,9}};
 
-        System.out.println("La suma de los elementos de la matriz es: " + sumarElementos(arreglo,100,0));
+        System.out.println("La suma de los elementos de la matriz es: " + sumarElementos(arreglo,0,0));
     }
 
     private static int sumarElementos(int[][] arreglo,int i,int j) {
