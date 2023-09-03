@@ -10,7 +10,7 @@
     </parent>
     <packaging>pom</packaging>
     <modules>
-<!--        <module>laboratorio</module>-->
+        <module>laboratorio</module>
     </modules>
 
     <groupId>uniquindio.estructuras</groupId>
