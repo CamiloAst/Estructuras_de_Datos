@@ -3,9 +3,11 @@ package lab;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lab.controllers.InicioController;
 
 public class MainApp extends Application {
     @Override
@@ -13,12 +15,13 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
-        scene.getStylesheets().add("InicioStyles.css");
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
-//        stage.getIcons().add(new javafx.scene.image.Image("icon.png"));
         stage.setTitle("Inicio");
+        scene.getStylesheets().add("estilos/InicioStyles.css");
+        stage.getIcons().add(new Image("/images/icon.png"));
+        ((InicioController)fxmlLoader.getController()).init(stage);
         stage.show();
     }
 

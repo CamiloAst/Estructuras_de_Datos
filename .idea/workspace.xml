@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -54,7 +54,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "C:/Users/jkami/Documents/GitHub/Estructuras_de_Datos/backtracking/src/main/java/uniquindio/estructuras/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
@@ -63,10 +63,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\java\lab" />
+      <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\resources" />
+      <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\resources\estilos" />
       <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\resources\lab" />
+      <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\java\lab" />
       <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\resources\lab\estilos" />
-      <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\backtracking\laboratorio\src\main\resources\images" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="uniquindio.estructuras" />
@@ -131,6 +132,7 @@
       <workItem from="1693234703925" duration="482000" />
       <workItem from="1693239747203" duration="1455000" />
       <workItem from="1693399127292" duration="2834000" />
+      <workItem from="1693774725365" duration="3534000" />
     </task>
     <servers />
   </component>
