@@ -5,16 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uniquindio.estructuras.recursividad</groupId>
-        <artifactId>Estructuras</artifactId>
+        <artifactId>recursividad</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <packaging>pom</packaging>
-    <modules>
-<!--        <module>laboratorio</module>-->
-    </modules>
 
-    <groupId>uniquindio.estructuras</groupId>
-    <artifactId>backtracking</artifactId>
+    <artifactId>practica1</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

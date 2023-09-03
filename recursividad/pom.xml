@@ -10,6 +10,10 @@
     </parent>
 
     <artifactId>recursividad</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>practica1</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
