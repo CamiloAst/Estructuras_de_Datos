@@ -13,11 +13,11 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
-//        scene.getStylesheets().add("lab/estilos/inicioStyles.css");
+        scene.getStylesheets().add("InicioStyles.css");
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
-//        stage.getIcons().add(new javafx.scene.image.Image("images/icon.png"));
+//        stage.getIcons().add(new javafx.scene.image.Image("icon.png"));
         stage.setTitle("Inicio");
         stage.show();
     }
