@@ -25,6 +25,7 @@ public class MainApp extends Application {
         stage.show();
     }
 
+//    public void mostrarVentanaCeldas()
     public static void main(String[] args) {
         launch();
     }
