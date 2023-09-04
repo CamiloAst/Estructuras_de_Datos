@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lab.controllers.CeldasController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controllers.CeldasController">
+   <Pane fx:id="tittlePane" prefHeight="44.0" prefWidth="800.0">
+      <ImageView fx:id="closebtn" fitHeight="15.0" fitWidth="15.0" layoutX="771.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../images/cerrar.png" />
+      </ImageView>
+      <ImageView fx:id="minimizebtn" fitHeight="15.0" fitWidth="15.0" layoutX="731.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../images/hide.png" />
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../images/icon.png" />
+      </ImageView>
+   </Pane>
+   <Pane layoutX="64.0" layoutY="165.0" prefHeight="238.0" prefWidth="233.0" styleClass="midPane" />
 </AnchorPane>

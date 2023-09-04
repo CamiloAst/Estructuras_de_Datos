@@ -19,7 +19,7 @@ public class MainApp extends Application {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.setTitle("Inicio");
-        scene.getStylesheets().add("estilos/InicioStyles.css");
+        scene.getStylesheets().add("estilos/Styles.css");
         stage.getIcons().add(new Image("/images/icon.png"));
         ((InicioController)fxmlLoader.getController()).init(stage);
         stage.show();
