@@ -1,4 +1,29 @@
 .root{
-    -fx-background-color: linear-gradient(to bottom right, #FF7F50, #6A5ACD);
+    -fx-background-color: linear-gradient(to bottom right, #141E30, #243B55);
     -fx-background-radius: 15 15 25 25;
+}
+.midPane{
+    -fx-background-color: #ececec;
+    -fx-background-radius: 15 15 25 25;
+    -fx-effect: dropshadow(three-pass-box, black, 13, 0, 0, 0);
+}
+.tittleLabel{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+.btn {
+    -fx-background-color: #141E30;
+    -fx-background-radius: 15 15 15 15;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, #43fde1, 15, 0, 0, 0);
+}
+.btn:hover{
+    -fx-background-color:#253559;
+}
+.btn:pressed{
+    -fx-background-color: #30375b;
+    -fx-effect: dropshadow(three-pass-box, #43fde1, 10, 0, 0, 0);
 }

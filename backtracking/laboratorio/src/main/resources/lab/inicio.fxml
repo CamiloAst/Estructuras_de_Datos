@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lab.controllers.InicioController"
-            prefHeight="400.0" prefWidth="600.0">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controllers.InicioController">
+   <Pane layoutX="105.0" layoutY="79.0" prefHeight="242.0" prefWidth="394.0" styleClass="midPane">
+      <children>
+         <Button layoutX="139.0" layoutY="102.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="117.0" styleClass="btn" text="Revisar" />
+      </children>
+   </Pane>
     <Pane fx:id="tittlePane" layoutX="-7.0" prefHeight="45.0" prefWidth="615.0">
-        <ImageView fx:id="closebtn" fitHeight="25.0" fitWidth="25.0" layoutX="570.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="closebtn" fitHeight="25.0" fitWidth="18.0" layoutX="573.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/cerrar.png" />
         </ImageView>
-        <ImageView fx:id="minimizebtn" fitHeight="27.0" fitWidth="25.0" layoutX="511.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="minimizebtn" fitHeight="18.0" fitWidth="18.0" layoutX="526.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/hide.png" />
         </ImageView>
-        <ImageView fitHeight="31.0" fitWidth="42.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="31.0" fitWidth="42.0" layoutX="21.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/icon.png" />
         </ImageView>
-        <Label layoutX="63.0" layoutY="6.0" prefHeight="27.0" prefWidth="99.0" text="Security">
+        <Label layoutX="66.0" layoutY="9.0" prefHeight="27.0" prefWidth="272.0" styleClass="tittleLabel" text="Security">
             <font>
                 <Font name="Arial Black" size="18.0" />
             </font>
