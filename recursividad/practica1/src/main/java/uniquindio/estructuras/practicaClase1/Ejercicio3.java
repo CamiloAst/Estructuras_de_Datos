@@ -2,7 +2,9 @@ package uniquindio.estructuras.practicaClase1;
 
 public class Ejercicio3 {
     public static void main(String[] args) {
-        int[][] arreglo1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] arreglo1 = {{1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}};
 
         if (sonIguales(arreglo1, 0, 0)) {
             System.out.println("La matriz es simetrica");

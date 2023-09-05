@@ -3,16 +3,35 @@ package lab.modelo;
 public class Prisionero {
     private String nombre;
     private String apellido;
-    private String estado;
+    private Boolean estado;
     private String codigo;
 
-    public Prisionero(String nombre, String apellido, String estado, String codigo) {
+    public Prisionero(String nombre, String apellido, Boolean estado, String codigo) {
         super();
         this.nombre = nombre;
         this.apellido = apellido;
         this.estado = estado;
         this.codigo = codigo;
     }
+    public Prisionero() {
+        super();
+    }
+    public Prisionero(String nombre, String apellido, Boolean estado) {
+        super();
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.estado = estado;
+    }
+    public Prisionero(String nombre, String apellido) {
+        super();
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+    public Prisionero(String nombre) {
+        super();
+        this.nombre = nombre;
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -30,11 +49,11 @@ public class Prisionero {
         this.apellido = apellido;
     }
 
-    public String getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
