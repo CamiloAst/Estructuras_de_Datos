@@ -32,3 +32,9 @@
     -fx-font-weight: bold;
     -fx-text-fill: #000000;
 }
+.bLabel{
+    -fx-font-size: 15px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: #dcdcdc;
+}

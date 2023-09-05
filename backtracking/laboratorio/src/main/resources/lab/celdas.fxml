@@ -142,4 +142,5 @@
          </GridPane>
       </children>
    </Pane>
+   <Label layoutX="344.0" layoutY="560.0" prefHeight="26.0" prefWidth="259.0" styleClass="bLabel" text="CLICK PARA AVANZAR" />
 </AnchorPane>
