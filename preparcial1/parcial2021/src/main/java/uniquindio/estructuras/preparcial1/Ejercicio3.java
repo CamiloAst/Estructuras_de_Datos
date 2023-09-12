@@ -11,19 +11,28 @@ public class Ejercicio3 {
         numeros.add(0);
         numeros.add(2);
         numeros.add(3);
-        int n = compararNumeros(numeros);
+        numeros.add(4);
+        numeros.add(3);
+        int n = encontrarIndice(numeros);
         System.out.println(n);
     }
 
-    private static int compararNumeros(@NotNull List<Integer> numeros) {
-        if(numeros.size() <= 1)
-            return numeros.get(0);
-        else{
-            numeros.remove(0);
-            if(compararNumeros(numeros)==numeros.size())
-                return 0;
-            return (compararNumeros(numeros)>numeros.size() ? 1 : -1);
+    public static int encontrarIndice(List<Integer> numeros){
+        int num = compararNumeros(numeros, 0);
+        if(num==0 || numeros.get(num) == num)
+            return 0;
+        return (numeros.get(num)>num ? 1 : -1);
+    }
+    private static int compararNumeros(@NotNull List<Integer> numeros, int num) {
+        try{
+            if (numeros.get(num + 1) == null) {
+                throw new IndexOutOfBoundsException();
+            }
+            return compararNumeros(numeros, ++num);
+        } catch (IndexOutOfBoundsException e) {
+            return num;
         }
+
     }
 
 }
