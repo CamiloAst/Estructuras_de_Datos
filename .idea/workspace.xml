@@ -73,7 +73,7 @@
       <recent name="uniquindio.estructuras" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Ejercicio3">
+  <component name="RunManager" selected="Application.Ejercicio4">
     <configuration name="Ejercicio1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio1" />
       <module name="parcial2021" />
@@ -87,12 +87,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ejercicio2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.practicaClase1.Ejercicio2" />
-      <module name="practica1" />
+    <configuration name="Ejercicio3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio3" />
+      <module name="parcial2021" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.practicaClase1.*" />
+          <option name="PATTERN" value="uniquindio.estructuras.preparcial1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,8 +100,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ejercicio3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio3" />
+    <configuration name="Ejercicio4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio4" />
       <module name="parcial2021" />
       <extension name="coverage">
         <pattern>
@@ -163,18 +163,18 @@
     <list>
       <item itemvalue="Application.MainApp" />
       <item itemvalue="Application.Ejercicio3" />
+      <item itemvalue="Application.Ejercicio4" />
       <item itemvalue="Application.Ejercicio1" />
       <item itemvalue="Application.uniquindio.estructuras.preparcial1.Ejercicio2" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Ejercicio2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ejercicio4" />
         <item itemvalue="Application.Ejercicio3" />
         <item itemvalue="Application.Ejercicio1" />
         <item itemvalue="Application.uniquindio.estructuras.preparcial1.Ejercicio2" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Ejercicio2" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +197,7 @@
       <workItem from="1693856388343" duration="3492000" />
       <workItem from="1693860635822" duration="25389000" />
       <workItem from="1694482426510" duration="2961000" />
-      <workItem from="1694535379910" duration="12210000" />
+      <workItem from="1694535379910" duration="13255000" />
     </task>
     <servers />
   </component>
@@ -261,6 +261,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/preparcial1/parcial2021/src/main/java/uniquindio/estructuras/preparcial1/Ejercicio4.java</url>
+          <line>14</line>
+          <properties class="uniquindio.estructuras.preparcial1.Ejercicio4" method="contarCeros">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
