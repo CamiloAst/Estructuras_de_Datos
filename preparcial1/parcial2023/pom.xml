@@ -4,19 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>uniquindio.estructuras.recursividad</groupId>
-        <artifactId>Estructuras</artifactId>
+        <groupId>uniquindio.estructuras</groupId>
+        <artifactId>preparcial1</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>uniquindio.estructuras</groupId>
-    <artifactId>preparcial1</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>parcial2021</module>
-        <module>parcial2023</module>
-        <module>habilitaciones2023</module>
-    </modules>
+    <groupId>uniquindio.estructuras.preparcial1</groupId>
+    <artifactId>parcial2023</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
