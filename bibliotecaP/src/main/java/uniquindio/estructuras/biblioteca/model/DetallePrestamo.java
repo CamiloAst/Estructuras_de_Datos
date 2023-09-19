@@ -5,12 +5,14 @@ public class DetallePrestamo {
     private int cantidad;
     private String codigo;
     private Libro libro;
+    private final String subTotal;
 
 
-    public DetallePrestamo(int cantidad, String codigo) {
+    public DetallePrestamo(int cantidad, String codigo, String subTotal) {
         super();
         this.cantidad = cantidad;
         this.codigo = codigo;
+        this.subTotal = subTotal;
     }
 
     public Libro getLibro() {

@@ -7,7 +7,7 @@ public class Libro extends TextoLiterario{
 
     public Libro(String titulo, String editorial, String codigo,String estado, int unidadesDisponibles,
                  String idioma, int numeroPaginas, int anio, String isbn) {
-        super(titulo, editorial, codigo, estado, unidadesDisponibles, idioma, numeroPaginas, anio);
+        super();
         this.isbn = isbn;
     }
 

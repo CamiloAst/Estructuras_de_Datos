@@ -11,18 +11,13 @@ public class TextoLiterario {
     private int numeroPaginas;
     private int anio;
     private String fechaPublicacion;
+    private double precio;
 
     /**
-     * @param titulo
-     * @param editorial
-     * @param estado
-     * @param unidadesDisponibles
-     * @param idioma
-     * @param numeroPaginas
-     * @param anio
+     *
      */
 
-    public TextoLiterario(String titulo, String editorial, String codigo, String estado, int unidadesDisponibles, String idioma, int numeroPaginas, int anio) {
+    public TextoLiterario() {
         super();
         this.titulo = titulo;
         this.editorial = editorial;
@@ -32,6 +27,7 @@ public class TextoLiterario {
         this.idioma = idioma;
         this.numeroPaginas = numeroPaginas;
         this.anio = anio;
+        this.precio = precio;
     }
 
     public String getTitulo() {

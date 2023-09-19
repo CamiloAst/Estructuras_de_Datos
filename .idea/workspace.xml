@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -73,7 +73,21 @@
       <recent name="uniquindio.estructuras" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Ejercicio2">
+  <component name="RunManager" selected="Application.BibliotecaMainApp">
+    <configuration name="BibliotecaMainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.biblioteca.BibliotecaMainApp" />
+      <module name="bibliotecaP" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\jkami\Documents\openjfx-20.0.2_windows-x64_bin-sdk\javafx-sdk-20.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniquindio.estructuras.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Ejercicio1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio1" />
       <module name="parcial2021" />
@@ -134,19 +148,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="uniquindio.estructuras.preparcial1.Ejercicio2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio2" />
-      <module name="parcial2021" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.preparcial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Laboratorio1" />
       <method v="2">
@@ -162,19 +163,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainApp" />
+      <item itemvalue="Application.BibliotecaMainApp" />
       <item itemvalue="Application.Ejercicio3" />
       <item itemvalue="Application.Ejercicio4" />
       <item itemvalue="Application.Ejercicio1" />
-      <item itemvalue="Application.uniquindio.estructuras.preparcial1.Ejercicio2" />
       <item itemvalue="Application.Ejercicio2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BibliotecaMainApp" />
         <item itemvalue="Application.Ejercicio2" />
         <item itemvalue="Application.Ejercicio4" />
         <item itemvalue="Application.Ejercicio3" />
         <item itemvalue="Application.Ejercicio1" />
-        <item itemvalue="Application.uniquindio.estructuras.preparcial1.Ejercicio2" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +200,7 @@
       <workItem from="1694482426510" duration="2961000" />
       <workItem from="1694535379910" duration="16958000" />
       <workItem from="1695155470546" duration="9000" />
-      <workItem from="1695163871481" duration="321000" />
+      <workItem from="1695163871481" duration="1121000" />
     </task>
     <servers />
   </component>
@@ -257,7 +258,7 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/bibliotecaP/src/main/java/uniquindio/estructuras/biblioteca/Main.java</url>
+          <url>file://$PROJECT_DIR$/bibliotecaP/src/main/java/uniquindio/estructuras/biblioteca/MainApp.java</url>
           <line>15</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
