@@ -36,5 +36,4 @@ public class Libro extends TextoLiterario{
                 + getNumeroPaginas() + ", Anio=" + getAnio() + "]";
     }
 
-
 }

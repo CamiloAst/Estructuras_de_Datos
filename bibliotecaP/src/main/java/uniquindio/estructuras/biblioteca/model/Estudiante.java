@@ -1,12 +1,14 @@
 package uniquindio.estructuras.biblioteca.model;
 
+import java.util.HashSet;
+
 public class Estudiante {
 
     private String nombre;
     private String telefono;
     private String cedula;
     private String correo;
-    private Prestamo prestamo;
+    private HashSet<Prestamo> prestamos;
 
 
 
@@ -18,17 +20,18 @@ public class Estudiante {
         this.telefono = telefono;
         this.cedula = cedula;
         this.correo = correo;
+        this.prestamos = new HashSet<Prestamo>();
     }
 
-    public Prestamo getPrestamo() {
-        return prestamo;
+    public HashSet<Prestamo> getPrestamos() {
+        return prestamos;
     }
 
 
 
 
-    public void setPrestamo(Prestamo prestamo) {
-        this.prestamo = prestamo;
+    public void setPrestamos(HashSet<Prestamo> prestamos) {
+        this.prestamos = prestamos;
     }
 
     public String getNombre() {
@@ -67,7 +70,7 @@ public class Estudiante {
     @Override
     public String toString() {
         return "Estudiante [nombre=" + nombre + ", telefono=" + telefono + ", cedula=" + cedula + ", correo=" + correo
-                + ", prestamo=" + prestamo +  "]";
+                + ", prestamo=" + prestamos +  "]";
     }
 
     @Override

@@ -2,7 +2,7 @@ package uniquindio.estructuras.biblioteca.model;
 
 import java.util.Objects;
 
-public class Bibliotecario {
+public class Bibliotecario implements Comparable<Bibliotecario>{
 
     private String nombre;
     private String correo;
@@ -81,5 +81,10 @@ public class Bibliotecario {
                 ", direccion='" + direccion + '\'' +
                 ", salario=" + salario +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Bibliotecario otroBibliotecario) {
+        return this.cedula.compareTo(otroBibliotecario.cedula);
     }
 }

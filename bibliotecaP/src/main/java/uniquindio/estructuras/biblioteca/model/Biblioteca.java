@@ -1,20 +1,21 @@
 package uniquindio.estructuras.biblioteca.model;
-
-import java.util.Arrays;
-import java.util.Objects;
+import uniquindio.estructuras.biblioteca.comparadores.CompararLibro;
+import java.util.*;
 
 public class Biblioteca {
 
     private String nombre;
-    private Libro [] libroLista;
-    private Prestamo [] prestamoLista;
-    private Bibliotecario bibliotecario;
+    private HashSet<Estudiante> estudiantes;
+    private TreeSet<Libro> libros;
+    private TreeSet<Bibliotecario> bibliotecarios;
+    private HashMap<String, Prestamo> prestamos;
 
-    public Biblioteca(String nombre, Libro[] libroLista, Prestamo[] prestamoLista, Bibliotecario bibliotecario) {
+    public Biblioteca(String nombre) {
         this.nombre = nombre;
-        this.libroLista = libroLista;
-        this.prestamoLista = prestamoLista;
-        this.bibliotecario = bibliotecario;
+        this.estudiantes = new HashSet<Estudiante>();
+        this.libros = new TreeSet<Libro>(new CompararLibro());
+        this.bibliotecarios = new TreeSet<Bibliotecario>();
+        this.prestamos = new HashMap<String, Prestamo>();
     }
 
     public String getNombre() {
@@ -25,28 +26,36 @@ public class Biblioteca {
         this.nombre = nombre;
     }
 
-    public Libro[] getLibroLista() {
-        return libroLista;
+    public HashSet<Estudiante> getEstudiantes() {
+        return estudiantes;
     }
 
-    public void setLibroLista(Libro[] libroLista) {
-        this.libroLista = libroLista;
+    public void setEstudiantes(HashSet<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
     }
 
-    public Prestamo[] getPrestamoLista() {
-        return prestamoLista;
+    public TreeSet<Libro> getLibros() {
+        return libros;
     }
 
-    public void setPrestamoLista(Prestamo[] prestamoLista) {
-        this.prestamoLista = prestamoLista;
+    public void setLibros(TreeSet<Libro> libros) {
+        this.libros = libros;
     }
 
-    public Bibliotecario getBibliotecario() {
-        return bibliotecario;
+    public TreeSet<Bibliotecario> getBibliotecarios() {
+        return bibliotecarios;
     }
 
-    public void setBibliotecario(Bibliotecario bibliotecario) {
-        this.bibliotecario = bibliotecario;
+    public void setBibliotecarios(TreeSet<Bibliotecario> bibliotecarios) {
+        this.bibliotecarios = bibliotecarios;
+    }
+
+    public HashMap<String, Prestamo> getPrestamos() {
+        return prestamos;
+    }
+
+    public void setPrestamos(HashMap<String, Prestamo> prestamos) {
+        this.prestamos = prestamos;
     }
 
     @Override
@@ -54,24 +63,11 @@ public class Biblioteca {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Biblioteca that = (Biblioteca) o;
-        return Objects.equals(nombre, that.nombre) && Arrays.equals(libroLista, that.libroLista) && Arrays.equals(prestamoLista, that.prestamoLista) && Objects.equals(bibliotecario, that.bibliotecario);
+        return Objects.equals(nombre, that.nombre) && Objects.equals(estudiantes, that.estudiantes) && Objects.equals(libros, that.libros) && Objects.equals(bibliotecarios, that.bibliotecarios) && Objects.equals(prestamos, that.prestamos);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(nombre, bibliotecario);
-        result = 31 * result + Arrays.hashCode(libroLista);
-        result = 31 * result + Arrays.hashCode(prestamoLista);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Biblioteca{" +
-                "nombre='" + nombre + '\'' +
-                ", libroLista=" + Arrays.toString(libroLista) +
-                ", prestamoLista=" + Arrays.toString(prestamoLista) +
-                ", bibliotecario=" + bibliotecario +
-                '}';
+        return Objects.hash(nombre, estudiantes, libros, bibliotecarios, prestamos);
     }
 }

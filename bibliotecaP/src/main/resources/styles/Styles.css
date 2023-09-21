@@ -1,0 +1,46 @@
+
+.root{
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 15 15 25 25;
+}
+.midPane{
+    -fx-background-color: #ececec;
+    -fx-background-radius: 15 15 25 25;
+    -fx-effect: dropshadow(three-pass-box, black, 13, 0, 0, 0);
+}
+.tittleLabel{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+}
+.tittlePane{
+    -fx-background-radius: 15 15 15 15;
+    -fx-background-color: #9c6afa;
+    -fx-effect: dropshadow(three-pass-box, black, 5, 0, 0, 0);
+}
+.Pane{
+    -fx-background-color: #7139c9;
+    -fx-background-radius: 15 15 15 15;
+}
+.button {
+    -fx-background-color: #a75dbe;
+    -fx-background-radius: 15 15 15 15;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, #000000, 15, 0, 0, 0);
+}
+.button:hover{
+    -fx-background-color: #9a7fa8;
+}
+.button:pressed{
+    -fx-background-color: #703f81;
+    -fx-effect: dropshadow(three-pass-box, #000000, 10, 0, 0, 0);
+}
+.label{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-alignment: center;
+}

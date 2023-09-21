@@ -1,6 +1,6 @@
 package uniquindio.estructuras.biblioteca.model;
 
-public class Autor {
+public class Autor implements Comparable<Autor>{
 
 
     private String nombre;
@@ -81,4 +81,8 @@ public class Autor {
     }
 
 
+    @Override
+    public int compareTo(Autor otroAutor) {
+        return this.identificacion.compareTo(otroAutor.identificacion);
+    }
 }
