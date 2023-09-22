@@ -1,10 +1,11 @@
 package uniquindio.estructuras.biblioteca.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 
-public class Prestamo {
+public class Prestamo implements Serializable {
     private String codigo;
     private Estudiante estudiante;
     private Bibliotecario bibliotecario;

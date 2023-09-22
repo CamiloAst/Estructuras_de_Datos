@@ -8,6 +8,8 @@ public class DetallePrestamo {
     private final String subTotal;
 
 
+
+
     public DetallePrestamo(int cantidad, String codigo, String subTotal) {
         super();
         this.cantidad = cantidad;

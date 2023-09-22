@@ -18,13 +18,23 @@ import java.io.IOException;
 
 public class InicioController {
 
-    public ImageView hideBtn;
-    public ImageView closeBtn;
-    public Button btnBibliotecario;
-    public Button btnEstudiante;
-    @FXML
-    private Pane tittlePane;
-    private double x,y;
+        private double x;
+        private double y;
+
+        @FXML
+        private Button btnBibliotecario;
+
+        @FXML
+        private Button btnEstudiante;
+
+        @FXML
+        private ImageView closeBtn;
+
+        @FXML
+        private ImageView hideBtn;
+
+        @FXML
+        private Pane tittlePane;
     public void init(Stage stage) {
         tittlePane.setOnMousePressed(mouseEvent -> {
             x = mouseEvent.getSceneX();

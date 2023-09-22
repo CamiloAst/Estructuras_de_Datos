@@ -5,6 +5,8 @@ public class Libro extends TextoLiterario{
     private String isbn;
     private Autor autor;
 
+
+
     public Libro(String titulo, String editorial, String codigo,String estado, int unidadesDisponibles,
                  String idioma, int numeroPaginas, int anio, String isbn) {
         super();
