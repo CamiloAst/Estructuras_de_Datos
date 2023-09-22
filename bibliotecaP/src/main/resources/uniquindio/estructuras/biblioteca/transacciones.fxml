@@ -45,8 +45,8 @@
                            </font>
                         </Label>
                         <Button fx:id="btnPedir" layoutX="258.0" layoutY="239.0" mnemonicParsing="false" onAction="#retirarAction" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #f29f33;" text="Pedir" textFill="#00215e" />
-                        <Button fx:id="btnEntregar" layoutX="79.0" layoutY="239.0" mnemonicParsing="false" onAction="#depositarAction" prefHeight="48.0" prefWidth="122.0" style="-fx-background-color: #f29f33;" text="Entregar" textFill="#00215e" />
-                        <Button fx:id="btnConsultar" layoutX="455.0" layoutY="238.0" mnemonicParsing="false" onAction="#consultarAction" prefHeight="48.0" prefWidth="150.0" style="-fx-background-color: #f29f33;" text="Consultar " textFill="#00215e" />
+                        <Button fx:id="btnEntregar" layoutX="79.0" layoutY="239.0" mnemonicParsing="false" onAction="#depositarAction" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #f29f33;" text="Entregar" textFill="#00215e" />
+                        <Button fx:id="btnConsultar" layoutX="455.0" layoutY="238.0" mnemonicParsing="false" onAction="#consultarAction" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #f29f33;" text="Consultar " textFill="#00215e" />
                         <TextField fx:id="txtFechaTransaccion" layoutX="79.0" layoutY="143.0" prefHeight="26.0" prefWidth="122.0" promptText="Ingrese la fecha" />
                      </children>
                   </AnchorPane>

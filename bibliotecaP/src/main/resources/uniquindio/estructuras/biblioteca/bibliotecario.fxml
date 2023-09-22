@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="441.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estructuras.biblioteca.controllers.BibliotecarioController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="695.0">

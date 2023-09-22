@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="394.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estructuras.biblioteca.controllers.EstudianteController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="399.0" prefWidth="604.0">
@@ -43,7 +42,7 @@
                                  </columns>
                               </TableView>
                               <Button fx:id="btnEliminarEstudiante" layoutX="209.0" layoutY="189.0" mnemonicParsing="false" onAction="#actionEliminar" style="-fx-background-color: #f29f33;" text="Eliminar" />
-                              <Button fx:id="btnActualizarEstudiante" layoutX="321.0" layoutY="189.0" mnemonicParsing="false" onAction="#actionRecargar" style="-fx-background-color: #f29f33;" text="Actualizar" />
+                              <Button fx:id="btnActualizarEstudiante" layoutX="321.0" layoutY="189.0" mnemonicParsing="false" onAction="#actionActualizar" style="-fx-background-color: #f29f33;" text="Actualizar" />
                            </children>
                         </AnchorPane>
                      </items>
