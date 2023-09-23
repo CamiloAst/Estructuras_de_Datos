@@ -1,66 +1,48 @@
 package uniquindio.estructuras.biblioteca.controllers;
 
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
-    public class EstudianteController {
+import javax.print.DocFlavor;
+import java.util.ResourceBundle;
 
-        @FXML
-        private Button btnActualizarEstudiante;
+public class EstudianteController {
 
-        @FXML
-        private Button btnAniadirEstudiante;
+    @FXML
+    private ResourceBundle resources;
 
-        @FXML
-        private Button btnEliminarEstudiante;
+    @FXML
+    private DocFlavor.URL location;
 
-        @FXML
-        private TableColumn<?, ?> columnApellidoEstudiante;
+    @FXML
+    private Button btnIngresar;
 
-        @FXML
-        private TableColumn<?, ?> columnCedulaEstudiante;
+    @FXML
+    private TextField txtContrasenia;
 
-        @FXML
-        private TableColumn<?, ?> columnCorreoEstudiante;
+    @FXML
+    private TextField txtIdentificacion;
 
-        @FXML
-        private TableColumn<?, ?> columnNombreEstudiante;
+    @FXML
+    void mouseClicked(MouseEvent event) {
 
-        @FXML
-        private TableView<?> tableViewEmpleados;
-
-        @FXML
-        private TextField txtApellidoEstudiante;
-
-        @FXML
-        private TextField txtCedulaEstudiante;
-
-        @FXML
-        private TextField txtCorreoEstudiante;
-
-        @FXML
-        private TextField txtNombreEstudianre;
-
-        @FXML
-        void actionCrear(ActionEvent event) {
-
-        }
-
-        @FXML
-        void actionEliminar(ActionEvent event) {
-
-        }
-
-        @FXML
-        void actionRecargar(ActionEvent event) {
-
-        }
+        // aqui poner la ventana de transacciones :D
 
     }
 
+    @FXML
+    void initialize() {
+        assert btnIngresar != null : "fx:id=\"btnIngresar\" was not injected: check your FXML file 'estudiante.fxml'.";
+        assert txtContrasenia != null : "fx:id=\"txtContrasenia\" was not injected: check your FXML file 'estudiante.fxml'.";
+        assert txtIdentificacion != null : "fx:id=\"txtIdentificacion\" was not injected: check your FXML file 'estudiante.fxml'.";
+
+    }
+
+
+
+}

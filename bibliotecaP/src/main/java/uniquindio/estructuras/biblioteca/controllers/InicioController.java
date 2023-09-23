@@ -71,4 +71,5 @@ public class InicioController {
         Stage myStage = (Stage) btnBibliotecario.getScene().getWindow();
         myStage.close();
     }
+
 }
