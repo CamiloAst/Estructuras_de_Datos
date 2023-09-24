@@ -34,8 +34,8 @@
             <Font name="Georgia" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="btnBibliotecario" defaultButton="true" layoutX="288.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="128.0" text="Bibliotecarie" textAlignment="CENTER" />
-      <Button fx:id="btnEstudiante" defaultButton="true" layoutX="288.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="128.0" text="Estudiante" />
+      <Button fx:id="btnBibliotecario" defaultButton="true" layoutX="288.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#mouseClickedBibliotecario" prefHeight="40.0" prefWidth="128.0" text="Bibliotecarie" textAlignment="CENTER" />
+      <Button fx:id="btnEstudiante" defaultButton="true" layoutX="288.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#mouseClickedEstudiante" prefHeight="40.0" prefWidth="128.0" text="Estudiante" />
       <Label layoutX="318.0" layoutY="162.0" prefHeight="40.0" prefWidth="66.0" text="SOY: " textAlignment="CENTER" textFill="#f29f33">
          <font>
             <Font name="Georgia" size="24.0" />

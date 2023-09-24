@@ -53,7 +53,7 @@ public class InicioController {
         });
     }
 
-    public void mouseClicked(MouseEvent mouseEvent) throws IOException {
+    public void mouseClickedBibliotecario(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../bibliotecario.fxml"));
         Parent root = loader.load();
 //        CeldasController celdasController = loader.getController();
@@ -71,5 +71,22 @@ public class InicioController {
         Stage myStage = (Stage) btnBibliotecario.getScene().getWindow();
         myStage.close();
     }
-
+    public void mouseClickedEstudiante(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../estudiante.fxml"));
+        Parent root = loader.load();
+//        CeldasController celdasController = loader.getController();
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setResizable(false);
+        stage.setTitle("Bibliotecario");
+//        scene.getStylesheets().add("styles/Styles.css");
+        stage.getIcons().add(new javafx.scene.image.Image("/images/icon.png"));
+        ((EstudianteController)loader.getController()).init(stage);
+        stage.show();
+        Stage myStage = (Stage) btnBibliotecario.getScene().getWindow();
+        myStage.close();
+    }
 }

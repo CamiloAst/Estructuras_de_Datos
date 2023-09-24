@@ -8,11 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import uniquindio.estructuras.biblioteca.exceptions.CampoVacioException;
 import uniquindio.estructuras.biblioteca.model.Biblioteca;
-import uniquindio.estructuras.biblioteca.model.TextoLiterario;
 
-public class transaccionController {
+public class TransaccionController {
         Biblioteca biblioteca = ModelFactoryController.getInstance().getBiblioteca();
 
         @FXML
@@ -57,12 +57,6 @@ public class transaccionController {
 
         @FXML
         void initialize() {
-                assert btnConsultar != null : "fx:id=\"btnConsultar\" was not injected: check your FXML file 'transacciones.fxml'.";
-                assert btnEntregar != null : "fx:id=\"btnEntregar\" was not injected: check your FXML file 'transacciones.fxml'.";
-                assert btnPedir != null : "fx:id=\"btnPedir\" was not injected: check your FXML file 'transacciones.fxml'.";
-                assert txtFechaTransaccion != null : "fx:id=\"txtFechaTransaccion\" was not injected: check your FXML file 'transacciones.fxml'.";
-                assert txtLibroTransaccion != null : "fx:id=\"txtLibroTransaccion\" was not injected: check your FXML file 'transacciones.fxml'.";
-                assert txtNombreTransaccion != null : "fx:id=\"txtNombreTransaccion\" was not injected: check your FXML file 'transacciones.fxml'.";
 
         }
 
@@ -72,4 +66,21 @@ public class transaccionController {
                 }
         }
 
+        public void init(Stage stage) {
+//                tittlePane.setOnMousePressed(mouseEvent -> {
+//                        x = mouseEvent.getSceneX();
+//                        y = mouseEvent.getSceneY();
+//                });
+//                tittlePane.setOnMouseDragged(mouseEvent -> {
+//                        stage.setX(mouseEvent.getScreenX() - x);
+//                        stage.setY(mouseEvent.getScreenY() - y);
+//                });
+//
+//                closeBtn.setOnMouseClicked(mouseEvent -> {
+//                        stage.close();
+//                });
+//                hideBtn.setOnMouseClicked(mouseEvent -> {
+//                        stage.setIconified(true);
+//                });
+        }
 }

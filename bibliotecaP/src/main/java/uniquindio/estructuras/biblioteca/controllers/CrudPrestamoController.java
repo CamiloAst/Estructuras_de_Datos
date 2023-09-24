@@ -130,7 +130,7 @@ public class CrudPrestamoController {
             if (estudiante != null) {
                 return new SimpleStringProperty(estudiante.getNombre());
             } else {
-                return new SimpleStringProperty(""); // Si el préstamo no tiene un estudiante asociado, muestra una cadena vacía
+                return new SimpleStringProperty("");
             }
         });
         columnFechaPrestamo.setCellValueFactory(new PropertyValueFactory<>("fechaPrestamo"));
