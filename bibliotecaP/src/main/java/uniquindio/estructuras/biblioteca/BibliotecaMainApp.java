@@ -24,7 +24,7 @@ public class BibliotecaMainApp extends Application {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.setTitle("Inicio");
-        scene.getStylesheets().add("styles/Styles.css");
+//        scene.getStylesheets().add("styles/Styles.css");
         stage.getIcons().add(new Image("/images/icon.png"));
         ((InicioController)fxmlLoader.getController()).init(stage);
         stage.show();

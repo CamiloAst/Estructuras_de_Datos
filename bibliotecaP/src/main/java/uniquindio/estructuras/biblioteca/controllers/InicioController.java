@@ -64,7 +64,7 @@ public class InicioController {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.setTitle("Bibliotecario");
-        scene.getStylesheets().add("styles/Styles.css");
+//        scene.getStylesheets().add("styles/Styles.css");
         stage.getIcons().add(new javafx.scene.image.Image("/images/icon.png"));
         ((BibliotecarioController)loader.getController()).init(stage);
         stage.show();

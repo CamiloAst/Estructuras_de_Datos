@@ -8,10 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import uniquindio.estructuras.biblioteca.exceptions.CampoVacioException;
 import uniquindio.estructuras.biblioteca.model.Biblioteca;
 import uniquindio.estructuras.biblioteca.model.TextoLiterario;
 
 public class transaccionController {
+        Biblioteca biblioteca = ModelFactoryController.getInstance().getBiblioteca();
 
         @FXML
         private ResourceBundle resources;
@@ -39,7 +41,7 @@ public class transaccionController {
 
         @FXML
         void consultarAction(ActionEvent event) {
-                TextoLiterario.consultarLibro(txtNombreTransaccion.getText(),txtFechaTransaccion.getText(), txtLibroTransaccion.getText());
+                biblioteca.consultarLibro(txtNombreTransaccion.getText(), txtLibroTransaccion.getText());
 
         }
 
@@ -64,9 +66,9 @@ public class transaccionController {
 
         }
 
-        private void validarFields() throws Exception {
+        private void validarFields() throws CampoVacioException {
                 if(txtNombreTransaccion.getText().equals("") && txtLibroTransaccion.getText().equals("")){
-                        throw new Exception("Algun campo esta vacio");
+                        throw new CampoVacioException("Algun campo esta vacio");
                 }
         }
 

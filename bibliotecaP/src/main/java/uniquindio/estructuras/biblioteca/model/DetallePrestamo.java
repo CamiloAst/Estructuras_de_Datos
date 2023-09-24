@@ -5,29 +5,33 @@ public class DetallePrestamo {
     private int cantidad;
     private String codigo;
     private Libro libro;
-    private final String subTotal;
+    private final int subTotal;
 
 
 
 
-    public DetallePrestamo(int cantidad, String codigo, String subTotal) {
+    public DetallePrestamo(int cantidad, String codigo,Libro libro, int subTotal) {
         super();
         this.cantidad = cantidad;
         this.codigo = codigo;
         this.subTotal = subTotal;
+    }
+    public DetallePrestamo(){
+        super();
+        this.subTotal = 1000;
     }
 
     public Libro getLibro() {
         return libro;
     }
 
-
-
-
-    public void setlibro(Libro libro) {
-        this.libro = libro;
+    public int getSubTotal() {
+        return subTotal;
     }
 
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
     public int getCantidad() {
         return cantidad;
     }
@@ -51,7 +55,7 @@ public class DetallePrestamo {
     @Override
     public String toString() {
         return "DetallePrestamo [cantidad=" + cantidad + ", subTotal=" + subTotal + ", codigo=" + codigo
-                + ", libro=" + libro ;
+                + ", libro=" + libro;
     }
 
     @Override

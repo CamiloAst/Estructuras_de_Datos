@@ -2,7 +2,7 @@ package uniquindio.estructuras.biblioteca.model;
 
 import java.util.HashSet;
 
-public class Estudiante {
+public class Estudiante extends User {
 
     private String nombre;
     private String telefono;
@@ -21,6 +21,9 @@ public class Estudiante {
         this.cedula = cedula;
         this.correo = correo;
         this.prestamos = new HashSet<Prestamo>();
+    }
+    public Estudiante(){
+        super();
     }
 
     public HashSet<Prestamo> getPrestamos() {

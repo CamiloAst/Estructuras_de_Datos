@@ -3,6 +3,7 @@ package uniquindio.estructuras.biblioteca.model;
 public class TextoLiterario {
 
     private String titulo;
+    private Autor autor;
     private String editorial;
     private String codigo;
     private String estado;
@@ -19,14 +20,6 @@ public class TextoLiterario {
 
     public TextoLiterario() {
         super();
-        this.titulo = titulo;
-        this.editorial = editorial;
-        this.codigo = codigo;
-        this.estado = estado;
-        this.unidadesDisponibles = unidadesDisponibles;
-        this.idioma = idioma;
-        this.numeroPaginas = numeroPaginas;
-        this.anio = anio;
         this.precio = precio;
     }
 

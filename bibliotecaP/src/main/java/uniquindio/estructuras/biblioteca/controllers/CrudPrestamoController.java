@@ -1,21 +1,37 @@
 package uniquindio.estructuras.biblioteca.controllers;
 
 import java.net.URL;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import uniquindio.estructuras.biblioteca.model.Biblioteca;
-import uniquindio.estructuras.biblioteca.model.Estudiante;
-import uniquindio.estructuras.biblioteca.model.Prestamo;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import uniquindio.estructuras.biblioteca.exceptions.CodigoNoEncontradoException;
+import uniquindio.estructuras.biblioteca.model.*;
 
 import javax.swing.*;
 
-import static uniquindio.estructuras.biblioteca.model.Biblioteca.prestamos;
-
 public class CrudPrestamoController {
+    Biblioteca biblioteca = ModelFactoryController.getInstance().getBiblioteca();
+    Object prestamoSeleccion;
+    double x,y;
+    @FXML
+    private ImageView closeBtn;
+
+    @FXML
+    private ImageView hideBtn;
+
+    @FXML
+    private Pane tittlePane;
 
     @FXML
     private ResourceBundle resources;
@@ -33,19 +49,19 @@ public class CrudPrestamoController {
     private Button btnEliminarPrestamo;
 
     @FXML
-    private TableColumn<?, ?> columnCodigo;
+    private TableColumn<Prestamo, String> columnCodigo;
 
     @FXML
-    private TableColumn<?, ?> columnFechaDevolucion;
+    private TableColumn<Prestamo, String> columnFechaDevolucion;
 
     @FXML
-    private TableColumn<?, ?> columnFechaPrestamo;
+    private TableColumn<Prestamo, String> columnFechaPrestamo;
 
     @FXML
-    private TableColumn<?, ?> columnNombreEstudiante;
+    private TableColumn<Prestamo, String> columnNombreEstudiante;
 
     @FXML
-    private TableView<?> tablePrestamos;
+    private TableView<Prestamo> tablePrestamos;
 
     @FXML
     private TextField txtCodigo;
@@ -58,10 +74,17 @@ public class CrudPrestamoController {
 
     @FXML
     private TextField txtNombreEstudiante;
+    private final ObservableList<Prestamo> prestamos = FXCollections.observableArrayList();
 
     @FXML
     void actionActualizar(ActionEvent event) {
-
+        if (prestamoSeleccion != null) {
+            Prestamo prestamo = (Prestamo) prestamoSeleccion;
+            biblioteca.actualizarPrestamo(prestamo.getCodigo(), prestamo);
+            mostrarMensaje("Notificación","El prestamo se ha actualizado","El prestamo se actualizó correctamente");
+        } else {
+            mostrarMensaje("Error","Error", "No se pudo");
+        }
     }
 
     @FXML
@@ -72,47 +95,7 @@ public class CrudPrestamoController {
 
     @FXML
     void initialize() {
-        assert btnActualizarPrestamo != null : "fx:id=\"btnActualizarPrestamo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert btnAniadirPrestamo != null : "fx:id=\"btnAniadirPrestamo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert btnEliminarPrestamo != null : "fx:id=\"btnEliminarPrestamo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert columnCodigo != null : "fx:id=\"columnCodigo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert columnFechaDevolucion != null : "fx:id=\"columnFechaDevolucion\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert columnFechaPrestamo != null : "fx:id=\"columnFechaPrestamo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert columnNombreEstudiante != null : "fx:id=\"columnNombreEstudiante\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert tablePrestamos != null : "fx:id=\"tablePrestamos\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert txtCodigo != null : "fx:id=\"txtCodigo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert txtFechaDevolucion != null : "fx:id=\"txtFechaDevolucion\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert txtFechaPrestamo != null : "fx:id=\"txtFechaPrestamo\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-        assert txtNombreEstudiante != null : "fx:id=\"txtNombreEstudiante\" was not injected: check your FXML file 'crudPrestamo.fxml'.";
-
-    }
-
-
-
-    @FXML
-    void crearPrestamo(ActionEvent event) {
-        String codigo = txtCodigo.getText();
-        String estudiante = txtNombreEstudiante.getText();
-        String fechaPrestamo = txtFechaPrestamo.getText();
-        String fechaDevolucion = txtFechaDevolucion.getText();
-        if(datosValidos(codigo,estudiante,fechaPrestamo,fechaDevolucion)){
-            Biblioteca.crearPrestamo(codigo, estudiante, fechaPrestamo, fechaDevolucion);
-            mostrarMensaje("Notificaión","El Prestamo se ha añadido","El prestamo se añadió correctamente");
-        }else {
-            mostrarMensaje("Error","Error", "No se pudo");
-        }
-        BancoController.guardarResourceXML();
-        BancoController.cargarResourceXML();
-    }
-    private void loadTable(){
-        columnNombreEstudiante.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        columnFechaPrestamo.setCellValueFactory(new PropertyValueFactory<>("fecha de prestamo"));
-        columnFechaDevolucion.setCellValueFactory(new PropertyValueFactory<>("fecha de devolucion"));
-        columnCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-
-        prestamos.clear();
-        prestamos.addAll(Biblioteca.getPrestamos());
-        tablePrestamosCliente.setItems(prestamos);
+        loadTable();
 
         tablePrestamos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if(newSelection != null){
@@ -122,18 +105,54 @@ public class CrudPrestamoController {
         });
     }
 
+
+
+    @FXML
+    void crearPrestamo(ActionEvent event) {
+        HashMap<String, DetallePrestamo> detallePrestamo = new HashMap<>();
+        String codigo = txtCodigo.getText();
+        String estudiante = txtNombreEstudiante.getText();
+        String fechaPrestamo = txtFechaPrestamo.getText();
+        String fechaDevolucion = txtFechaDevolucion.getText();
+        detallePrestamo.put(codigo, new DetallePrestamo(0,codigo,biblioteca.obtenerLibro(new Autor("Desconocido","Desconocido","1")),1000));
+        if(datosValidos(codigo,estudiante,fechaPrestamo,fechaDevolucion)){
+            biblioteca.crearPrestamo(codigo, new Estudiante(), fechaPrestamo, fechaDevolucion, detallePrestamo);
+            mostrarMensaje("Notificaión","El Prestamo se ha añadido","El prestamo se añadió correctamente");
+        }else {
+            mostrarMensaje("Error","Error", "No se pudo");
+        }
+    }
+    private void loadTable(){
+        System.out.println("Cargando tabla" + biblioteca.getPrestamos());
+        columnNombreEstudiante.setCellValueFactory(cellData -> {
+            Prestamo prestamo = cellData.getValue();
+            Estudiante estudiante = prestamo.getEstudiante();
+            if (estudiante != null) {
+                return new SimpleStringProperty(estudiante.getNombre());
+            } else {
+                return new SimpleStringProperty(""); // Si el préstamo no tiene un estudiante asociado, muestra una cadena vacía
+            }
+        });
+        columnFechaPrestamo.setCellValueFactory(new PropertyValueFactory<>("fechaPrestamo"));
+        columnFechaDevolucion.setCellValueFactory(new PropertyValueFactory<>("fechaDevolucion"));
+        columnCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+
+        prestamos.clear();
+        prestamos.addAll(biblioteca.getPrestamos().values());
+        tablePrestamos.setItems(prestamos);
+
+
+    }
+
     @FXML
     void actionEliminar(ActionEvent event) {
         try {
-            Prestamo prestamo = (Prestamo) tablePrestamos.getSelectionModel().getSelectedItem();
-            Biblioteca.eliminarPrestamo(prestamo.getCodigo());
+            biblioteca.eliminarPrestamo(txtCodigo.getText());
             JOptionPane.showMessageDialog(null, "Prestamo eliminado");
-        } catch (Exception e) {
+        } catch (CodigoNoEncontradoException e) {
             JOptionPane.showMessageDialog(null, "Hubo un error en el sistema");
 
         }
-        AdminController.guardarResourceXML();
-        AdminController.cargarResourceXML();
     }
 
     private void mostrarMensaje(String titulo,String header,String contenido)  {
@@ -146,7 +165,7 @@ public class CrudPrestamoController {
 
     private boolean datosValidos(String codigo, String estudiante, String fechaPrestamo, String fechaDevolucion) {
         String notificacion = "";
-        if (codigo == null || codigo.equals("")) {
+        if (codigo == null || codigo.isEmpty()) {
             notificacion += "Codigo no puede estar vacío\n";
             mostrarMensaje("Notificación","Error", "Informacion inválida");
             return false;
@@ -166,22 +185,33 @@ public class CrudPrestamoController {
             mostrarMensaje("Notificación","Error", "Informacion inválida");
             return false;
         }
-     if(notificacion.equals("")){
-
-            return true;
-        }
+        return true;
 
 
-        return false;
     }
     @FXML
     void actionRecargar(ActionEvent event) {
         prestamos.clear();
-        prestamos.addAll(Biblioteca.eliminarPrestamo());
+        prestamos.addAll(biblioteca.getPrestamos().values());
         tablePrestamos.setItems(prestamos);
     }
 
 
+    public void init(Stage stage) {
+        tittlePane.setOnMousePressed(mouseEvent -> {
+            x = mouseEvent.getSceneX();
+            y = mouseEvent.getSceneY();
+        });
+        tittlePane.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX() - x);
+            stage.setY(mouseEvent.getScreenY() - y);
+        });
 
-
+        closeBtn.setOnMouseClicked(mouseEvent -> {
+            stage.close();
+        });
+        hideBtn.setOnMouseClicked(mouseEvent -> {
+            stage.setIconified(true);
+        });
+    }
 }

@@ -7,10 +7,19 @@ public class Libro extends TextoLiterario{
 
 
 
-    public Libro(String titulo, String editorial, String codigo,String estado, int unidadesDisponibles,
+    public Libro(String titulo,Autor autor, String editorial, String codigo,String estado, int unidadesDisponibles,
                  String idioma, int numeroPaginas, int anio, String isbn) {
         super();
         this.isbn = isbn;
+        this.autor = autor;
+        this.setTitulo(titulo);
+        this.setEditorial(editorial);
+        this.setCodigo(codigo);
+        this.setEstado(estado);
+        this.setUnidadesDisponibles(unidadesDisponibles);
+        this.setIdioma(idioma);
+        this.setNumeroPaginas(numeroPaginas);
+        this.setAnio(anio);
     }
 
     public String getIsbn() {

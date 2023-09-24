@@ -8,7 +8,7 @@ public class Autor implements Comparable<Autor>{
     private String identificacion;
 
 
-    public Autor(String nombre, String apellidos,String identificacion) {
+    public Autor(String nombre, String apellidos, String identificacion) {
         super();
         this.nombre = nombre;
         this.apellidos = apellidos;

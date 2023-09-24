@@ -1,5 +1,8 @@
 package uniquindio.estructuras.biblioteca.model;
 import uniquindio.estructuras.biblioteca.comparadores.CompararLibro;
+import uniquindio.estructuras.biblioteca.exceptions.CodigoNoEncontradoException;
+import uniquindio.estructuras.biblioteca.exceptions.UsuarioNoEncontradoException;
+
 import java.util.*;
 
 public class Biblioteca {
@@ -8,14 +11,72 @@ public class Biblioteca {
     private HashSet<Estudiante> estudiantes;
     private TreeSet<Libro> libros;
     private TreeSet<Bibliotecario> bibliotecarios;
-    private static HashMap<String, Prestamo> prestamos;
+    private HashMap<String, Prestamo> prestamos;
+    private User user;
+    private Autor autor = new Autor("Desconocido", "Desconocido", "1");
+    private Autor autor1 = new Autor("Mario", "Mendoza", "2");
+    private Autor autor2 = new Autor("Fiódor", "Dostoyevski","3");
+
+
+    HashMap<String, DetallePrestamo> detallePrestamo = new HashMap<String, DetallePrestamo>();
+
+
 
     public Biblioteca(String nombre) {
+
         this.nombre = nombre;
         this.estudiantes = new HashSet<Estudiante>();
         this.libros = new TreeSet<Libro>(new CompararLibro());
         this.bibliotecarios = new TreeSet<Bibliotecario>();
         this.prestamos = new HashMap<String, Prestamo>();
+        crearEstudiante("Juan","correo","123","318");
+        crearEstudiante("Pedro","correo","321","321");
+        crearEstudiante("Maria","correo","456","456");
+        crearEstudiante("Luis","correo","654","654");
+        crearEstudiante("Ana","correo","789","789");
+        crearBibliotecario("Pepe","López","321","casa2",1234567);
+        crearBibliotecario("Juan","Perez","123","casa1",1234567);
+        crearBibliotecario("Maria","Gomez","456","casa3",1234567);
+        crearBibliotecario("Luis","Gonzalez","654","casa4",1234567);
+        crearBibliotecario("Ana","Rodriguez","789","casa5",1234567);
+        crearLibro(new Libro("El principito",autor,"norma","12","disponible",10000,"español",1,1,"1"));
+        crearLibro(new Libro("Satanas",autor1,"norma","12","disponible",10000,"español",1,1,"2"));
+        crearLibro(new Libro("Crimen y castigo", autor2,"norma","12","disponible",10000,"español",1,1,"3"));
+        DetallePrestamo detallePrestamo1 = new DetallePrestamo(1, "1",obtenerLibro(autor),10000);
+        DetallePrestamo detallePrestamo2 = new DetallePrestamo(2, "2",obtenerLibro(autor1),10000);
+        DetallePrestamo detallePrestamo3 = new DetallePrestamo(3, "3",obtenerLibro(autor2),10000);
+        detallePrestamo.put("1", detallePrestamo1);
+        detallePrestamo.put("2", detallePrestamo2);
+        detallePrestamo.put("3", detallePrestamo3);
+        crearPrestamo("1",obtenerEstudiante("789"),"12/12/12","12/12/12",detallePrestamo);
+        crearPrestamo("2",obtenerEstudiante("321"),"12/12/12","12/12/12",detallePrestamo);
+        crearPrestamo("3",obtenerEstudiante("456"),"12/12/12","12/12/12",detallePrestamo);
+
+        this.user = new User();
+
+    }
+
+    private void crearLibro(Libro libro) {
+        libros.add(libro);
+    }
+
+    public Libro obtenerLibro(Autor autor) {
+        Iterator<Libro> iterator = libros.iterator();
+        while (iterator.hasNext()) {
+            Libro libro = iterator.next();
+            if (libro.getAutor().compareTo(autor)==0) {
+                return libro;
+            }
+        }
+        return null;
+    }
+
+    public User getAdminController() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getNombre() {
@@ -76,7 +137,6 @@ public class Biblioteca {
         bibliotecarios.add((Bibliotecario) nuevoBibliotecario);
     }
 
-
     public void actualizarBibliotecario(String nombre, String correo, String cedula, String direccion, double salario) {
         Iterator<Bibliotecario> iterator = bibliotecarios.iterator();
         while (iterator.hasNext()) {
@@ -102,7 +162,7 @@ public class Biblioteca {
         }
     }
 
-    public Bibliotecario obtenerBibliotecario(String cedula) {
+    public Bibliotecario obtenerBibliotecario(String cedula) throws UsuarioNoEncontradoException {
         Iterator<Bibliotecario> iterator = bibliotecarios.iterator();
         while (iterator.hasNext()) {
             Bibliotecario bibliotecario = iterator.next();
@@ -110,7 +170,7 @@ public class Biblioteca {
                 return bibliotecario;
             }
         }
-        return null;
+        throw new UsuarioNoEncontradoException("Usuario no encontrado");
     }
     public void crearEstudiante(String nombre, String correo, String cedula, String telefono){
         Estudiante nuevoEstudiante = new Estudiante(nombre, correo, cedula, telefono);
@@ -151,21 +211,20 @@ public class Biblioteca {
         return null;
     }
 
-    public static void crearPrestamo(String codigo, Estudiante estudiante, Bibliotecario bibliotecario, Date fechaPrestamo, Date fechaDevolucion, Map<String, DetallePrestamo> detallePrestamo) {
-        Prestamo nuevoPrestamo = new Prestamo(codigo, estudiante, bibliotecario, fechaPrestamo, fechaDevolucion, detallePrestamo);
+    public void crearPrestamo(String codigo, Estudiante estudiante, String fechaPrestamo, String fechaDevolucion, HashMap<String, DetallePrestamo> detallePrestamo) {
+        Prestamo nuevoPrestamo = new Prestamo(codigo, estudiante, fechaPrestamo, fechaDevolucion, detallePrestamo);
         prestamos.put(codigo, nuevoPrestamo);
     }
 
-    public void actualizarPrestamo(String codigo, Estudiante estudiante, Bibliotecario bibliotecario, Date fechaPrestamo, Date fechaDevolucion, Map<String, DetallePrestamo> detallePrestamo) {
+    public void actualizarPrestamo(String codigo, Estudiante estudiante, Bibliotecario bibliotecario, String fechaPrestamo, String fechaDevolucion, HashMap<String, DetallePrestamo> detallePrestamo) {
         Prestamo prestamo = prestamos.get(codigo);
         prestamo.setEstudiante(estudiante);
-        prestamo.setBibliotecario(bibliotecario);
         prestamo.setFechaPrestamo(fechaPrestamo);
         prestamo.setFechaDevolucion(fechaDevolucion);
         prestamo.setDetallePrestamo(detallePrestamo);
     }
 
-    public static void eliminarPrestamo(String codigo) {
+    public void eliminarPrestamo(String codigo)throws CodigoNoEncontradoException {
         prestamos.remove(codigo);
     }
 
@@ -174,9 +233,17 @@ public class Biblioteca {
     }
 
 
+    public void consultarLibro(String autor, String titulo) {
+        Iterator<Libro> iterator = libros.iterator();
+        while (iterator.hasNext()) {
+            Libro libro = iterator.next();
+            if (libro.getAutor().equals(autor) || libro.getTitulo().equals(titulo)) {
+                System.out.println(libro);
+            }
+        }
+    }
 
-
-
-
-
+    public void actualizarPrestamo(String codigo, Prestamo prestamo) {
+        prestamos.get(codigo).setEstudiante(prestamo.getEstudiante());
+    }
 }

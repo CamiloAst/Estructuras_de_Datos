@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,6 +63,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="uniquindio.estructuras.biblioteca.exceptions" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\bibliotecaP\src\main\resources\images" />
     </key>
@@ -235,6 +238,7 @@
       <workItem from="1695437960437" duration="48000" />
       <workItem from="1695438130257" duration="29000" />
       <workItem from="1695438172120" duration="693000" />
+      <workItem from="1695494585483" duration="17690000" />
     </task>
     <servers />
   </component>
@@ -295,11 +299,6 @@
           <url>file://$PROJECT_DIR$/bibliotecaP/src/main/java/uniquindio/estructuras/biblioteca/BibliotecaMainApp.java</url>
           <line>17</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/bibliotecaP/src/main/java/uniquindio/estructuras/biblioteca/BibliotecaMainApp.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/uniquindio/estructuras/practicaClase1/Ejercicio2.java</url>
