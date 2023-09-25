@@ -2,7 +2,7 @@ package uniquindio.estructuras.biblioteca.model;
 
 import java.util.Objects;
 
-public class Bibliotecario extends User implements Comparable<Bibliotecario>{
+public class Bibliotecario implements Comparable<Bibliotecario>{
 
     private String nombre;
     private String correo;

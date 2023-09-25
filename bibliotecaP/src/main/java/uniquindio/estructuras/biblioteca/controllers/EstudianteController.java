@@ -42,12 +42,7 @@ public class EstudianteController {
         if(txtIdentificacion.getText().isEmpty()){
             throw new UsuarioNoEncontradoException("Por favor ingrese todos los campos");
         }
-        abrirVentana("../transaccion.fxml",event);
-
-    }
-
-    private void abrirVentana(String s, MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../bibliotecario.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../transacciones.fxml"));
         Parent root = loader.load();
 //        CeldasController celdasController = loader.getController();
         Scene scene = new Scene(root);
@@ -56,13 +51,14 @@ public class EstudianteController {
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
-        stage.setTitle("Bibliotecario");
+        stage.setTitle("Transacciones");
 //        scene.getStylesheets().add("styles/Styles.css");
         stage.getIcons().add(new javafx.scene.image.Image("/images/icon.png"));
         ((TransaccionController)loader.getController()).init(stage);
         stage.show();
         Stage myStage = (Stage) btnIngresar.getScene().getWindow();
         myStage.close();
+
     }
 
     public void init(Stage stage) {

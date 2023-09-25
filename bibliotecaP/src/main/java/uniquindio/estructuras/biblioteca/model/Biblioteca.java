@@ -12,7 +12,6 @@ public class Biblioteca {
     private TreeSet<Libro> libros;
     private TreeSet<Bibliotecario> bibliotecarios;
     private HashMap<String, Prestamo> prestamos;
-    private User user;
     private Autor autor = new Autor("Desconocido", "Desconocido", "1");
     private Autor autor1 = new Autor("Mario", "Mendoza", "2");
     private Autor autor2 = new Autor("Fiódor", "Dostoyevski","3");
@@ -30,7 +29,7 @@ public class Biblioteca {
         this.bibliotecarios = new TreeSet<Bibliotecario>();
         this.prestamos = new HashMap<String, Prestamo>();
         crearEstudiante("Juan","correo","123","318");
-        crearEstudiante("Pedro","correo","321","321");
+        crearEstudiante("Pedro","correo","321","3 x21");
         crearEstudiante("Maria","correo","456","456");
         crearEstudiante("Luis","correo","654","654");
         crearEstudiante("Ana","correo","789","789");
@@ -52,7 +51,6 @@ public class Biblioteca {
         crearPrestamo("2",obtenerEstudiante("321"),"12/12/12","12/12/12",detallePrestamo);
         crearPrestamo("3",obtenerEstudiante("456"),"12/12/12","12/12/12",detallePrestamo);
 
-        this.user = new User();
 
     }
 
@@ -71,13 +69,7 @@ public class Biblioteca {
         return null;
     }
 
-    public User getAdminController() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getNombre() {
         return nombre;

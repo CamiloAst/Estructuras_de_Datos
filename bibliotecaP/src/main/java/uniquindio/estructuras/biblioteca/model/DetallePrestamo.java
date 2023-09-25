@@ -7,20 +7,17 @@ public class DetallePrestamo {
     private Libro libro;
     private final int subTotal;
 
-
-
-
     public DetallePrestamo(int cantidad, String codigo,Libro libro, int subTotal) {
         super();
         this.cantidad = cantidad;
         this.codigo = codigo;
         this.subTotal = subTotal;
+        this.libro = libro;
     }
     public DetallePrestamo(){
         super();
         this.subTotal = 1000;
     }
-
     public Libro getLibro() {
         return libro;
     }
@@ -47,10 +44,6 @@ public class DetallePrestamo {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-
-
-
-
 
     @Override
     public String toString() {

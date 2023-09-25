@@ -2,7 +2,7 @@ package uniquindio.estructuras.biblioteca.model;
 
 import java.util.HashSet;
 
-public class Estudiante extends User {
+public class Estudiante {
 
     private String nombre;
     private String telefono;

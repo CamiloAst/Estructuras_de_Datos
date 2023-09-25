@@ -81,12 +81,12 @@ public class InicioController {
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
-        stage.setTitle("Bibliotecario");
+        stage.setTitle("Estudiante");
 //        scene.getStylesheets().add("styles/Styles.css");
         stage.getIcons().add(new javafx.scene.image.Image("/images/icon.png"));
         ((EstudianteController)loader.getController()).init(stage);
         stage.show();
-        Stage myStage = (Stage) btnBibliotecario.getScene().getWindow();
+        Stage myStage = (Stage) btnEstudiante.getScene().getWindow();
         myStage.close();
     }
 }
