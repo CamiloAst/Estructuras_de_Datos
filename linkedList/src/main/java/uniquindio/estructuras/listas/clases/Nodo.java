@@ -1,4 +1,4 @@
-package uniquindio.estructuras.listas;
+package uniquindio.estructuras.listas.clases;
 
 public class Nodo<T> {
     private Nodo<T> siguienteNodo;

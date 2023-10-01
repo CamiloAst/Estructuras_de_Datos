@@ -1,12 +1,10 @@
-package uniquindio.estructuras.listas;
+package uniquindio.estructuras.listas.clases;
 
 import uniquindio.estructuras.listas.exceptions.IndiceInvalidoException;
 import uniquindio.estructuras.listas.exceptions.ValorNoEncontradoException;
 
 import javax.swing.*;
 import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class ListaSimple<T> implements Iterable<T> {
     private Nodo<T> nodoPrimero;
@@ -29,7 +27,7 @@ public class ListaSimple<T> implements Iterable<T> {
         ++size;
     }
 
-    public void agregarNodoFinal(T valorNodo){
+    public void agregarNodo(T valorNodo){
         Nodo<T> nuevoNodo = new Nodo<>(valorNodo);
         if (estaVacia())
             nodoPrimero = nodoUltimo = nuevoNodo;
@@ -63,6 +61,7 @@ public class ListaSimple<T> implements Iterable<T> {
         }
     }
 
+
     private boolean validarIndice(int indice) throws IndiceInvalidoException {
         if(indice >= 0 && indice<size)
             return true;
@@ -72,18 +71,7 @@ public class ListaSimple<T> implements Iterable<T> {
     private boolean estaVacia() {
         return nodoPrimero == null && nodoUltimo == null;
     }
-
-    public void imprimirLista(){
-        Nodo<T> aux = nodoPrimero;
-
-        while(aux!=null){
-            System.out.println(aux.getValorNodo()+"\t");
-            aux = aux.getSiguienteNodo();
-        }
-        System.out.println("\n");
-    }
-
-    public void eliminarDato(T dato) throws ValorNoEncontradoException {
+    public void eliminar(T dato) throws ValorNoEncontradoException {
         if (estaVacia())
             return;
         if (nodoPrimero.getValorNodo().equals(dato)) {
@@ -120,6 +108,59 @@ public class ListaSimple<T> implements Iterable<T> {
         }
         throw new ValorNoEncontradoException();
     }
+    public void eliminarPrimero() {
+        if( !estaVacia() ) {
+            nodoPrimero = nodoPrimero.getSiguienteNodo();
+            size--;
+        }
+
+        throw new RuntimeException("Lista vacía");
+    }
+
+    public void imprimirLista(){
+        for(Nodo<T> i = nodoPrimero;i!=null;i=i.getSiguienteNodo()){
+            System.out.println("\n"+i.getValorNodo()+"\t");
+        }
+    }
+
+    private Nodo<T> obtenerNodo(int indice) {
+
+        if(indice>=0 && indice<size) {
+
+            Nodo<T> nodo = nodoPrimero;
+
+            for (int i = 0; i < indice; i++) {
+                nodo = nodo.getSiguienteNodo();
+            }
+
+            return nodo;
+        }
+
+        return null;
+    }
+
+    public void modificarNodo(int indice, T nuevo) throws IndiceInvalidoException {
+
+        if( validarIndice(indice) ) {
+            Nodo<T> nodo = obtenerNodo(indice);
+            nodo.setValorNodo(nuevo);
+        }
+
+    }
+
+    public int obtenerPosicionNodo(T dato) {
+
+        int i = 0;
+
+        for( Nodo<T> aux = nodoPrimero ; aux!=null ; aux = aux.getSiguienteNodo() ) {
+            if( aux.getValorNodo().equals(dato) ) {
+                return i;
+            }
+            i++;
+        }
+
+        return -1;
+    }
 
     @Override
     public Iterator<T> iterator() {
@@ -144,10 +185,6 @@ public class ListaSimple<T> implements Iterable<T> {
 
     public int getSize() {
         return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     public class IteradorListaSimple implements Iterator<T>{

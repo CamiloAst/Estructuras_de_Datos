@@ -48,7 +48,7 @@
     "dart.analysis.tool.window.visible": "false",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/Acer/Downloads/estructura de datos/Estructura de Datos",
+    "last_opened_file_path": "C:/Users/jkami/Documents/GitHub/Estructuras_de_Datos/linkedList/src/main/java/uniquindio/estructuras/listas",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -58,7 +58,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "settings.editor.selected.configurable": "configurable.group.language",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -67,6 +67,7 @@
       <recent name="uniquindio.estructuras.biblioteca.exceptions" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\linkedList\src\main\java\uniquindio\estructuras\listas" />
       <recent name="C:\Users\jkami\Documents\GitHub\Estructuras_de_Datos\bibliotecaP\src\main\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -80,14 +81,13 @@
       <recent name="uniquindio.estructuras" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BibliotecaMainApp">
-    <configuration name="BibliotecaMainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.biblioteca.BibliotecaMainApp" />
-      <module name="bibliotecaP" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\jkami\Documents\openjfx-20.0.2_windows-x64_bin-sdk\javafx-sdk-20.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+  <component name="RunManager" selected="Application.Ejercicio11">
+    <configuration name="Ejercicio10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.listas.laboratorio.Ejercicio10" />
+      <module name="linkedList" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.biblioteca.*" />
+          <option name="PATTERN" value="uniquindio.estructuras.listas.laboratorio.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,38 +95,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ejercicio1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio1" />
-      <module name="parcial2021" />
+    <configuration name="Ejercicio11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.listas.laboratorio.Ejercicio11" />
+      <module name="linkedList" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.preparcial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ejercicio2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio2" />
-      <module name="parcial2023" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.preparcial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ejercicio3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio3" />
-      <module name="parcial2021" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.preparcial1.*" />
+          <option name="PATTERN" value="uniquindio.estructuras.listas.laboratorio.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,11 +109,37 @@
       </method>
     </configuration>
     <configuration name="Ejercicio4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.preparcial1.Ejercicio4" />
-      <module name="parcial2021" />
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.listas.laboratorio.Ejercicio4" />
+      <module name="linkedList" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uniquindio.estructuras.preparcial1.*" />
+          <option name="PATTERN" value="uniquindio.estructuras.listas.laboratorio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ejercicio5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.listas.laboratorio.Ejercicio5" />
+      <module name="linkedList" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniquindio.estructuras.listas.laboratorio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ejercicio8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniquindio.estructuras.listas.laboratorio.Ejercicio8" />
+      <module name="linkedList" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniquindio.estructuras.listas.laboratorio.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -170,23 +170,26 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainApp" />
-      <item itemvalue="Application.BibliotecaMainApp" />
-      <item itemvalue="Application.Ejercicio3" />
+      <item itemvalue="Application.Ejercicio10" />
+      <item itemvalue="Application.Ejercicio11" />
+      <item itemvalue="Application.Ejercicio5" />
+      <item itemvalue="Application.Ejercicio8" />
       <item itemvalue="Application.Ejercicio4" />
-      <item itemvalue="Application.Ejercicio1" />
-      <item itemvalue="Application.Ejercicio2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BibliotecaMainApp" />
-        <item itemvalue="Application.Ejercicio2" />
+        <item itemvalue="Application.Ejercicio11" />
+        <item itemvalue="Application.Ejercicio10" />
+        <item itemvalue="Application.Ejercicio8" />
+        <item itemvalue="Application.Ejercicio5" />
         <item itemvalue="Application.Ejercicio4" />
-        <item itemvalue="Application.Ejercicio3" />
-        <item itemvalue="Application.Ejercicio1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\jkami\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="737c5f6e-f6c7-4914-a9f9-764c401a1221" name="Changes" comment="" />
@@ -241,6 +244,7 @@
       <workItem from="1695494585483" duration="17690000" />
       <workItem from="1695603695800" duration="4012000" />
       <workItem from="1695995729263" duration="2583000" />
+      <workItem from="1696188704716" duration="14769000" />
     </task>
     <servers />
   </component>
