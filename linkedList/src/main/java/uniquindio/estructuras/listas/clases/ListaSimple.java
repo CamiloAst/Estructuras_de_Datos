@@ -68,7 +68,7 @@ public class ListaSimple<T> implements Iterable<T> {
         throw new IndiceInvalidoException();
     }
 
-    private boolean estaVacia() {
+    public boolean estaVacia() {
         return nodoPrimero == null && nodoUltimo == null;
     }
     public void eliminar(T dato) throws ValorNoEncontradoException {
