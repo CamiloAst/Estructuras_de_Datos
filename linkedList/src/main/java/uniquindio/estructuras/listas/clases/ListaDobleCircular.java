@@ -13,7 +13,7 @@ public class ListaDobleCircular<T> {
 	}
 
 	/**
-	 * Agrega un nuevo nodo en la posiciÛn dada
+	 * Agrega un nuevo nodo en la posici√≥n dada
 	 * @param valor
 	 * @param posicion
 	 */
@@ -34,9 +34,9 @@ public class ListaDobleCircular<T> {
 	}
 
 	/**
-	 * Busca y retorna la posiciÛn de un nodo que tenga el valor ingresado por par·metro
+	 * Busca y retorna la posici√≥n de un nodo que tenga el valor ingresado por par√°metro
 	 * @param valor a buscar
-	 * @return posiciÛn donde se encontrÛ el nodo
+	 * @return posici√≥n donde se encontr√≥ el nodo
 	 */
 	public int buscar( T valor ) {
 		int cont = 0;

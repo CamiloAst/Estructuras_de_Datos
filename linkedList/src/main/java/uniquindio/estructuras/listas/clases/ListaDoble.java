@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
  *
- * DefiniciÛn de la clase lista Simple de tipo Generics
+ * Definici√≥n de la clase lista Simple de tipo Generics
  * @param <T>
  *
  * **/
@@ -65,8 +65,8 @@ public class ListaDoble<T> implements Iterable<T> {
 
 
 	/**
-	 * Agrega un valor en la lista en una posiciÛn especÌfica
-	 * @param indice Ìndice donde se va a guardar el dato
+	 * Agrega un valor en la lista en una posici√≥n espec√≠fica
+	 * @param indice √≠ndice donde se va a guardar el dato
 	 */
 	public void agregar(T dato, int indice) {
 
@@ -128,7 +128,7 @@ public class ListaDoble<T> implements Iterable<T> {
 		if( indice>=0 && indice<tamanio ) {
 			return true;
 		}
-		throw new RuntimeException("Õndice no v·lido");
+		throw new RuntimeException("√çndice no v√°lido");
 	}
 
 
@@ -221,7 +221,7 @@ public class ListaDoble<T> implements Iterable<T> {
 			return valor;
 		}
 
-		throw new RuntimeException("Lista vacÌa");
+		throw new RuntimeException("Lista vac√≠a");
 	}
 
 
@@ -242,13 +242,13 @@ public class ListaDoble<T> implements Iterable<T> {
 			return valor;
 		}
 
-		throw new RuntimeException("Lista vacÌa");
+		throw new RuntimeException("Lista vac√≠a");
 	}
 
 
 	/**
-	 * Devuelve el Nodo de una lista dada su posiciÛn
-	 * @param indice Ìndice para obtener el Nodo
+	 * Devuelve el Nodo de una lista dada su posici√≥n
+	 * @param indice √≠ndice para obtener el Nodo
 	 * @return Nodo objeto
 	 */
 	private NodoDoble<T> obtenerNodo(int indice) {
@@ -268,7 +268,7 @@ public class ListaDoble<T> implements Iterable<T> {
 	}
 
 	/**
-	 * Devuelve un nodo que contenga un dato especÌfico
+	 * Devuelve un nodo que contenga un dato espec√≠fico
 	 * @param dato Dato a buscar
 	 * @return Nodo
 	 */
@@ -289,9 +289,9 @@ public class ListaDoble<T> implements Iterable<T> {
 
 
 	/**
-	 * Cambia el valor de un nodo dada su posiciÛn en la lista
-	 * @param indice posiciÛn donde se va a cambiar el dato
-	 * @param nuevo nuevo valor por el que se actualizar· el nodo
+	 * Cambia el valor de un nodo dada su posici√≥n en la lista
+	 * @param indice posici√≥n donde se va a cambiar el dato
+	 * @param nuevo nuevo valor por el que se actualizar√° el nodo
 	 */
 	public void modificarNodo(int indice, T nuevo) {
 
@@ -304,9 +304,9 @@ public class ListaDoble<T> implements Iterable<T> {
 
 
 	/**
-	 * Retorna la primera posiciÛn donde est· guardado el dato
+	 * Retorna la primera posici√≥n donde est√° guardado el dato
 	 * @param dato valor a buscar dentro de la lista
-	 * @return primera posiciÛn del dato
+	 * @return primera posici√≥n del dato
 	 */
 	public int obtenerPosicionNodo(T dato) {
 
@@ -324,9 +324,9 @@ public class ListaDoble<T> implements Iterable<T> {
 
 
 	/**
-	 * Devuelve un elemento de la lista dado su Ìndice
-	 * @param indice Ìndice de la lista
-	 * @return dato guardado en el Ìndice especificado
+	 * Devuelve un elemento de la lista dado su √≠ndice
+	 * @param indice √≠ndice de la lista
+	 * @return dato guardado en el √≠ndice especificado
 	 */
 	public T obtener(int indice) {
 
@@ -424,8 +424,8 @@ public class ListaDoble<T> implements Iterable<T> {
 
 
 		/**
-		 * PosiciÛn actual de la lista
-		 * @return posiciÛn
+		 * Posici√≥n actual de la lista
+		 * @return posici√≥n
 		 */
 		public int getPosicion() {
 			return posicion;
