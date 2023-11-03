@@ -48,7 +48,6 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jkami/Documents/GitHub/Estructuras_de_Datos/linkedList/src/main/java/uniquindio/estructuras/listas&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -245,8 +244,6 @@
       <workItem from="1695603695800" duration="4012000" />
       <workItem from="1695995729263" duration="2583000" />
       <workItem from="1696188704716" duration="14769000" />
-      <workItem from="1697033458510" duration="32000" />
-      <workItem from="1698078653552" duration="524000" />
     </task>
     <servers />
   </component>
