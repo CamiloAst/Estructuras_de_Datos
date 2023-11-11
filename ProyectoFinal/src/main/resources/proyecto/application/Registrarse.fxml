@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="451.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.RegistrarseController">
+<AnchorPane prefHeight="451.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.RegistrarseController">
    <children>
       <Label layoutX="120.0" layoutY="25.0" prefHeight="54.0" prefWidth="203.0" text="Registro " textFill="#ccabd8">
          <font>

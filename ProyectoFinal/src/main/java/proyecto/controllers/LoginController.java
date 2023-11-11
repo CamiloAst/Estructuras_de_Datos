@@ -31,8 +31,6 @@ public class LoginController {
     @FXML
     private Button btnIngresar;
 
-    @FXML
-    private Button btnRegistrarse;
 
     @FXML
     private Label olvidoContrasenia;
@@ -41,7 +39,7 @@ public class LoginController {
     private PasswordField txtContrasenia;
 
     @FXML
-    private TextField txtNombreUsuario;
+    private TextField txtNombreAdministador;
     private Aplicacion aplicacion;
 
     @FXML
@@ -49,7 +47,7 @@ public class LoginController {
         String usuario = "";
         String contrasenia = "";
 
-        usuario = txtNombreUsuario.getText();
+        usuario = txtNombreAdministador.getText();
         contrasenia = txtContrasenia.getText();
 
         try {
@@ -78,7 +76,7 @@ public class LoginController {
 
 
         @FXML
-        void olvidoContrasenia(MouseEvent event) {
+        void olvidoContraseniaAction(MouseEvent event) {
             olvidoContrasenia.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->{
                 aplicacion.mostrarVentanaRecuperarContrasenia();
             });
@@ -87,28 +85,22 @@ public class LoginController {
 
 
         @FXML
-        void registrarseAction(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("../views/Registro.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Registro");
-            stage.setScene(new Scene(root, 600, 400));
-            stage.show();
-
-        }
-
-        @FXML
         void initialize() {
             assert btnIngresar != null : "fx:id=\"btnIngresar\" was not injected: check your FXML file 'Login.fxml'.";
-            assert btnRegistrarse != null : "fx:id=\"btnRegistrarse\" was not injected: check your FXML file 'Login.fxml'.";
             assert olvidoContrasenia != null : "fx:id=\"olvidoContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
             assert txtContrasenia != null : "fx:id=\"txtContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
-            assert txtNombreUsuario != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Login.fxml'.";
+            assert txtNombreAdministador != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Login.fxml'.";
 
         }
 
         public void setAplicacion(Aplicacion aplicacion) {
             this.aplicacion = aplicacion;
         }
+
+
+    public void olvidoContrasenia(MouseEvent mouseEvent) {
+
     }
+}
 
 

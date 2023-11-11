@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="449.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.AccederController">
    <children>
       <Label layoutX="75.0" layoutY="120.0" text="Bienvenido a nuestra aplicacion ">
@@ -25,7 +24,7 @@
                   <Font name="Sitka Text" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="registrarse" layoutX="213.0" layoutY="41.0" text="Registrarse" textFill="#fff6f6" underline="true">
+            <Label fx:id="registrarse" layoutX="213.0" layoutY="41.0" onMouseClicked="#registrarseAction" text="Registrarse" textFill="#fff6f6" underline="true">
                <font>
                   <Font name="Sitka Text" size="25.0" />
                </font>
