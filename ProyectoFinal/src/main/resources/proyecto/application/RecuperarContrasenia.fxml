@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="428.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.RecuperarContraseniaController">
+   <children>
+      <Label layoutX="55.0" layoutY="44.0" prefHeight="50.0" prefWidth="349.0" text="Recuperar contraseña " textFill="#ccabd8">
+         <font>
+            <Font name="Sitka Text" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="142.0" text="Nombre de usuario" textFill="#00c7c7">
+         <font>
+            <Font name="Sitka Text" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="214.0" text="Nueva contraseña " textFill="#00c7c7">
+         <font>
+            <Font name="Sitka Text" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="368.0" text="¿Ya actualizaste la contraseña?" textFill="#ccabd8">
+         <font>
+            <Font name="Sitka Text" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNombreUsuario" layoutX="271.0" layoutY="137.0" prefHeight="34.0" prefWidth="157.0" />
+      <PasswordField fx:id="txtNuevaContrasenia" layoutX="270.0" layoutY="209.0" prefHeight="34.0" prefWidth="158.0" />
+      <Button fx:id="btnIngresar" layoutX="312.0" layoutY="364.0" mnemonicParsing="false" onAction="#ingresarAction" style="-fx-background-color: #00c7c7;" text="Ingresar">
+         <font>
+            <Font name="Sitka Text" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnActualizarContrasenia" layoutX="178.0" layoutY="288.0" mnemonicParsing="false" onAction="#actualizarContraseniaAction" prefHeight="34.0" prefWidth="106.0" style="-fx-background-color: #ccabd8;" text="Actualizar" />
+   </children>
+</AnchorPane>
