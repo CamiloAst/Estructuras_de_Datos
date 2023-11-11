@@ -65,6 +65,7 @@ public class ProcesosAdminController {
         this.aplicacion = aplicacion;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

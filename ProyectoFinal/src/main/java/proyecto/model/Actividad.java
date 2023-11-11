@@ -13,6 +13,10 @@ public class Actividad {
         this.descripcion = descripcion;
         this.isObligatoria = isObligatoria;
     }
+    public Actividad(String nombre){
+        super();
+        this.nombre = nombre;
+    }
 
     public String getNombre() {
         return nombre;

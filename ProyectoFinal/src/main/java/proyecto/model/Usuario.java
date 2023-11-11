@@ -15,6 +15,9 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
     }
+    public Usuario(){
+        super();
+    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;

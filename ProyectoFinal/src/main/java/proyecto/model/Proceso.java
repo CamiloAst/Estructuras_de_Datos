@@ -1,5 +1,5 @@
 package proyecto.model;
-
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class Proceso {
@@ -12,7 +12,38 @@ public class Proceso {
 
     private int tiempoDuracionMax;
 
+    private LinkedList<Actividad> listaActividades = new LinkedList<>();
 
+
+    public Proceso(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax) {
+        this.nombre = nombre;
+        this.id = id;
+        this.tiempoDuracionMin = tiempoDuracionMin;
+        this.tiempoDuracionMax = tiempoDuracionMax;
+    }
+    public Proceso(String nombre, String id) {
+        super();
+        this.nombre = nombre;
+        this.id = id;
+    }
+    //----------------------------------------------------------------------------------------
+    // Metodos Lista Actividades
+    public void eliminarActividad(Actividad actividad){
+        listaActividades.remove(actividad);
+    }
+    public void agregarActividad(Actividad actividad){
+        listaActividades.add(actividad);
+    }
+    public void agregarActividad(Actividad actividad, int index){
+        listaActividades.add(index, actividad);
+    }
+    public void eliminarActividad(int index){
+        listaActividades.remove(index);
+    }
+
+
+    //----------------------------------------------------------------------------------------
+    // Getters y Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -43,13 +74,6 @@ public class Proceso {
 
     public int getTiempoDuracionMax() {
         return tiempoDuracionMax;
-    }
-
-    public Proceso(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax) {
-        this.nombre = nombre;
-        this.id = id;
-        this.tiempoDuracionMin = tiempoDuracionMin;
-        this.tiempoDuracionMax = tiempoDuracionMax;
     }
 
     @Override

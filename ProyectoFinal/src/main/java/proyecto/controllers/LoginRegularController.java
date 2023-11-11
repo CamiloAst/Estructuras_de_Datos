@@ -9,7 +9,5 @@ public class LoginRegularController {
 
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
-
-
     }
 }

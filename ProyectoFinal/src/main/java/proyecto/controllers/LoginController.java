@@ -10,34 +10,39 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import proyecto.application.Aplicacion;
-
+import proyecto.exceptions.IncompleteDataException;
+import proyecto.exceptions.UserDoesntExistException;
+import proyecto.model.Herramienta;
+import static proyecto.controllers.AppController.INSTANCE;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController {
 
-        @FXML
-        private ResourceBundle resources;
+    Herramienta herramienta = INSTANCE.getHerramienta();
 
-        @FXML
-        private URL location;
+    @FXML
+    private ResourceBundle resources;
 
-        @FXML
-        private Button btnIngresar;
+    @FXML
+    private URL location;
 
-        @FXML
-        private Button btnRegistrarse;
+    @FXML
+    private Button btnIngresar;
 
-        @FXML
-        private Label olvidoContrasenia;
+    @FXML
+    private Button btnRegistrarse;
 
-        @FXML
-        private PasswordField txtContrasenia;
+    @FXML
+    private Label olvidoContrasenia;
 
-        @FXML
-        private TextField txtNombreUsuario;
-        private Aplicacion aplicacion;
+    @FXML
+    private PasswordField txtContrasenia;
+
+    @FXML
+    private TextField txtNombreUsuario;
+    private Aplicacion aplicacion;
 
     @FXML
         void actionIngresar(ActionEvent event) {
@@ -47,35 +52,28 @@ public class LoginController {
         usuario = txtNombreUsuario.getText();
         contrasenia = txtContrasenia.getText();
 
-        if(datosValidos(usuario,contrasenia)){
+        try {
+            if (datosValidos(usuario, contrasenia)) {
 
-            boolean usuarioValido = aplicacion.verificarUsuario(usuario,contrasenia);
-            if(usuarioValido){
-                aplicacion.mostrarVentanaProcesosUsuario(usuario);
-            }else{
-                mostrarMensaje("Notificaci�n Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido", Alert.AlertType.INFORMATION);
-
+                if (herramienta.existeUsuario(usuario)) {
+                    aplicacion.mostrarVentanaProcesosUsuario(herramienta.buscarUsuario(usuario));
+                } else {
+                    throw new UserDoesntExistException();
+                }
+            } else {
+                throw new IncompleteDataException();
             }
-        }else{
-            mostrarMensaje("Notificaci�n Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario", Alert.AlertType.WARNING);
-
+        } catch (UserDoesntExistException e) {
+            herramienta.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido", Alert.AlertType.INFORMATION);
+        } catch (IncompleteDataException e) {
+            herramienta.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario", Alert.AlertType.WARNING);
         }
 
     }
-    public void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
 
-        Alert alert = new Alert(alertType);
-        alert.setTitle(titulo);
-        alert.setHeaderText(header);
-        alert.setContentText(contenido);
-        alert.showAndWait();
-    }
 
     private boolean datosValidos(String usuario, String contrasenia) {
-        if(usuario.equals("") || contrasenia.equals("")){
-            return false;
-        }
-        return true;
+        return !usuario.isEmpty() && !contrasenia.isEmpty();
     }
 
 

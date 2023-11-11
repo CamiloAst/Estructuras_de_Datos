@@ -7,30 +7,66 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import proyecto.controllers.*;
 import proyecto.model.Herramienta;
+import proyecto.model.Usuario;
 
 import java.io.IOException;
 
 public class Aplicacion extends Application {
 
-    private Stage primaryStage;
-
-
-
+    private static Stage primaryStage;
     Herramienta herramienta = new Herramienta ("herrammienta Estu y yo");
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        Aplicacion.primaryStage = primaryStage;
+        Aplicacion.primaryStage.setTitle("herrammienta Estu y yo");
+
+        mostrarVentanaIniciarHerramienta();
+    }
+
+    public void changeWindow(Scene newScene) {
+        if(primaryStage != null){
+            primaryStage.setScene(newScene);
+            primaryStage.show();
+        }else{
+            System.out.println("primaryStage es null");
+        }
+    }
+
+    public void mostrarVentanaIniciarHerramienta() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("Acceder.fxml"));
+
+            AnchorPane rootLayout = loader.load();
+
+            Scene scene = new Scene(rootLayout);
+            changeWindow(scene);
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+    }
 
     public void mostrarVentanaLoginRegular() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Aplicacion.class.getResource("LoginRegular.fxml"));
 
-            AnchorPane rootLayout = (AnchorPane)loader.load();
+            AnchorPane rootLayout = loader.load();
 
-            LoginRegularController loginRegularController = loader.getController();
-            loginRegularController.setAplicacion(this);
 
             Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            changeWindow(scene);
+            LoginRegularController loginRegularController = loader.getController();
+            loginRegularController.setAplicacion(this);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -50,45 +86,13 @@ public class Aplicacion extends Application {
             loginController.setAplicacion(this);
 
             Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            changeWindow(scene);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
-
-
-    @Override
-    public void start(Stage primaryStage) {
-
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("herrammienta Estu y yo");
-
-        mostrarVentanaIniciarHerramienta();
-
-    }
-
-
-    public void mostrarVentanaIniciarHerramienta() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Aplicacion.class.getResource("Acceder.fxml"));
-
-            AnchorPane rootLayout = loader.load();
-
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-
-    }
 
     public void mostrarVentanaRecuperarContrasenia() {
 
@@ -96,14 +100,13 @@ public class Aplicacion extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Aplicacion.class.getResource("RestablecerContrasenia.fxml"));
 
-            AnchorPane rootLayout = (AnchorPane)loader.load();
+            AnchorPane rootLayout = loader.load();
 
             RecuperarContraseniaController recuperarContraseniaController = loader.getController();
             recuperarContraseniaController.setAplicacion(this);
 
             Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            changeWindow(scene);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -111,7 +114,7 @@ public class Aplicacion extends Application {
     }
 
 
-    public void mostrarVentanaProcesosUsuario(String usuario) {
+    public void mostrarVentanaProcesosUsuario(Usuario usuario) {
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -124,8 +127,7 @@ public class Aplicacion extends Application {
             procesosUsuarioController.setUsuario(usuario);
 
             Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            changeWindow(scene);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -133,12 +135,5 @@ public class Aplicacion extends Application {
         }
     }
 
-    public boolean verificarUsuario(String NombreUsuario, String contrasenia) {
-        return Herramienta.existeUsuario(NombreUsuario);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
 
