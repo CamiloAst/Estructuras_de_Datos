@@ -2,11 +2,15 @@ package proyecto.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import proyecto.application.Aplicacion;
+import proyecto.exceptions.ProcesoException;
+import proyecto.model.Proceso;
 import proyecto.model.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,9 +23,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -33,77 +35,118 @@ public class ProcesosAdminController {
 
     Usuario usuario;
 
-        @FXML
-        private ResourceBundle resources;
+    @FXML
+    private ResourceBundle resources;
 
-        @FXML
-        private URL location;
+    @FXML
+    private URL location;
 
-        @FXML
-        private Button btnAbrirProceso;
+    @FXML
+    private Label abrirActividades;
 
-        @FXML
-        private Button btnConsultarDuracionProceso;
+    @FXML
+    private Label actualizarProceso;
 
-        @FXML
-        private Button btnCrearProceso;
+    @FXML
+    private Label cerrarSesion;
 
-        @FXML
-        private Button btnEliminarProceso;
+    @FXML
+    private TableColumn<Proceso, String> columnId;
 
-        @FXML
-        private Label cerrarSesion;
+    @FXML
+    private TableColumn<Proceso, String> columnNombre;
 
-        @FXML
-        private ImageView iconCerrarSesion;
+    @FXML
+    private TableColumn<Proceso, String> columnTiempoMaximo;
 
-        @FXML
-        private TableView<?> tableProcesos;
+    @FXML
+    private TableColumn<Proceso, String> columnTiempoMinimo;
 
-        @FXML
-        private TextField txtIdProceso;
+    @FXML
+    private Label crearProceso;
 
-        @FXML
-        private TextField txtNombreProceso;
+    @FXML
+    private Label eliinarProceso;
 
-        @FXML
-        void abrirProcesoAction(ActionEvent event) {
+    @FXML
+    private ImageView iconCerrarSesion;
 
-        }
+    @FXML
+    private TableView<?> tableProcesos;
 
-        @FXML
-        void cerrarSesionAction(MouseEvent event) {
+    @FXML
+    private TextField txtIdProceso;
 
-        }
+    @FXML
+    private TextField txtNombreProceso;
 
-        @FXML
-        void consultarDireccionAction(ActionEvent event) {
+    @FXML
+    private TextField txtTiempoMaximo;
 
-        }
+    @FXML
+    private TextField txtTiempoMinimo;
 
-        @FXML
-        void crearProcesoAction(ActionEvent event) {
 
-        }
+    ObservableList<Proceso> listaProcesosData = FXCollections.observableArrayList();
 
-        @FXML
-        void eliminarProcesoAction(ActionEvent event) {
 
-        }
 
-        @FXML
-        void initialize() {
-            assert btnAbrirProceso != null : "fx:id=\"btnAbrirProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert btnConsultarDuracionProceso != null : "fx:id=\"btnConsultarDuracionProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert btnCrearProceso != null : "fx:id=\"btnCrearProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert btnEliminarProceso != null : "fx:id=\"btnEliminarProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert cerrarSesion != null : "fx:id=\"cerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert iconCerrarSesion != null : "fx:id=\"iconCerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert tableProcesos != null : "fx:id=\"tableProcesos\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert txtIdProceso != null : "fx:id=\"txtIdProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-            assert txtNombreProceso != null : "fx:id=\"txtNombreProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
 
-        }
+    @FXML
+    void abiriActiviadesAction(MouseEvent event) {
+        aplicacion.mostrarVentanaActividadesAdmin(null);
+
+    }
+
+    @FXML
+    void cerrarSesionAction(MouseEvent event) {
+
+        aplicacion.mostrarVentanaIniciarHerramienta();
+
+    }
+
+    @FXML
+    void crearProcesoAction(MouseEvent event) {
+
+
+
+    }
+
+    public void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
+
+        Alert alert = new Alert(alertType);
+        alert.setTitle(titulo);
+        alert.setHeaderText(header);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
+
+
+    @FXML
+    void elimiarProcesoAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+        assert abrirActividades != null : "fx:id=\"abrirActividades\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert actualizarProceso != null : "fx:id=\"actualizarProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert cerrarSesion != null : "fx:id=\"cerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert columnId != null : "fx:id=\"columnId\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert columnNombre != null : "fx:id=\"columnNombre\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert columnTiempoMaximo != null : "fx:id=\"columnTiempoMaximo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert columnTiempoMinimo != null : "fx:id=\"columnTiempoMinimo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert crearProceso != null : "fx:id=\"crearProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert eliinarProceso != null : "fx:id=\"eliinarProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert iconCerrarSesion != null : "fx:id=\"iconCerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert tableProcesos != null : "fx:id=\"tableProcesos\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert txtIdProceso != null : "fx:id=\"txtIdProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert txtNombreProceso != null : "fx:id=\"txtNombreProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert txtTiempoMaximo != null : "fx:id=\"txtTiempoMaximo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+        assert txtTiempoMinimo != null : "fx:id=\"txtTiempoMinimo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
+
+    }
 
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;

@@ -88,5 +88,7 @@ public class Herramienta {
         alert.showAndWait();
     }
 
-
+    public ArrayList<Usuario> getListaUsiarios() {
+        return listaUsiarios;
+    }
 }

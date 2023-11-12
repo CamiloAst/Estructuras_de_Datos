@@ -13,8 +13,8 @@
    <children>
       <TableView fx:id="tableProcesos" layoutX="144.0" layoutY="101.0" prefHeight="178.0" prefWidth="357.0">
         <columns>
-          <TableColumn prefWidth="188.79998779296875" text="Nombre" />
-          <TableColumn fx:id="tableProcesos" prefWidth="152.79998779296875" text="Id" />
+          <TableColumn fx:id="columnNombreProceso" prefWidth="188.79998779296875" text="Nombre" />
+          <TableColumn fx:id="columnId" prefWidth="152.79998779296875" text="Id" />
         </columns>
       </TableView>
       <AnchorPane prefHeight="279.0" prefWidth="146.0" style="-fx-background-color: #CCABD8;">

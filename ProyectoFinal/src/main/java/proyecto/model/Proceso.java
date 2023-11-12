@@ -26,6 +26,8 @@ public class Proceso {
         this.nombre = nombre;
         this.id = id;
     }
+
+
     //----------------------------------------------------------------------------------------
     // Metodos Lista Actividades
     public void eliminarActividad(Actividad actividad){

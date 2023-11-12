@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94bb85d9-7b35-4bf7-bf7e-4183f01efd09" name="Changes" comment="" />
+    <list default="true" id="94bb85d9-7b35-4bf7-bf7e-4183f01efd09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/proyecto/exceptions/ProcesoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/application/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/application/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesRegularController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesRegularController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosRegularController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosRegularController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/model/Herramienta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/model/Herramienta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/model/Proceso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/model/Proceso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesRegular.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesRegular.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosUsuario.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Acer/Downloads/proyectoProgramacion2/proyectoFinal8.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -45,6 +61,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="proyecto.exceptions" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Aplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-20.0.2" />
@@ -87,6 +108,8 @@
       <updated>1698966214375</updated>
       <workItem from="1698966219119" duration="52000" />
       <workItem from="1699737077949" duration="13177000" />
+      <workItem from="1699810844339" duration="4633000" />
+      <workItem from="1699818202947" duration="672000" />
     </task>
     <servers />
   </component>

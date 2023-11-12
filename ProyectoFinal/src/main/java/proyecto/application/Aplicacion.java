@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import proyecto.controllers.*;
+import proyecto.exceptions.ProcesoException;
+import proyecto.model.Actividad;
 import proyecto.model.Herramienta;
 import proyecto.model.Proceso;
 import proyecto.model.Usuario;
@@ -159,14 +161,27 @@ public class Aplicacion extends Application {
         }
     }
 
+    public void mostrarVentanaActividadesAdmin(Actividad actividad) {
 
-    public ArrayList<Proceso> obtenerProcesos() {
-        return herramienta.getListaProcesos();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("ActividadesAdmin.fxml"));
+
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+
+            ActividadesAdminController actividadesAdminController = loader.getController();
+            actividadesAdminController.setAplicacion(this);
+            actividadesAdminController.serActividad(actividad);
+
+            Scene scene = new Scene(rootLayout);
+            changeWindow(scene);
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }
 
-    public boolean eliminarProceso(String nombre) {
 
-    }
 }
-
