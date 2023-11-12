@@ -54,7 +54,7 @@ public class LoginController {
             if (datosValidos(usuario, contrasenia)) {
 
                 if (herramienta.existeUsuario(usuario)) {
-                    aplicacion.mostrarVentanaProcesosUsuario(herramienta.buscarUsuario(usuario));
+                    aplicacion.mostrarVentanaProcesosAdmin(herramienta.buscarUsuario(usuario));
                 } else {
                     throw new UserDoesntExistException();
                 }

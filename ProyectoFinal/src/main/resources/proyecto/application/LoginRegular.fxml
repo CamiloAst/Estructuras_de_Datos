@@ -27,7 +27,7 @@
          </font>
       </Label>
       <AnchorPane layoutX="-2.0" layoutY="394.0" prefHeight="62.0" prefWidth="530.0" style="-fx-background-color: #CCABD8; -fx-background-color: #CCABD8;" />
-      <Label fx:id="olvidoContrasenia" layoutX="184.0" layoutY="304.0" onMouseClicked="#olvidoContrasenia" prefHeight="22.0" prefWidth="158.0" text="¿Olvido su contraseña?" textFill="#ccabd8" underline="true">
+      <Label fx:id="olvidoContrasenia" layoutX="184.0" layoutY="304.0" onMouseClicked="#olvidoContraseniaAction" prefHeight="22.0" prefWidth="158.0" text="¿Olvido su contraseña?" textFill="#ccabd8" underline="true">
          <font>
             <Font name="Sitka Text" size="14.0" />
          </font>

@@ -1,5 +1,8 @@
 package proyecto.model;
 
+import javafx.event.EventType;
+import javafx.scene.input.MouseEvent;
+
 import java.util.Objects;
 
 public class Usuario {
@@ -63,5 +66,9 @@ public class Usuario {
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
                 '}';
+    }
+
+    public void addEventHandler(EventType<MouseEvent> mouseClicked, Object o) {
+
     }
 }
