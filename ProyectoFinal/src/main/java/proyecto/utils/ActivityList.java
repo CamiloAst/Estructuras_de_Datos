@@ -1,6 +1,11 @@
 package proyecto.utils;
 
-public class ActivityList <E>{
+import proyecto.exceptions.ActivityAlreadyExistException;
+import proyecto.exceptions.ActivityDontExist;
+
+import java.util.Iterator;
+
+public class ActivityList <E>implements Iterable<E>{
     private ActivityNode<E> firstNode;
     private ActivityNode<E> lastNode;
     private ActivityNode<E> lastNodeAdded;
@@ -16,8 +21,9 @@ public class ActivityList <E>{
      * Agrega un nuevo nodo al final de la lista
      * @param element
      */
-    public void add(E element){
+    public void add(E element) throws ActivityAlreadyExistException {
         ActivityNode<E> newNode = new ActivityNode<>(element);
+        checkDuplicates(element);
         if(isEmpty()){
             firstNode = lastNode = newNode;
         }else{
@@ -35,9 +41,10 @@ public class ActivityList <E>{
      * @param element
      * @param previous
      */
-    public void add(E element, E previous){
+    public void add(E element, E previous) throws ActivityDontExist, ActivityAlreadyExistException {
         ActivityNode<E> newNode = new ActivityNode<>(element);
         ActivityNode<E> aux = searchNode(previous);
+        checkDuplicates(element);
         if(aux != null){
             addLastNode(newNode, aux);
             size++;
@@ -49,8 +56,9 @@ public class ActivityList <E>{
      * Agrega un nuevo nodo después del último nodo agregado
      * @param element
      */
-    public void sequentialAdd(E element){
+    public void sequentialAdd(E element) throws ActivityAlreadyExistException {
         ActivityNode<E> newNode = new ActivityNode<>(element);
+        checkDuplicates(element);
         if(isEmpty()) {
             firstNode = lastNode = newNode;
         }else{
@@ -77,7 +85,7 @@ public class ActivityList <E>{
      * Elimina un nodo de la lista
      * @param element
      */
-    public void remove(E element) {
+    public void remove(E element) throws ActivityDontExist {
         ActivityNode<E> aux = searchNode(element);
         if (aux != null) {
             removeNode(aux);
@@ -85,63 +93,52 @@ public class ActivityList <E>{
     }
 
     private void removeNode(ActivityNode<E> aux) {
-        if (aux == firstNode) {
-            firstNode = aux.getNextNode();
-            firstNode.setPreviousNode(null);
-        } else if (aux == lastNode) {
-            lastNode = aux.getPreviousNode();
-            lastNode.setNextNode(null);
+        ActivityNode<E> previousNode = aux.getPreviousNode();
+        ActivityNode<E> nextNode = aux.getNextNode();
+
+        if (previousNode != null) {
+            previousNode.setNextNode(nextNode);
         } else {
-            ActivityNode<E> aux2 = aux.getNextNode();
-            ActivityNode<E> aux3 = aux.getPreviousNode();
-            aux2.setPreviousNode(aux3);
-            aux3.setNextNode(aux2);
+            firstNode = nextNode;
+        }
+
+        if (nextNode != null) {
+            nextNode.setPreviousNode(previousNode);
+        } else {
+            lastNode = previousNode;
         }
         size--;
     }
 
-    public ActivityNode<E> searchNode(E element){
-        ActivityNode<E> aux = firstNode;
-        while(aux != null){
-            if(aux.getValue().equals(element)){
-                return aux;
+    public ActivityNode<E> searchNode(E element) throws ActivityDontExist {
+        ActivityNode<E> foward = firstNode;
+        ActivityNode<E> backward = lastNode;
+        do{
+            if(foward.getValue().equals(element)){
+                return foward;
+            }else if(backward.getValue().equals(element)){
+                return backward;
             }
-            aux = aux.getNextNode();
-        }
-        return null;
+            foward = foward.getNextNode();
+            backward = backward.getPreviousNode();
+        }while(foward != null && backward != null && foward != backward);
+
+        throw new ActivityDontExist();
     }
 
 
     public ActivityNode<E> getFirstNode() {
         return firstNode;
     }
-
-    public void setFirstNode(ActivityNode<E> firstNode) {
-        this.firstNode = firstNode;
-    }
-
     public ActivityNode<E> getLastNode() {
         return lastNode;
     }
-
-    public void setLastNode(ActivityNode<E> lastNode) {
-        this.lastNode = lastNode;
-    }
-
     public ActivityNode<E> getLastNodeAdded() {
         return lastNodeAdded;
     }
 
-    public void setLastNodeAdded(ActivityNode<E> lastNodeAdded) {
-        this.lastNodeAdded = lastNodeAdded;
-    }
-
     public int getSize() {
         return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     private boolean isEmpty() {
@@ -150,5 +147,41 @@ public class ActivityList <E>{
 
     private boolean hasNext(ActivityNode<E> node) {
         return node.getNextNode() != null;
+    }
+
+    private void checkDuplicates(E element) throws ActivityAlreadyExistException {
+        if(contains(element))
+            throw new ActivityAlreadyExistException();
+    }
+    public boolean contains(E actividad) {
+        ActivityNode<E> aux = firstNode;
+        while(aux != null){
+            if(aux.getValue().equals(actividad)){
+                return true;
+            }
+            aux = aux.getNextNode();
+        }
+        return false;
+    }
+    private class LinkedListIterator implements Iterator<E> {
+        private ActivityNode<E> aux = firstNode;
+        @Override
+        public boolean hasNext() {
+            return aux != null;
+        }
+
+        @Override
+        public E next() {
+            if(!hasNext()){
+                return null;
+            }
+            E value = aux.getValue();
+            aux = aux.getNextNode();
+            return value;
+        }
+    }
+    @Override
+    public LinkedListIterator iterator() {
+        return new LinkedListIterator();
     }
 }

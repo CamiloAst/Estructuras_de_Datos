@@ -1,5 +1,7 @@
 package proyecto.model;
 
+import proyecto.utils.TaskQueue;
+
 import java.util.Objects;
 
 public class Actividad {
@@ -7,15 +9,27 @@ public class Actividad {
     private String nombre;
     private String descripcion;
     private Boolean isObligatoria;
+    private TaskQueue<Tarea> listaTareas = new TaskQueue<>();
 
     public Actividad(String nombre, String descripcion, Boolean isObligatoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.isObligatoria = isObligatoria;
+
     }
     public Actividad(String nombre){
         super();
         this.nombre = nombre;
+        isObligatoria = false;
+    }
+
+    public Tarea buscarTareaPorNombre(String nombreTarea){
+        for (Tarea tarea : listaTareas) {
+            if(tarea.getNombre().equals(nombreTarea)){
+                return tarea;
+            }
+        }
+        return null;
     }
 
     public String getNombre() {
@@ -38,8 +52,20 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public void setIsObligatoria(Boolean isObligatoria) {
-        this.isObligatoria = isObligatoria;
+    public void setNoObligatoria(Boolean isObligatoria) {
+        isObligatoria = false;
+    }
+
+    public void setObligatoria() {
+        isObligatoria = true;
+    }
+
+    public TaskQueue<Tarea> getListaTareas() {
+        return listaTareas;
+    }
+
+    public void setListaTareas(TaskQueue<Tarea> listaTareas) {
+        this.listaTareas = listaTareas;
     }
 
     @Override

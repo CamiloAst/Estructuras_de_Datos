@@ -4,13 +4,16 @@ import java.util.Objects;
 
 public class Tarea {
 
+    private String nombre;
+
     private String descripcion;
 
     private Boolean isObigatoria;
 
     private int tiempoDuracion;
 
-    public Tarea(String descripcion, Boolean isObigatoria, int tiempoDuracion) {
+    public Tarea(String nombre, String descripcion, Boolean isObigatoria, int tiempoDuracion) {
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.isObigatoria = isObigatoria;
         this.tiempoDuracion = tiempoDuracion;
@@ -37,6 +40,14 @@ public class Tarea {
 
     public void setTiempoDuracion(int tiempoDuracion) {
         this.tiempoDuracion = tiempoDuracion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
