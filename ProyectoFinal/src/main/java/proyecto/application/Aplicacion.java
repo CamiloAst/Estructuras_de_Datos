@@ -6,15 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import proyecto.controllers.*;
-import proyecto.exceptions.ProcesoException;
 import proyecto.model.Actividad;
 import proyecto.model.Herramienta;
-import proyecto.model.Proceso;
 import proyecto.model.Usuario;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class Aplicacion extends Application {
 

@@ -1,8 +1,10 @@
 package proyecto.model;
 
 import javafx.scene.control.Alert;
+import proyecto.exceptions.ProcessAlreadyExist;
 import proyecto.exceptions.UserAlreadyExistException;
 import proyecto.exceptions.UserDoesntExistException;
+import proyecto.utils.ShowMessage;
 
 import java.util.ArrayList;
 
@@ -56,10 +58,26 @@ public class Herramienta {
     }
 
     public void agregarProceso(Proceso proceso){
-        listaProcesos.add(proceso);
+        if(!listaProcesos.contains(proceso))
+            listaProcesos.add(proceso);
+        else
+            try{
+                throw new ProcessAlreadyExist();
+            } catch (Exception e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar proceso", "El proceso ya existe");
+            }
     }
     public boolean eliminarProceso(Proceso proceso){
         return listaProcesos.remove(proceso);
+    }
+
+    public boolean eliminarProcesoNombre(String nombre){
+        for (Proceso proceso : listaProcesos) {
+            if(proceso.getNombre().equals(nombre)){
+                return eliminarProceso(proceso);
+            }
+        }
+        return false;
     }
 
     private void inicializarDatos() {
@@ -79,14 +97,7 @@ public class Herramienta {
         listaUsiarios.add(usuario2);
     }
 
-    public void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
 
-        Alert alert = new Alert(alertType);
-        alert.setTitle(titulo);
-        alert.setHeaderText(header);
-        alert.setContentText(contenido);
-        alert.showAndWait();
-    }
 
     public ArrayList<Usuario> getListaUsiarios() {
         return listaUsiarios;

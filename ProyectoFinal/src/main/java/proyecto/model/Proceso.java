@@ -1,4 +1,10 @@
 package proyecto.model;
+import javafx.scene.control.Alert;
+import proyecto.exceptions.ActivityAlreadyExistException;
+import proyecto.exceptions.ActivityDontExist;
+import proyecto.utils.ActivityList;
+import proyecto.utils.ShowMessage;
+
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -12,7 +18,7 @@ public class Proceso {
 
     private int tiempoDuracionMax;
 
-    private LinkedList<Actividad> listaActividades = new LinkedList<>();
+    private ActivityList<Actividad> listaActividades;
 
 
     public Proceso(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax) {
@@ -20,6 +26,7 @@ public class Proceso {
         this.id = id;
         this.tiempoDuracionMin = tiempoDuracionMin;
         this.tiempoDuracionMax = tiempoDuracionMax;
+        listaActividades = new ActivityList<>();
     }
     public Proceso(String nombre, String id) {
         super();
@@ -30,17 +37,43 @@ public class Proceso {
 
     //----------------------------------------------------------------------------------------
     // Metodos Lista Actividades
-    public void eliminarActividad(Actividad actividad){
-        listaActividades.remove(actividad);
+    public void agregarActividad(Actividad actividad) throws ActivityAlreadyExistException {
+        if(!listaActividades.contains(actividad)){
+            listaActividades.add(actividad);
+        }else {
+            try {
+                throw new ActivityAlreadyExistException();
+            } catch (ActivityAlreadyExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
+            }
+        }
     }
-    public void agregarActividad(Actividad actividad){
-        listaActividades.add(actividad);
+
+    public void agregarActividad(Actividad actividad, String nombreActividadAnterior){
+        if(!listaActividades.contains(actividad)){
+            try {
+                listaActividades.add(actividad, buscarActividadPorNombre(nombreActividadAnterior));
+            } catch (ActivityDontExist e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad anterior no existe");
+            } catch (ActivityAlreadyExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
+            }
+        }else {
+            try {
+                throw new ActivityAlreadyExistException();
+            } catch (ActivityAlreadyExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
+            }
+        }
     }
-    public void agregarActividad(Actividad actividad, int index){
-        listaActividades.add(index, actividad);
-    }
-    public void eliminarActividad(int index){
-        listaActividades.remove(index);
+
+    private Actividad buscarActividadPorNombre(String nombreActividadAnterior) {
+        for (Actividad actividad : listaActividades) {
+            if(actividad.getNombre().equals(nombreActividadAnterior)){
+                return actividad;
+            }
+        }
+        return null;
     }
 
 
