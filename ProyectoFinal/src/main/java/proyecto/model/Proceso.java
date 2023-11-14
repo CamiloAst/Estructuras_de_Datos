@@ -111,6 +111,10 @@ public class Proceso {
         return tiempoDuracionMax;
     }
 
+    public ActivityList<Actividad> getListaActividades() {
+        return listaActividades;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

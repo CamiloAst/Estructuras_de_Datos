@@ -1,11 +1,14 @@
 package proyecto.utils;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import proyecto.exceptions.ActivityAlreadyExistException;
 import proyecto.exceptions.ActivityDontExist;
 
 import java.util.Iterator;
+import java.util.Observable;
 
-public class ActivityList <E>implements Iterable<E>{
+public class ActivityList <E> extends Observable implements Iterable<E>{
     private ActivityNode<E> firstNode;
     private ActivityNode<E> lastNode;
     private ActivityNode<E> lastNodeAdded;
@@ -34,6 +37,8 @@ public class ActivityList <E>implements Iterable<E>{
         }
         size++;
         lastNodeAdded = newNode;
+        setChanged();
+        notifyObservers();
     }
 
     /**
@@ -66,6 +71,8 @@ public class ActivityList <E>implements Iterable<E>{
         }
         size++;
         lastNodeAdded = newNode;
+        setChanged();
+        notifyObservers();
     }
 
     private void addLastNode(ActivityNode<E> newNode, ActivityNode<E> aux) {
@@ -108,6 +115,8 @@ public class ActivityList <E>implements Iterable<E>{
             lastNode = previousNode;
         }
         size--;
+        setChanged();
+        notifyObservers();
     }
 
     public ActivityNode<E> searchNode(E element) throws ActivityDontExist {
@@ -162,6 +171,13 @@ public class ActivityList <E>implements Iterable<E>{
             aux = aux.getNextNode();
         }
         return false;
+    }
+    public ObservableList<E> getTableData() {
+        ObservableList<E> tableData = FXCollections.observableArrayList();
+        for (E element : this) {
+            tableData.add(element);
+        }
+        return tableData;
     }
     private class LinkedListIterator implements Iterator<E> {
         private ActivityNode<E> aux = firstNode;

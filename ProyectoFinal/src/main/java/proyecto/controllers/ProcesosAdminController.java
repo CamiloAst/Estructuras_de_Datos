@@ -1,25 +1,31 @@
 package proyecto.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import proyecto.application.Aplicacion;
-import proyecto.model.Proceso;
-import proyecto.model.Usuario;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import proyecto.application.Aplicacion;
+import proyecto.model.Herramienta;
+import proyecto.model.Proceso;
+import proyecto.model.Usuario;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import static proyecto.controllers.AppController.INSTANCE;
 
 
 public class ProcesosAdminController {
 
     Aplicacion aplicacion;
 
+    Herramienta herramienta = INSTANCE.getHerramienta();
     Usuario usuario;
 
     @FXML
@@ -44,10 +50,10 @@ public class ProcesosAdminController {
     private TableColumn<Proceso, String> columnNombre;
 
     @FXML
-    private TableColumn<Proceso, String> columnTiempoMaximo;
+    private TableColumn<Proceso, Integer> columnTiempoMaximo;
 
     @FXML
-    private TableColumn<Proceso, String> columnTiempoMinimo;
+    private TableColumn<Proceso, Integer> columnTiempoMinimo;
 
     @FXML
     private Label crearProceso;
@@ -59,7 +65,7 @@ public class ProcesosAdminController {
     private ImageView iconCerrarSesion;
 
     @FXML
-    private TableView<?> tableProcesos;
+    private TableView<Proceso> tableProcesos;
 
     @FXML
     private TextField txtIdProceso;
@@ -73,7 +79,7 @@ public class ProcesosAdminController {
     @FXML
     private TextField txtTiempoMinimo;
 
-
+    Object procesoSeleccion;
     ObservableList<Proceso> listaProcesosData = FXCollections.observableArrayList();
 
 
@@ -81,38 +87,31 @@ public class ProcesosAdminController {
 
     @FXML
     void abiriActiviadesAction(MouseEvent event) {
-        aplicacion.mostrarVentanaActividadesAdmin(null);
+        if (procesoSeleccion != null) {
+            INSTANCE.setProcesoActual((Proceso) procesoSeleccion);
+            aplicacion.mostrarVentanaActividadesAdmin();
 
+        }
     }
 
     @FXML
     void cerrarSesionAction(MouseEvent event) {
-
         aplicacion.mostrarVentanaIniciarHerramienta();
-
     }
 
     @FXML
     void crearProcesoAction(MouseEvent event) {
-
-
-
+        herramienta.createProcess(txtNombreProceso.getText(),
+                String.valueOf(herramienta.getListaProcesos().size()),
+                Integer.parseInt(txtTiempoMinimo.getText()),
+                Integer.parseInt(txtTiempoMaximo.getText()));
+        rechargeTable();
     }
-
-    public void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
-
-        Alert alert = new Alert(alertType);
-        alert.setTitle(titulo);
-        alert.setHeaderText(header);
-        alert.setContentText(contenido);
-        alert.showAndWait();
-    }
-
-
 
     @FXML
     void elimiarProcesoAction(MouseEvent event) {
-
+        herramienta.deleteProcess(txtNombreProceso.getText());
+        rechargeTable();
     }
 
     @FXML
@@ -133,8 +132,30 @@ public class ProcesosAdminController {
         assert txtTiempoMaximo != null : "fx:id=\"txtTiempoMaximo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
         assert txtTiempoMinimo != null : "fx:id=\"txtTiempoMinimo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
 
+        loadTable();
+        tableProcesos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if(newSelection != null){
+                procesoSeleccion = newSelection;
+            }
+        });
     }
 
+    private void loadTable() {
+        columnId.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columnNombre.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnTiempoMinimo.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracionMin"));
+        columnTiempoMaximo.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracionMax"));
+
+        listaProcesosData.clear();
+        listaProcesosData.addAll(herramienta.getListaProcesos());
+        tableProcesos.setItems(listaProcesosData);
+    }
+
+    private void rechargeTable(){
+        listaProcesosData.clear();
+        listaProcesosData.addAll(herramienta.getListaProcesos());
+        tableProcesos.setItems(listaProcesosData);
+    }
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }
