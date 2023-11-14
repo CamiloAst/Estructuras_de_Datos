@@ -3,18 +3,16 @@ package proyecto.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import proyecto.application.Aplicacion;
 import proyecto.exceptions.IncompleteDataException;
 import proyecto.exceptions.UserDoesntExistException;
 import proyecto.model.Herramienta;
+import proyecto.utils.ShowMessage;
+
 import static proyecto.controllers.AppController.INSTANCE;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,7 +37,7 @@ public class LoginController {
     private PasswordField txtContrasenia;
 
     @FXML
-    private TextField txtNombreAdministador;
+    private TextField txtNombreAdministrador;
     private Aplicacion aplicacion;
 
     @FXML
@@ -47,14 +45,14 @@ public class LoginController {
         String usuario = "";
         String contrasenia = "";
 
-        usuario = txtNombreAdministador.getText();
+        usuario = txtNombreAdministrador.getText();
         contrasenia = txtContrasenia.getText();
 
         try {
             if (datosValidos(usuario, contrasenia)) {
 
-                if (herramienta.existeUsuario(usuario)) {
-                    aplicacion.mostrarVentanaProcesosAdmin(herramienta.buscarUsuario(usuario));
+                if (herramienta.userExist(usuario) && herramienta.isAdmin(usuario)) {
+                    aplicacion.mostrarVentanaProcesosAdmin(herramienta.searchUser(usuario));
                 } else {
                     throw new UserDoesntExistException();
                 }
@@ -62,9 +60,9 @@ public class LoginController {
                 throw new IncompleteDataException();
             }
         } catch (UserDoesntExistException e) {
-            herramienta.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido", Alert.AlertType.INFORMATION);
+            ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido");
         } catch (IncompleteDataException e) {
-            herramienta.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario", Alert.AlertType.WARNING);
+            ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario");
         }
 
     }
@@ -89,7 +87,7 @@ public class LoginController {
             assert btnIngresar != null : "fx:id=\"btnIngresar\" was not injected: check your FXML file 'Login.fxml'.";
             assert olvidoContrasenia != null : "fx:id=\"olvidoContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
             assert txtContrasenia != null : "fx:id=\"txtContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
-            assert txtNombreAdministador != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Login.fxml'.";
+            assert txtNombreAdministrador != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Login.fxml'.";
 
         }
 

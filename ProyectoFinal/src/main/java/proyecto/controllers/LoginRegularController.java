@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import proyecto.exceptions.IncompleteDataException;
 import proyecto.exceptions.UserDoesntExistException;
 import proyecto.model.Herramienta;
+import proyecto.utils.ShowMessage;
 
 import static proyecto.controllers.AppController.INSTANCE;
 
@@ -50,8 +51,8 @@ public class LoginRegularController {
             try {
                 if (datosValidos(usuario, contrasenia)) {
 
-                    if (herramienta.existeUsuario(usuario)) {
-                        aplicacion.mostrarVentanaProcesosUsuario(herramienta.buscarUsuario(usuario));
+                    if (herramienta.userExist(usuario) && !herramienta.isAdmin(usuario)) {
+                        aplicacion.mostrarVentanaProcesosUsuario(herramienta.searchUser(usuario));
                     } else {
                         throw new UserDoesntExistException();
                     }
@@ -59,9 +60,9 @@ public class LoginRegularController {
                     throw new IncompleteDataException();
                 }
             } catch (UserDoesntExistException e) {
-                herramienta.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido", Alert.AlertType.INFORMATION);
+                ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido");
             } catch (IncompleteDataException e) {
-                herramienta.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario", Alert.AlertType.WARNING);
+                ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario");
             }
 
         }

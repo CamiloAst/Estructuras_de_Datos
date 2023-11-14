@@ -8,14 +8,17 @@ import javafx.stage.Stage;
 import proyecto.controllers.*;
 import proyecto.model.Actividad;
 import proyecto.model.Herramienta;
+import proyecto.model.Proceso;
 import proyecto.model.Usuario;
 
 import java.io.IOException;
 
+import static proyecto.controllers.AppController.INSTANCE;
+
 public class Aplicacion extends Application {
 
     private static Stage primaryStage;
-    Herramienta herramienta = new Herramienta("herrammienta Estu y yo");
+    Herramienta herramienta = INSTANCE.getHerramienta();
 
     public static void main(String[] args) {
         launch();
@@ -142,7 +145,7 @@ public class Aplicacion extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Aplicacion.class.getResource("ProcesosAdmin.fxml"));
 
-            AnchorPane rootLayout = (AnchorPane) loader.load();
+            AnchorPane rootLayout = loader.load();
 
             ProcesosAdminController procesosAdminController = loader.getController();
             procesosAdminController.setAplicacion(this);
@@ -157,17 +160,17 @@ public class Aplicacion extends Application {
         }
     }
 
-    public void mostrarVentanaActividadesAdmin(Actividad actividad) {
+    public void mostrarVentanaActividadesAdmin() {
 
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Aplicacion.class.getResource("ActividadesAdmin.fxml"));
 
-            AnchorPane rootLayout = (AnchorPane) loader.load();
+            AnchorPane rootLayout = loader.load();
 
             ActividadesAdminController actividadesAdminController = loader.getController();
             actividadesAdminController.setAplicacion(this);
-            actividadesAdminController.serActividad(actividad);
+
 
             Scene scene = new Scene(rootLayout);
             changeWindow(scene);

@@ -5,21 +5,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="468.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.ActividadesAdminController">
    <children>
-      <AnchorPane layoutX="-1.0" prefHeight="63.0" prefWidth="602.0" style="-fx-background-color: #00c7c7;">
-         <children>
-            <ImageView fx:id="iconLogin" fitHeight="34.0" fitWidth="42.0" layoutX="545.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../../Downloads/login.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
+      <AnchorPane layoutX="-1.0" prefHeight="63.0" prefWidth="602.0" style="-fx-background-color: #00c7c7;" />
       <AnchorPane layoutX="-8.0" layoutY="63.0" prefHeight="406.0" prefWidth="200.0" style="-fx-background-color: #ccabd8;">
          <children>
             <TextField fx:id="txtDescripcionActividad" layoutX="26.0" layoutY="102.0" prefHeight="26.0" prefWidth="151.0" text="Descripcion">
@@ -67,19 +58,13 @@
                   <Font name="Sitka Text" size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="43.0" fitWidth="33.0" layoutX="147.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../../Downloads/actividad.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
       <TableView fx:id="tableActividades" layoutX="192.0" layoutY="112.0" prefHeight="190.0" prefWidth="408.0">
         <columns>
-          <TableColumn fx:id="columnNombreActividad" prefWidth="88.79997253417969" text="Nombre" />
-          <TableColumn fx:id="columnDescripcionActvidad" prefWidth="108.79998779296875" text="Descripcion " />
-            <TableColumn fx:id="columnTiempoMaximoActividad" prefWidth="100.800048828125" text="Tiempo Minimo" />
-            <TableColumn fx:id="columnTiempoMaximoActividad" prefWidth="109.60003662109375" text="Tiempo Maximo" />
+          <TableColumn fx:id="columnNombreActividad" prefWidth="131.0" text="Nombre" />
+          <TableColumn fx:id="columnDescripcionActvidad" prefWidth="126.0" text="Descripcion " />
+            <TableColumn fx:id="columnObligatoriaActvidad" prefWidth="150.0" text="Obligatoria" />
         </columns>
       </TableView>
       <Label layoutX="300.0" layoutY="86.0" text="Actividades">
@@ -87,10 +72,5 @@
             <Font name="Sitka Text" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="34.0" fitWidth="49.0" layoutX="396.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../../../Downloads/actividades.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
