@@ -1,11 +1,9 @@
 package proyecto.model;
-import javafx.scene.control.Alert;
 import proyecto.exceptions.ActivityAlreadyExistException;
-import proyecto.exceptions.ActivityDontExist;
+import proyecto.exceptions.ActivityDontExistException;
 import proyecto.utils.ActivityList;
 import proyecto.utils.ShowMessage;
 
-import java.util.LinkedList;
 import java.util.Objects;
 
 public class Proceso {
@@ -35,6 +33,7 @@ public class Proceso {
     }
 
 
+
     //----------------------------------------------------------------------------------------
     // Metodos Lista Actividades
     public void agregarActividad(Actividad actividad) throws ActivityAlreadyExistException {
@@ -53,7 +52,7 @@ public class Proceso {
         if(!listaActividades.contains(actividad)){
             try {
                 listaActividades.add(actividad, buscarActividadPorNombre(nombreActividadAnterior));
-            } catch (ActivityDontExist e) {
+            } catch (ActivityDontExistException e) {
                 ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad anterior no existe");
             } catch (ActivityAlreadyExistException e) {
                 ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
@@ -75,7 +74,28 @@ public class Proceso {
         }
         return null;
     }
+    public void eliminarActividad(Actividad actividad) throws ActivityDontExistException {
+        listaActividades.remove(actividad);
+    }
 
+    public void eliminarActividad(String nombreActividad) throws ActivityDontExistException {
+        listaActividades.remove(buscarActividadPorNombre(nombreActividad));
+    }
+
+    public int calcularTiempoMin(){
+        int tiempoTotal = 0;
+        for (Actividad actividad : listaActividades) {
+            tiempoTotal += actividad.obtenerTiempoMin();
+        }
+        return tiempoTotal;
+    }
+    public int calcularTiempoTotal(){
+        int tiempoTotal = 0;
+        for (Actividad actividad : listaActividades) {
+            tiempoTotal += actividad.obtenerTiempoTotal();
+        }
+        return tiempoTotal;
+    }
 
     //----------------------------------------------------------------------------------------
     // Getters y Setters

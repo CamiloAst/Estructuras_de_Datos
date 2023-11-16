@@ -10,11 +10,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import proyecto.application.Aplicacion;
+import proyecto.exceptions.ActivityAlreadyExistException;
+import proyecto.exceptions.ActivityDontExistException;
+import proyecto.exceptions.IncompleteDataException;
 import proyecto.model.Actividad;
 import proyecto.model.Proceso;
+import proyecto.utils.ShowMessage;
 
 import java.net.URL;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 import static proyecto.controllers.AppController.INSTANCE;
@@ -86,19 +89,43 @@ public class ActividadesAdminController {
 
     @FXML
     void crearActividadAction(MouseEvent event) {
+        try {
+            if(txtNombre.getText().isEmpty() && txtDescripcionActividad.getText().isEmpty())
+                proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), false));
+            else
+                throw new IncompleteDataException();
+        } catch (ActivityAlreadyExistException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
+        } catch (IncompleteDataException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "Faltan datos");
+        }
+    }
 
+    void crearActividadSecuencia(){
+        if (!txtNombre.getText().isEmpty() && !txtDescripcionActividad.getText().isEmpty())
+            proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), false), "Actividad 1");
+        else
+            ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "Faltan datos");
     }
 
     @FXML
     void eliminarActividad(MouseEvent event) {
-
+        if(actividadSeleccion != null){
+            try {
+                proceso.eliminarActividad((Actividad) actividadSeleccion);
+            } catch (ActivityDontExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al eliminar actividad", "La actividad no existe");
+            }
+        }
     }
 
     @FXML
     void verTareasAction(MouseEvent event) {
-
+        if(actividadSeleccion != null){
+            INSTANCE.setActividadActual((Actividad) actividadSeleccion);
+            aplicacion.mostrarVentanaTareasAdmin();
+        }
     }
-
     @FXML
     void initialize() {
         assert actualizarActividad != null : "fx:id=\"actualizarActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";

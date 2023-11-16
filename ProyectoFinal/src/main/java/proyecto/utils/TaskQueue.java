@@ -1,12 +1,16 @@
 package proyecto.utils;
 
+import proyecto.exceptions.TaskAlreadyExistException;
+
 import java.util.Iterator;
 
 public class TaskQueue<E> implements Iterable<E> {
     public TaskNode<E> firstNode, lastNode;
     public int size;
 
-    public void add(E value){
+    public void add(E value) throws TaskAlreadyExistException {
+        if(search(value))
+            throw new TaskAlreadyExistException();
         TaskNode<E> newNode = new TaskNode<>(value);
         if(isEmpty()){
             firstNode = lastNode = newNode;
@@ -16,7 +20,11 @@ public class TaskQueue<E> implements Iterable<E> {
         }
         size++;
     }
-    public void add(E value, int index){
+    public void add(E value, int index) throws TaskAlreadyExistException {
+        if (index < 0 || index > size)
+            throw new IndexOutOfBoundsException();
+        if(search(value))
+            throw new TaskAlreadyExistException();
         TaskNode<E> newNode = new TaskNode<>(value);
         TaskNode<E> aux = firstNode;
         if(index == 0){
@@ -68,6 +76,15 @@ public class TaskQueue<E> implements Iterable<E> {
         size = 0;
     }
 
+    private Boolean search(E value){
+        TaskNode<E> aux = firstNode;
+        while(aux != null){
+            if(aux.getValue().equals(value))
+                return true;
+            aux = aux.getNextNode();
+        }
+        return false;
+    }
     public TaskNode<E> getFirstNode() {
         return firstNode;
     }

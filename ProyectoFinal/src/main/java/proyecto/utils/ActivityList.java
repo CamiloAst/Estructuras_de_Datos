@@ -3,7 +3,7 @@ package proyecto.utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import proyecto.exceptions.ActivityAlreadyExistException;
-import proyecto.exceptions.ActivityDontExist;
+import proyecto.exceptions.ActivityDontExistException;
 
 import java.util.Iterator;
 import java.util.Observable;
@@ -46,7 +46,7 @@ public class ActivityList <E> extends Observable implements Iterable<E>{
      * @param element
      * @param previous
      */
-    public void add(E element, E previous) throws ActivityDontExist, ActivityAlreadyExistException {
+    public void add(E element, E previous) throws ActivityDontExistException, ActivityAlreadyExistException {
         ActivityNode<E> newNode = new ActivityNode<>(element);
         ActivityNode<E> aux = searchNode(previous);
         checkDuplicates(element);
@@ -92,7 +92,7 @@ public class ActivityList <E> extends Observable implements Iterable<E>{
      * Elimina un nodo de la lista
      * @param element
      */
-    public void remove(E element) throws ActivityDontExist {
+    public void remove(E element) throws ActivityDontExistException {
         ActivityNode<E> aux = searchNode(element);
         if (aux != null) {
             removeNode(aux);
@@ -119,7 +119,7 @@ public class ActivityList <E> extends Observable implements Iterable<E>{
         notifyObservers();
     }
 
-    public ActivityNode<E> searchNode(E element) throws ActivityDontExist {
+    public ActivityNode<E> searchNode(E element) throws ActivityDontExistException {
         ActivityNode<E> foward = firstNode;
         ActivityNode<E> backward = lastNode;
         do{
@@ -132,7 +132,7 @@ public class ActivityList <E> extends Observable implements Iterable<E>{
             backward = backward.getPreviousNode();
         }while(foward != null && backward != null && foward != backward);
 
-        throw new ActivityDontExist();
+        throw new ActivityDontExistException();
     }
 
 
