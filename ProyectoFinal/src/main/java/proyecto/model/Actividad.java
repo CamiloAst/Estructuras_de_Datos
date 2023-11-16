@@ -1,5 +1,7 @@
 package proyecto.model;
 
+import proyecto.exceptions.TaskAlreadyExistException;
+import proyecto.utils.ShowMessage;
 import proyecto.utils.TaskQueue;
 
 import java.util.Objects;
@@ -30,6 +32,35 @@ public class Actividad {
             }
         }
         return null;
+    }
+    public void crearTarea(String nombre, String descripcion, Boolean isObligatoria,int tiempoDuracion){
+        try {
+            Tarea tarea = new Tarea(nombre, descripcion, isObligatoria,tiempoDuracion);
+            listaTareas.add(tarea);
+        } catch (TaskAlreadyExistException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al crear tarea", "La tarea ya existe");
+        }
+    }
+    public void completarTarea(String nombreTarea){
+        Tarea tarea = buscarTareaPorNombre(nombreTarea);
+        if(tarea != null)
+            tarea.setComplete();
+    }
+
+    public int obtenerTiempoTotal(){
+        int tiempoTotal = 0;
+        for (Tarea tarea : listaTareas) {
+            tiempoTotal += tarea.getTiempoDuracion();
+        }
+        return tiempoTotal;
+    }
+    public int obtenerTiempoMin(){
+        int tiempoTotal = 0;
+        for (Tarea tarea : listaTareas) {
+            if(!tarea.getObigatoria())
+                tiempoTotal += tarea.getTiempoDuracion();
+        }
+        return tiempoTotal;
     }
 
     public String getNombre() {
@@ -89,6 +120,5 @@ public class Actividad {
                 ", isObligatoria=" + isObligatoria +
                 '}';
     }
-
 
 }

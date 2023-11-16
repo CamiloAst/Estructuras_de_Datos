@@ -126,7 +126,14 @@ public class Herramienta {
         userList.add(usuario2);
     }
 
-
+    public boolean verificarPermisos(String nombreUsuario){
+        for (Usuario usuario : userList) {
+            if(usuario.getNombreUsuario().equals(nombreUsuario)){
+                return usuario.getTipoUsuario().equals(TipoUsuario.ADMINISTRADOR);
+            }
+        }
+        return false;
+    }
     public void setProcesoActual(Proceso procesoActual) {
         this.procesoActual = procesoActual;
     }

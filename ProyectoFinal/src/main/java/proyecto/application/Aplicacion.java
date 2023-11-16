@@ -183,4 +183,18 @@ public class Aplicacion extends Application {
     }
 
 
+    public void mostrarVentanaTareasAdmin() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("TareasAdmin.fxml"));
+
+            AnchorPane rootLayout = loader.load();
+
+            TareasAdminController tareasAdminController = loader.getController();
+            tareasAdminController.setAplicacion(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

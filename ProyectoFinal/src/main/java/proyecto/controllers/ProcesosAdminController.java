@@ -110,10 +110,18 @@ public class ProcesosAdminController {
 
     @FXML
     void elimiarProcesoAction(MouseEvent event) {
-        herramienta.deleteProcess(txtNombreProceso.getText());
+        if(procesoSeleccion != null)
+            herramienta.deleteProcess(((Proceso) procesoSeleccion).getNombre());
+        else
+            herramienta.deleteProcess(txtNombreProceso.getText());
         rechargeTable();
     }
 
+    void mostrarTiempos(String nombreProceso){
+        Proceso proceso = herramienta.searchProcess(nombreProceso);
+        txtTiempoMinimo.setText(String.valueOf(proceso.getTiempoDuracionMin()));
+        txtTiempoMaximo.setText(String.valueOf(proceso.getTiempoDuracionMax()));
+    }
     @FXML
     void initialize() {
         assert abrirActividades != null : "fx:id=\"abrirActividades\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";

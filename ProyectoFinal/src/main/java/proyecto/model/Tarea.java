@@ -11,12 +11,14 @@ public class Tarea {
     private Boolean isObigatoria;
 
     private int tiempoDuracion;
+    private Boolean isCompletada;
 
     public Tarea(String nombre, String descripcion, Boolean isObigatoria, int tiempoDuracion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.isObigatoria = isObigatoria;
         this.tiempoDuracion = tiempoDuracion;
+        this.isCompletada = false;
     }
     public String getDescripcion() {
         return descripcion;
@@ -48,6 +50,9 @@ public class Tarea {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public void setComplete(){
+        isCompletada = true;
     }
 
     @Override
