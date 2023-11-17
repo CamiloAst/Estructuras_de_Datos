@@ -161,4 +161,38 @@ public class Aplicacion extends Application {
             e.printStackTrace();
         }
     }
+
+    public void mostrarVentanaConfiguracion() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("Configuraciones.fxml"));
+
+            AnchorPane rootLayout = loader.load();
+
+            ConfiguracionesController configuracionesController = loader.getController();
+            configuracionesController.setAplicacion(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void mostrarVentanaRegistrarse() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Aplicacion.class.getResource("Registrarse.fxml"));
+
+            AnchorPane rootLayout = loader.load();
+
+            RegistrarseController registrarseController = loader.getController();
+            registrarseController.setAplicacion(this);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 }

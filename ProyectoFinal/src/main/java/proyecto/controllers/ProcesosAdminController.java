@@ -95,6 +95,8 @@ public class ProcesosAdminController {
     @FXML
     private ImageView iconEliminar;
 
+    @FXML
+    private ImageView iconConfiguracion;
 
 
     Object procesoSeleccion;
@@ -147,6 +149,12 @@ public class ProcesosAdminController {
         Proceso proceso = herramienta.searchProcess(nombreProceso);
         txtTiempoMinimo.setText(String.valueOf(proceso.getTiempoDuracionMin()));
         txtTiempoMaximo.setText(String.valueOf(proceso.getTiempoDuracionMax()));
+    }
+
+    @FXML
+    void configuracionAction(MouseEvent event) {
+        aplicacion.mostrarVentanaConfiguracion();
+
     }
     @FXML
     void initialize() {

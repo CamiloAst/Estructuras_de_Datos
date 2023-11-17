@@ -11,12 +11,12 @@
    <children>
       <AnchorPane prefHeight="452.0" prefWidth="256.0" style="-fx-background-color: #CCABD8;">
          <children>
-            <Button fx:id="btnAdministrador" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" mouseTransparent="true" onAction="#ingresarAdminAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="ADMINISTRADOR" textFill="#fffefe">
+            <Button fx:id="btnAdministrador" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" onAction="#ingresarAdminAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="ADMINISTRADOR" textFill="#fffefe">
                <font>
                   <Font name="Sitka Text" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnRegular" layoutX="66.0" layoutY="314.0" mnemonicParsing="false" mouseTransparent="true" onAction="#ingresarRegularAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="REGULAR" textFill="#fff8f8">
+            <Button fx:id="btnRegular" layoutX="66.0" layoutY="314.0" mnemonicParsing="false" onAction="#ingresarRegularAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="REGULAR" textFill="#fff8f8">
                <font>
                   <Font name="Sitka Text" size="12.0" />
                </font>

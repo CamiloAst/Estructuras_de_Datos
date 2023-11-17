@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import proyecto.application.Aplicacion;
 import proyecto.model.Herramienta;
 import proyecto.model.Usuario;
 
@@ -18,6 +19,8 @@ public class RegistrarseController {
     Usuario usuario = INSTANCE.getHerramienta().getListaUsiarios();
 
      */
+
+    Aplicacion aplicacion;
 
     @FXML
     private Button btnRegistrarse;
@@ -73,5 +76,8 @@ public class RegistrarseController {
 
     }
 
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+    }
 }
 

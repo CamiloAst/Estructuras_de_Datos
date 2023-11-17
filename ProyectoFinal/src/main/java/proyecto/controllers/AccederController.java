@@ -38,13 +38,13 @@ public class AccederController {
         }
         @FXML
         void ingresarRegularAction(ActionEvent event) {
-
             aplicacion.mostrarVentanaLoginAdmin();
         }
 
 
         @FXML
         void registrarseAction(ActionEvent event) throws IOException {
+
             Parent root = FXMLLoader.load(getClass().getResource("../views/Registrarse.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Registro");

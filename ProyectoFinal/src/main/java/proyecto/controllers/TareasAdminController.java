@@ -45,7 +45,7 @@ public class TareasAdminController {
 
     @FXML
     private TableColumn<?, ?> columnTiempoMinimo;
-    s
+
     @FXML
     private Label crearTarea;
 

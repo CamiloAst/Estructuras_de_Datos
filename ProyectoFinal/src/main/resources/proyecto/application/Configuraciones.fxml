@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="366.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.ConfiguracionesController">
+   <children>
+      <AnchorPane layoutX="-3.0" prefHeight="369.0" prefWidth="274.0" style="-fx-background-color: #ccabd8;">
+         <children>
+            <Label layoutX="21.0" layoutY="26.0" prefHeight="42.0" prefWidth="215.0" text="Datos personales " textFill="WHITE">
+               <font>
+                  <Font name="Sitka Text" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreUsuario" layoutX="54.0" layoutY="193.0" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #ffff;" textFill="#fcf7f7" />
+            <Label fx:id="contrasenia" layoutX="55.0" layoutY="250.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #ffff;" />
+            <Label fx:id="tipoUsuario" layoutX="55.0" layoutY="307.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #ffff;" textFill="WHITE" />
+            <Label layoutX="15.0" layoutY="85.0" prefHeight="18.0" prefWidth="252.0" text="Usamos esta información para verificar ">
+               <font>
+                  <Font name="Sitka Text" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="114.0" prefHeight="18.0" prefWidth="259.0" text="tu identidad y nuestra aplicación sea mas ">
+               <font>
+                  <Font name="Sitka Text" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="144.0" text="segura para todos nuestros usuarios">
+               <font>
+                  <Font name="Sitka Text" size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="31.0" fitWidth="41.0" layoutX="236.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/datos.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="480.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/notificacion.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="308.0" layoutY="32.0" text="Preferencias " textFill="#00c7c7">
+         <font>
+            <Font name="Sitka Text" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="295.0" layoutY="63.0" prefHeight="38.0" prefWidth="185.0" text=" de notificación" textFill="#00c7c7">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="295.0" layoutY="119.0" text="Nos importan tus preferencias, por favor" />
+      <Label layoutX="293.0" layoutY="148.0" text="elige porque medio quieres que lleguen  " />
+      <Label layoutX="299.0" layoutY="182.0" text="las notificaciones de nuestra aplicación" />
+      <ComboBox fx:id="comboBoxNotificacion" layoutX="317.0" layoutY="231.0" prefHeight="31.0" prefWidth="150.0" promptText="Notificación" style="-fx-background-color: #00c7c7;" />
+      <ImageView fitHeight="31.0" fitWidth="46.0" layoutX="473.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="guardar" layoutX="349.0" layoutY="289.0" onMouseClicked="#guardarAction" prefHeight="24.0" prefWidth="86.0" text="Guardar" textFill="#ccabd8" underline="true">
+         <font>
+            <Font name="Sitka Text" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="atras" fitHeight="31.0" fitWidth="46.0" layoutX="489.0" layoutY="335.0" onMouseClicked="#atrasEvent" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../Imágenes/atras.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
