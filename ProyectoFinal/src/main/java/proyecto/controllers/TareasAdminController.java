@@ -16,7 +16,7 @@ import static proyecto.controllers.AppController.INSTANCE;
 public class TareasAdminController {
     Aplicacion aplicacion;
 
-    Actividad actividad = INSTANCE.getHerramienta().getActividadActual();
+    Actividad actividad = INSTANCE.getActividadActual();
 
     @FXML
     private ComboBox<String> comboBoxObligatoria;

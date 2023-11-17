@@ -25,7 +25,7 @@ import static proyecto.controllers.AppController.INSTANCE;
 
 public class ActividadesAdminController {
 
-    Proceso proceso = INSTANCE.getHerramienta().getProcesoActual();
+    Proceso proceso = INSTANCE.getProcesoActual();
 
     @FXML
     private ResourceBundle resources;
@@ -119,7 +119,7 @@ public class ActividadesAdminController {
     @FXML
     void crearActividadAction(MouseEvent event) {
         try {
-            if(txtNombre.getText().isEmpty() && txtDescripcionActividad.getText().isEmpty())
+            if(!txtNombre.getText().isEmpty() && !txtDescripcionActividad.getText().isEmpty())
                 proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), false));
             else
                 throw new IncompleteDataException();

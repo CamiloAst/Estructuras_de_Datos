@@ -6,10 +6,16 @@ import proyecto.model.Proceso;
 import proyecto.model.Usuario;
 
 public enum AppController {
-    INSTANCE;
+    INSTANCE();
     private final Herramienta herramienta;
+    private Usuario usuario;
+    private Proceso proceso;
+    private Actividad actividad;
 
     AppController() {
+        this.actividad = null;
+        this.proceso = null;
+        this.usuario = null;
         herramienta = new Herramienta("ADAN");
     }
 
@@ -17,16 +23,23 @@ public enum AppController {
         return herramienta;
     }
     public void setProcesoActual(Proceso proceso){
-        herramienta.setProcesoActual(proceso);
-    }
-    public void setActividadActual(Actividad actividad){
-        herramienta.setActividadActual(actividad);
+        this.proceso = proceso;
     }
     public Proceso getProcesoActual(){
-        return herramienta.getProcesoActual();
+        return proceso;
+    }
+    public void setActividadActual(Actividad actividad){
+        this.actividad = actividad;
     }
     public Actividad getActividadActual(){
-        return herramienta.getActividadActual();
+        return actividad;
     }
+    public void setUsuarioActual(Usuario usuario){
+        this.usuario = usuario;
+    }
+    public Usuario getUsuarioActual(){
+        return usuario;
+    }
+
 
 }

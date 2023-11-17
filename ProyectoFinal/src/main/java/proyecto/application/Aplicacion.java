@@ -103,7 +103,7 @@ public class Aplicacion extends Application {
 
 
 
-    public void mostrarVentanaProcesosAdmin(Usuario usuario) {
+    public void mostrarVentanaProcesosAdmin() {
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -113,7 +113,7 @@ public class Aplicacion extends Application {
 
             ProcesosAdminController procesosAdminController = loader.getController();
             procesosAdminController.setAplicacion(this);
-            procesosAdminController.setUsuario(usuario);
+
 
             Scene scene = new Scene(rootLayout);
             changeWindow(scene);
@@ -157,6 +157,9 @@ public class Aplicacion extends Application {
 
             TareasAdminController tareasAdminController = loader.getController();
             tareasAdminController.setAplicacion(this);
+
+            Scene scene = new Scene(rootLayout);
+            changeWindow(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -172,6 +175,9 @@ public class Aplicacion extends Application {
 
             ConfiguracionesController configuracionesController = loader.getController();
             configuracionesController.setAplicacion(this);
+
+            Scene scene = new Scene(rootLayout);
+            changeWindow(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -189,8 +195,11 @@ public class Aplicacion extends Application {
             RegistrarseController registrarseController = loader.getController();
             registrarseController.setAplicacion(this);
 
+            Scene scene = new Scene(rootLayout);
+            changeWindow(scene);
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
 

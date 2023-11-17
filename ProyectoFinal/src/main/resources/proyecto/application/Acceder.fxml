@@ -43,7 +43,6 @@
             <Font name="Sitka Text" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="274.0" layoutY="392.0" />
       <Label fx:id="registrarse" layoutX="306.0" layoutY="410.0" onMouseClicked="#registrarseAction" text="Regisrarse" textFill="#00c7c7" underline="true">
          <font>
             <Font name="Sitka Text" size="24.0" />

@@ -1,24 +1,19 @@
 package proyecto.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import proyecto.application.Aplicacion;
 import proyecto.model.Herramienta;
-import proyecto.model.Usuario;
+import proyecto.model.TipoUsuario;
+import proyecto.utils.ShowMessage;
 
 import static proyecto.controllers.AppController.INSTANCE;
 
 public class RegistrarseController {
 
-    /*
-    Usuario usuario = INSTANCE.getHerramienta().getListaUsiarios();
-
-     */
+    Herramienta herramienta = INSTANCE.getHerramienta();
 
     Aplicacion aplicacion;
 
@@ -34,38 +29,20 @@ public class RegistrarseController {
 
 
 
-/*
+
     @FXML
     void registrarseAction(ActionEvent event) {
         String nombreUsuario = txtNombreUsuario.getText();
         String contrasenia = txtContrasenia.getText();
 
         if (nombreUsuario.isEmpty() || contrasenia.isEmpty()) {
-            mostrarMensaje("Error", "Campos vacios", "Por favor ingrese todos los datos", Alert.AlertType.ERROR);
+            ShowMessage.mostrarMensaje("Error", "Campos vacios", "Por favor ingrese todos los datos");
         } else {
-            Usuario usuario = new Usuario(nombreUsuario, contrasenia, );
-            if (Herramienta.createUser(usuario)
-                mostrarMensaje("Exito", "Usuario registrado", "El usuario se ha registrado exitosamente", Alert.AlertType.INFORMATION);
-            } else {
-                mostrarMensaje("Error", "Usuario no registrado", "El usuario no se ha registrado", Alert.AlertType.ERROR);
-            }
+            herramienta.createUser(nombreUsuario, contrasenia, TipoUsuario.REGULAR);
+            ShowMessage.mostrarMensaje("Exito", "Usuario registrado", "El usuario se ha registrado exitosamente");
+            aplicacion.mostrarVentanaIniciarHerramienta();
         }
-*/
-
-
-
-
-
-    private void mostrarMensaje(String titulo, String encabezado, String contenido, Alert.AlertType tipo) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(encabezado);
-        alert.setContentText(contenido);
-        alert.showAndWait();
     }
-
-
-
 
 
     @FXML
@@ -75,9 +52,9 @@ public class RegistrarseController {
         assert txtNombreUsuario != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Registrarse.fxml'.";
 
     }
-
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }
+
 }
 

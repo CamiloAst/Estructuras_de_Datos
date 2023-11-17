@@ -1,23 +1,25 @@
 package proyecto.controllers;
 
 
-
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import proyecto.application.Aplicacion;
-import proyecto.model.Usuario;
+import proyecto.exceptions.UserDoesntExistException;
+import proyecto.model.Herramienta;
+import proyecto.utils.ShowMessage;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import static proyecto.controllers.AppController.INSTANCE;
 
 public class RecuperarContraseniaController {
 
-/*
-    Usuario usuario = INSTANCE.getHerramienta().getListaUsiarios();
 
-    */
+    Herramienta herramienta = INSTANCE.getHerramienta();
 
     @FXML
     private Button btnActualizarContrasenia;
@@ -57,10 +59,15 @@ public class RecuperarContraseniaController {
     void actualizarContraseniaAction(ActionEvent event) {
         String nombreUsuario = txtNombreUsuario.getText();
         String nuevaContrasenia = txtNuevaContrasenia.getText();
- }
 
-
-
+        try {
+            herramienta.updatePassword(nombreUsuario, nuevaContrasenia);
+            ShowMessage.mostrarMensaje("Exito", "Contrasenia actualizada", "La contrasenia se ha actualizado exitosamente");
+            aplicacion.mostrarVentanaLoginAdmin();
+        } catch (UserDoesntExistException e) {
+            ShowMessage.mostrarMensaje("Error", "Usuario no existe", "El usuario no existe");
+        }
+    }
 
     @FXML
     void initialize() {

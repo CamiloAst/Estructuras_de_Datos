@@ -14,9 +14,6 @@ public class Herramienta {
 
     private final ArrayList<Proceso> processList = new ArrayList<>();
 
-    private Proceso procesoActual;
-    private Actividad actividadActual;
-
 
     public Herramienta(String nombre) {
         super();
@@ -66,7 +63,10 @@ public class Herramienta {
     }
 
     public boolean deleteUser(String nombre) throws UserDoesntExistException {
-        return delete(searchUser(nombre));
+        if(userExist(nombre))
+            return delete(searchUser(nombre));
+        else
+            throw new UserDoesntExistException();
     }
 
     public void addProcess(Proceso proceso){
@@ -90,17 +90,17 @@ public class Herramienta {
     public void createProcess(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax){
         addProcess(new Proceso(nombre, id, tiempoDuracionMin, tiempoDuracionMax));
     }
-    public boolean delete(Proceso proceso){
-        return processList.remove(proceso);
+    public void delete(Proceso proceso){
+        processList.remove(proceso);
     }
 
-    public boolean deleteProcess(String nombre){
+    public void deleteProcess(String nombre){
         for (Proceso proceso : processList) {
             if(proceso.getNombre().equals(nombre)){
-                return delete(proceso);
+                delete(proceso);
+                return;
             }
         }
-        return false;
     }
     public boolean isAdmin(String name){
         for (Usuario usuario : userList) {
@@ -135,29 +135,18 @@ public class Herramienta {
         }
         return false;
     }
-    public void setProcesoActual(Proceso procesoActual) {
-        this.procesoActual = procesoActual;
-    }
-
-    public void setActividadActual(Actividad actividadActual) {
-        this.actividadActual = actividadActual;
-    }
-
     public ArrayList<Proceso> getListaProcesos() {
         return processList;
     }
-
-    public Proceso getProcesoActual() {
-        return procesoActual;
-    }
-
-    public Actividad getActividadActual() {
-        return actividadActual;
-    }
-
     public ArrayList<Usuario> getListaUsiarios() {
         return userList;
     }
 
 
+    public void updatePassword(String nombreUsuario, String nuevaContrasenia) throws UserDoesntExistException {
+        if(userExist(nombreUsuario)){
+            searchUser(nombreUsuario).setContrasenia(nuevaContrasenia);
+        }else
+            throw new UserDoesntExistException();
+    }
 }
