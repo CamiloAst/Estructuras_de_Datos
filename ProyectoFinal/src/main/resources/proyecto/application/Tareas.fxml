@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="464.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.TareasAdminController">
+   <children>
+      <HBox layoutX="206.0" layoutY="92.0" />
+      <AnchorPane layoutY="-2.0" prefHeight="474.0" prefWidth="220.0" style="-fx-background-color: #CCABD8;">
+         <children>
+            <Label layoutX="16.0" layoutY="77.0" text="Crear tarea" textFill="WHITE">
+               <font>
+                  <Font name="Sitka Text" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombreProceso" layoutX="25.0" layoutY="129.0" prefHeight="15.0" prefWidth="151.0" promptText="Nombre">
+               <font>
+                  <Font name="Sitka Text Italic" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtIdProceso" layoutX="25.0" layoutY="171.0" prefHeight="31.0" prefWidth="151.0" promptText="Descripcion ">
+               <font>
+                  <Font name="Sitka Text" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtTiempoMinimo" layoutX="25.0" layoutY="212.0" prefHeight="31.0" prefWidth="151.0" promptText="Tiempo Minimo">
+               <font>
+                  <Font name="Sitka Text" size="16.0" />
+               </font></TextField>
+            <TextField fx:id="txtTiempoMaximo" layoutX="25.0" layoutY="250.0" prefHeight="31.0" prefWidth="151.0" promptText="Tiempo Maximo ">
+               <font>
+                  <Font name="Sitka Text" size="16.0" />
+               </font></TextField>
+            <Label fx:id="eliminarTarea" layoutX="59.0" layoutY="380.0" onMouseClicked="#eliminarTarea" text="Eliminar " textFill="#fff6f6" underline="true">
+               <font>
+                  <Font name="Sitka Text" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="actualizarProceso" layoutX="55.0" layoutY="424.0" text="Actualizar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Sitka Text" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="crearTarea" layoutX="74.0" layoutY="341.0" onMouseClicked="#crearTarea" text="Crear" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Sitka Text" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="iconCrear" fitHeight="26.0" fitWidth="30.0" layoutX="23.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../Imágenes/agregar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="iconEliminar" fitHeight="23.0" fitWidth="23.0" layoutX="24.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../Imágenes/eliminar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="iconActualizar" fitHeight="26.0" fitWidth="30.0" layoutX="22.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../Imágenes/actualizar.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="comboBoxObligatoria" layoutX="25.0" layoutY="298.0" prefWidth="150.0" promptText="Obligatoria" style="-fx-background-color: #00c7c7;" />
+            <ImageView fitHeight="36.0" fitWidth="43.0" layoutX="147.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/tareas.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="376.0" layoutY="67.0" text="Tareas" textFill="#ccabd8">
+         <font>
+            <Font name="Sitka Text" size="27.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="-5.0" layoutY="-1.0" prefHeight="56.0" prefWidth="712.0" style="-fx-background-color: #00c7c7;">
+         <children>
+            <ImageView fitHeight="36.0" fitWidth="54.0" layoutX="668.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/login.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nombreUsuario" layoutX="21.0" layoutY="15.0" prefHeight="31.0" prefWidth="151.0" textFill="WHITE">
+               <font>
+                  <Font name="Sitka Text" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="iconCerrarSesion" fitHeight="30.0" fitWidth="54.0" layoutX="526.0" layoutY="412.0" onMouseClicked="#cerrarSesionAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/cerrarSesion.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="cerrarSesion" layoutX="565.0" layoutY="415.0" onMouseClicked="#cerrarSesionAction" text="Cerrar Sesión">
+         <font>
+            <Font name="Sitka Text" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableProcesos" layoutX="220.0" layoutY="103.0" prefHeight="274.0" prefWidth="482.0">
+         <columns>
+            <TableColumn fx:id="columnNombre" prefWidth="131.99993896484375" text="Nombre" />
+            <TableColumn fx:id="columnId" prefWidth="100.800048828125" text="Id" />
+            <TableColumn fx:id="columnTiempoMinimo" prefWidth="126.39999389648438" text="Tiempo Minimo " />
+            <TableColumn fx:id="columnTiempoMaximo" prefWidth="132.79998779296875" text="Tiempo Maximo " />
+         </columns>
+      </TableView>
+      <ImageView fitHeight="35.0" fitWidth="45.0" layoutX="461.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/tarea.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -10,8 +10,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import proyecto.application.Aplicacion;
+import proyecto.model.Usuario;
 
 public class RecuperarContraseniaController {
+
+/*
+    Usuario usuario = INSTANCE.getHerramienta().getListaUsiarios();
+
+    */
+
     @FXML
     private Button btnActualizarContrasenia;
 
@@ -24,6 +31,7 @@ public class RecuperarContraseniaController {
     @FXML
     private Button btnIngresar;
 
+
     @FXML
     private TextField txtNombreUsuario;
 
@@ -31,7 +39,6 @@ public class RecuperarContraseniaController {
     private PasswordField txtNuevaContrasenia;
 
     Aplicacion aplicacion;
-    private String usuario;
 
     public  void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
@@ -41,12 +48,18 @@ public class RecuperarContraseniaController {
     @FXML
     void ingresarAction(ActionEvent event) {
 
+        aplicacion.mostrarVentanaLoginAdmin();
+
+
     }
 
     @FXML
     void actualizarContraseniaAction(ActionEvent event) {
+        String nombreUsuario = txtNombreUsuario.getText();
+        String nuevaContrasenia = txtNuevaContrasenia.getText();
+ }
 
-    }
+
 
 
     @FXML

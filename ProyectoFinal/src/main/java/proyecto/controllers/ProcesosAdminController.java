@@ -15,6 +15,7 @@ import proyecto.model.Herramienta;
 import proyecto.model.Proceso;
 import proyecto.model.Usuario;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -79,11 +80,36 @@ public class ProcesosAdminController {
     @FXML
     private TextField txtTiempoMinimo;
 
+    @FXML
+    private Label nombreUsuario;
+
+    @FXML
+    private ImageView iconAbrir;
+
+    @FXML
+    private ImageView iconActualizar;
+
+    @FXML
+    private ImageView iconCrear;
+
+    @FXML
+    private ImageView iconEliminar;
+
+
+
     Object procesoSeleccion;
     ObservableList<Proceso> listaProcesosData = FXCollections.observableArrayList();
 
 
 
+
+/* Para que aparezca el nombre del usuario en la ventana de procesos jiji, pero eso esa todo raro con herramiento y aplicacion
+    private void obtenerNombreVendedor(String documento){
+        String nombre= aplicacion.obtenerUsuario(documento);
+        nombreUsuario.setText(nombre);
+    }
+
+ */
 
     @FXML
     void abiriActiviadesAction(MouseEvent event) {

@@ -30,6 +30,7 @@ public class Herramienta {
         inicializarDatos();
     }
 
+
     public boolean userExist(String nombreUsuario) {
         for (Usuario usuario : userList) {
             if(usuario.getNombreUsuario().equals(nombreUsuario)){
@@ -119,7 +120,7 @@ public class Herramienta {
         userList.add(usuario1);
 
         Usuario usuario2 = new Usuario();
-        usuario2.setNombreUsuario("Juan Esteban");
+        usuario2.setNombreUsuario("Juan ");
         usuario2.setContrasenia("Velez");
         usuario2.setTipoUsuario(TipoUsuario.REGULAR);
 
@@ -157,4 +158,6 @@ public class Herramienta {
     public ArrayList<Usuario> getListaUsiarios() {
         return userList;
     }
+
+
 }

@@ -4,6 +4,7 @@ package proyecto.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import proyecto.application.Aplicacion;
 import proyecto.exceptions.IncompleteDataException;
@@ -40,6 +41,16 @@ public class LoginController {
     private TextField txtNombreAdministrador;
     private Aplicacion aplicacion;
 
+    @FXML
+    private ImageView atras;
+
+
+    @FXML
+    void atrasAction(MouseEvent event) {
+
+        aplicacion.mostrarVentanaIniciarHerramienta();
+
+    }
     @FXML
         void actionIngresar(ActionEvent event) {
         String usuario = "";

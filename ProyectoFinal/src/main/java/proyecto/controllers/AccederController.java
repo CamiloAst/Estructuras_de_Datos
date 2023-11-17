@@ -39,7 +39,7 @@ public class AccederController {
         @FXML
         void ingresarRegularAction(ActionEvent event) {
 
-            aplicacion.mostrarVentanaLoginRegular();
+            aplicacion.mostrarVentanaLoginAdmin();
         }
 
 

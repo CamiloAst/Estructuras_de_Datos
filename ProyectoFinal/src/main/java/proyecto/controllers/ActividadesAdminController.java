@@ -80,10 +80,39 @@ public class ActividadesAdminController {
     ObservableList<Actividad> listaActividadesData = FXCollections.observableArrayList(proceso.getListaActividades().getTableData());
     Object actividadSeleccion;
 
+    @FXML
+    private Label cerrarSesion;
+
+    @FXML
+    private ImageView iconAbrir;
+
+    @FXML
+    private ImageView iconActualizar;
+
+    @FXML
+    private ImageView iconCerrarSesion;
+
+    @FXML
+    private ImageView iconCrear;
+
+    @FXML
+    private ImageView iconEliminar;
+
+    @FXML
+    private Label nombreProceso;
 
 
     @FXML
-    void actualizarActividad(MouseEvent event) {
+    void cerrarSesionAction(MouseEvent event) {
+
+        aplicacion.mostrarVentanaIniciarHerramienta();
+    }
+
+
+
+
+    @FXML
+    void actualizarActividadAction(MouseEvent event) {
 
     }
 
@@ -109,7 +138,7 @@ public class ActividadesAdminController {
     }
 
     @FXML
-    void eliminarActividad(MouseEvent event) {
+    void eliminarActividadAction(MouseEvent event) {
         if(actividadSeleccion != null){
             try {
                 proceso.eliminarActividad((Actividad) actividadSeleccion);
@@ -120,7 +149,7 @@ public class ActividadesAdminController {
     }
 
     @FXML
-    void verTareasAction(MouseEvent event) {
+    void abrirTareasAction(MouseEvent event) {
         if(actividadSeleccion != null){
             INSTANCE.setActividadActual((Actividad) actividadSeleccion);
             aplicacion.mostrarVentanaTareasAdmin();

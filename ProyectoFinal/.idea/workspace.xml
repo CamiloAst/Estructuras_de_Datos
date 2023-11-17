@@ -5,20 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94bb85d9-7b35-4bf7-bf7e-4183f01efd09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/proyecto/exceptions/ProcesoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/actividad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/actividades.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/actualizar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/agregar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/app-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/app.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/atras.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/cerrarSesion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/eliminar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/procesos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/tarea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/tareas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/ver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/Tareas.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/application/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/application/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/AccederController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/AccederController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesRegularController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesRegularController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ActividadesRegularController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/LoginRegularController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosRegularController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosRegularController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosRegularController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/RecuperarContraseniaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/RecuperarContraseniaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/RegistrarseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/RegistrarseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/TareasAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/TareasAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/model/Herramienta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/model/Herramienta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/model/Proceso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/model/Proceso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/Acceder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/Acceder.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesRegular.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesRegular.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ActividadesRegular.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/LoginRegular.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosUsuario.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/Registrarse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/Registrarse.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +65,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2XdkBJHeOZ0e0YETS55bbS8gf1S" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -53,7 +80,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Acer/Downloads/proyectoProgramacion2/proyectoFinal8.0",
+    "last_opened_file_path": "C:/Users/Acer/OneDrive/Documentos/estructura de datos/Estructura de Datos/Estructuras_de_Datos/ProyectoFinal/src/main/resources/Imagenes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,6 +91,10 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="proyecto.exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Acer\OneDrive\Documentos\estructura de datos\Estructura de Datos\Estructuras_de_Datos\ProyectoFinal\src\main\resources\Imagenes" />
+      <recent name="C:\Users\Acer\OneDrive\Documentos\estructura de datos\Estructura de Datos\Estructuras_de_Datos\ProyectoFinal\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,7 +140,9 @@
       <workItem from="1698966219119" duration="52000" />
       <workItem from="1699737077949" duration="13177000" />
       <workItem from="1699810844339" duration="4633000" />
-      <workItem from="1699818202947" duration="672000" />
+      <workItem from="1699818202947" duration="1278000" />
+      <workItem from="1700182311430" duration="227000" />
+      <workItem from="1700182564994" duration="12067000" />
     </task>
     <servers />
   </component>

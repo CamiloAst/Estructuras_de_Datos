@@ -3,6 +3,7 @@ package proyecto.controllers;
 import proyecto.model.Actividad;
 import proyecto.model.Herramienta;
 import proyecto.model.Proceso;
+import proyecto.model.Usuario;
 
 public enum AppController {
     INSTANCE;
@@ -27,4 +28,5 @@ public enum AppController {
     public Actividad getActividadActual(){
         return herramienta.getActividadActual();
     }
+
 }

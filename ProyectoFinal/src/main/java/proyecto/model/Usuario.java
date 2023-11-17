@@ -71,4 +71,5 @@ public class Usuario {
     public void addEventHandler(EventType<MouseEvent> mouseClicked, Object o) {
 
     }
+
 }

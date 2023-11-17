@@ -2,44 +2,57 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="449.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.AccederController">
+<AnchorPane prefHeight="452.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.AccederController">
    <children>
-      <Label layoutX="75.0" layoutY="120.0" text="Bienvenido a nuestra aplicacion ">
-         <font>
-            <Font name="Sitka Text" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="104.0" layoutY="170.0" prefHeight="28.0" prefWidth="359.0" text="Inicie sesion como usuario: ">
-         <font>
-            <Font name="Sitka Text" size="25.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutY="370.0" prefHeight="82.0" prefWidth="530.0" style="-fx-background-color: #CCABD8;">
+      <AnchorPane prefHeight="452.0" prefWidth="256.0" style="-fx-background-color: #CCABD8;">
          <children>
-            <Label layoutX="16.0" layoutY="14.0" text="¿Aun no es usuario de nuestra aplicacion? " textFill="#fff6f6">
+            <Button fx:id="btnAdministrador" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" mouseTransparent="true" onAction="#ingresarAdminAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="ADMINISTRADOR" textFill="#fffefe">
                <font>
-                  <Font name="Sitka Text" size="25.0" />
+                  <Font name="Sitka Text" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRegular" layoutX="66.0" layoutY="314.0" mnemonicParsing="false" mouseTransparent="true" onAction="#ingresarRegularAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="REGULAR" textFill="#fff8f8">
+               <font>
+                  <Font name="Sitka Text" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="23.0" layoutY="37.0" prefHeight="42.0" prefWidth="225.0" text="Bienvenido a  " textFill="WHITE">
+               <font>
+                  <Font name="Sitka Text" size="34.0" />
                </font>
             </Label>
-            <Label fx:id="registrarse" layoutX="213.0" layoutY="41.0" onMouseClicked="#registrarseAction" text="Registrarse" textFill="#fff6f6" underline="true">
+            <Label layoutX="12.0" layoutY="410.0" text="¿Aun no es usuario? " textFill="#fff6f6">
+               <font>
+                  <Font name="Sitka Text" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="146.0" prefHeight="28.0" prefWidth="176.0" text="Inicie sesion:  " textFill="WHITE">
                <font>
                   <Font name="Sitka Text" size="25.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="btnAdministrador" layoutX="104.0" layoutY="297.0" mnemonicParsing="false" onAction="#ingresarAdminAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="ADMINISTRADOR" textFill="#fffefe">
+      <Label layoutX="274.0" layoutY="39.0" text="nuestra app  " textFill="#00c7c7">
          <font>
-            <Font name="Sitka Text" size="12.0" />
+            <Font name="Sitka Text" size="35.0" />
          </font>
-      </Button>
-      <Button fx:id="btnRegular" layoutX="308.0" layoutY="297.0" mnemonicParsing="false" onAction="#ingresarRegularAction" prefHeight="46.0" prefWidth="123.0" style="-fx-background-color: #00c7c7;" text="REGULAR" textFill="#fff8f8">
+      </Label>
+      <Label layoutX="274.0" layoutY="392.0" />
+      <Label fx:id="registrarse" layoutX="306.0" layoutY="410.0" onMouseClicked="#registrarseAction" text="Regisrarse" textFill="#00c7c7" underline="true">
          <font>
-            <Font name="Sitka Text" size="12.0" />
+            <Font name="Sitka Text" size="24.0" />
          </font>
-      </Button>
+      </Label>
+      <ImageView fitHeight="238.0" fitWidth="232.0" layoutX="258.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/app-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

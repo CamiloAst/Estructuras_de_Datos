@@ -59,24 +59,7 @@ public class Aplicacion extends Application {
 
     }
 
-    public void mostrarVentanaLoginRegular() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Aplicacion.class.getResource("LoginRegular.fxml"));
 
-            AnchorPane rootLayout = loader.load();
-
-
-            Scene scene = new Scene(rootLayout);
-            changeWindow(scene);
-            LoginRegularController loginRegularController = loader.getController();
-            loginRegularController.setAplicacion(this);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
 
     public void mostrarVentanaLoginAdmin() {
 
@@ -118,26 +101,7 @@ public class Aplicacion extends Application {
     }
 
 
-    public void mostrarVentanaProcesosUsuario(Usuario usuario) {
 
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Aplicacion.class.getResource("ProcesosUsuario.fxml"));
-
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-
-            ProcesosRegularController procesosRegularController = loader.getController();
-            procesosRegularController.setAplicacion(this);
-            procesosRegularController.setUsuario(usuario);
-
-            Scene scene = new Scene(rootLayout);
-            changeWindow(scene);
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
     public void mostrarVentanaProcesosAdmin(Usuario usuario) {
 
