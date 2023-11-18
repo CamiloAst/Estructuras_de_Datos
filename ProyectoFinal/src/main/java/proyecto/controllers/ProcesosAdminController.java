@@ -98,20 +98,13 @@ public class ProcesosAdminController {
     @FXML
     private ImageView iconConfiguracion;
 
-
     Object procesoSeleccion;
     ObservableList<Proceso> listaProcesosData = FXCollections.observableArrayList();
 
-
-
-
-/* Para que aparezca el nombre del usuario en la ventana de procesos jiji, pero eso esa todo raro con herramiento y aplicacion
-    private void obtenerNombreVendedor(String documento){
-        String nombre= aplicacion.obtenerUsuario(documento);
+    private void obtenerNombreVendedor(){
+        String nombre= INSTANCE.getUsuarioActual().getNombreUsuario();
         nombreUsuario.setText(nombre);
     }
-
- */
 
     @FXML
     void abiriActiviadesAction(MouseEvent event) {
@@ -130,9 +123,7 @@ public class ProcesosAdminController {
     @FXML
     void crearProcesoAction(MouseEvent event) {
         herramienta.createProcess(txtNombreProceso.getText(),
-                String.valueOf(herramienta.getListaProcesos().size()),
-                Integer.parseInt(txtTiempoMinimo.getText()),
-                Integer.parseInt(txtTiempoMaximo.getText()));
+                String.valueOf(herramienta.getListaProcesos().size()));
         rechargeTable();
     }
 
@@ -155,6 +146,15 @@ public class ProcesosAdminController {
     void configuracionAction(MouseEvent event) {
         aplicacion.mostrarVentanaConfiguracion();
 
+    }
+
+    void verificarPermisos(){
+        if(!herramienta.isAdmin(usuario.getNombreUsuario())){
+            iconCrear.setVisible(false);
+            iconEliminar.setVisible(false);
+            iconActualizar.setVisible(false);
+            iconAbrir.setVisible(false);
+        }
     }
     @FXML
     void initialize() {
@@ -183,8 +183,8 @@ public class ProcesosAdminController {
     }
 
     private void loadTable() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        columnNombre.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         columnTiempoMinimo.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracionMin"));
         columnTiempoMaximo.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracionMax"));
 

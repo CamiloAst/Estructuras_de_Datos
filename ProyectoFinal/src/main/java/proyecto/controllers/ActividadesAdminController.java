@@ -17,21 +17,12 @@ import proyecto.model.Actividad;
 import proyecto.model.Proceso;
 import proyecto.utils.ShowMessage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import static proyecto.controllers.AppController.INSTANCE;
 
 
 public class ActividadesAdminController {
 
     Proceso proceso = INSTANCE.getProcesoActual();
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Label actualizarActividad;
@@ -49,7 +40,7 @@ public class ActividadesAdminController {
     public TableColumn<Actividad, Boolean> columnObligatoriaActvidad;
 
     @FXML
-    private ComboBox<Actividad> comboBoxObligatoria;
+    private ComboBox<Boolean> comboBoxObligatoria;
 
     @FXML
     private Label crearActividad;
@@ -77,7 +68,6 @@ public class ActividadesAdminController {
     private Label verTareas;
     private Aplicacion aplicacion;
 
-    ObservableList<Actividad> listaActividadesData = FXCollections.observableArrayList(proceso.getListaActividades().getTableData());
     Object actividadSeleccion;
 
     @FXML
@@ -108,9 +98,6 @@ public class ActividadesAdminController {
         aplicacion.mostrarVentanaIniciarHerramienta();
     }
 
-
-
-
     @FXML
     void actualizarActividadAction(MouseEvent event) {
 
@@ -120,7 +107,7 @@ public class ActividadesAdminController {
     void crearActividadAction(MouseEvent event) {
         try {
             if(!txtNombre.getText().isEmpty() && !txtDescripcionActividad.getText().isEmpty())
-                proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), false));
+                proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), comboBoxObligatoria.getValue()));
             else
                 throw new IncompleteDataException();
         } catch (ActivityAlreadyExistException e) {
@@ -132,7 +119,7 @@ public class ActividadesAdminController {
 
     void crearActividadSecuencia(){
         if (!txtNombre.getText().isEmpty() && !txtDescripcionActividad.getText().isEmpty())
-            proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), false), "Actividad 1");
+            proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), comboBoxObligatoria.getValue()), "Actividad 1");
         else
             ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "Faltan datos");
     }
@@ -155,6 +142,7 @@ public class ActividadesAdminController {
             aplicacion.mostrarVentanaTareasAdmin();
         }
     }
+
     @FXML
     void initialize() {
         assert actualizarActividad != null : "fx:id=\"actualizarActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
@@ -170,6 +158,11 @@ public class ActividadesAdminController {
         assert txtTiempoMinimo != null : "fx:id=\"txtTiempoMinimo\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert tztTiempoMaximoActividad != null : "fx:id=\"tztTiempoMaximoActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert verTareas != null : "fx:id=\"verTareas\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
+
+
+        comboBoxObligatoria.getItems().addAll(true, false);
+
+
 
         loadTable();
 
@@ -191,6 +184,9 @@ public class ActividadesAdminController {
         columnDescripcionActvidad.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         columnObligatoriaActvidad.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue().getIsObligatoria()));
         columnObligatoriaActvidad.setCellFactory(CheckBoxTableCell.forTableColumn(columnObligatoriaActvidad));
+
+        ObservableList<Actividad> listaActividadesData = FXCollections.observableArrayList(proceso.getListaActividades().getTableData());
+        tableActividades.setItems(listaActividadesData);
 
     }
 

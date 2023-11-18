@@ -1,5 +1,6 @@
 package proyecto.model;
 
+import proyecto.exceptions.ActivityAlreadyExistException;
 import proyecto.exceptions.ProcessAlreadyExist;
 import proyecto.exceptions.UserAlreadyExistException;
 import proyecto.exceptions.UserDoesntExistException;
@@ -87,8 +88,8 @@ public class Herramienta {
         }
         return null;
     }
-    public void createProcess(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax){
-        addProcess(new Proceso(nombre, id, tiempoDuracionMin, tiempoDuracionMax));
+    public void createProcess(String nombre, String id){
+        addProcess(new Proceso(nombre, id));
     }
     public void delete(Proceso proceso){
         processList.remove(proceso);
@@ -125,6 +126,28 @@ public class Herramienta {
         usuario2.setTipoUsuario(TipoUsuario.REGULAR);
 
         userList.add(usuario2);
+
+        //---------------------------------
+
+        Proceso proceso1 = new Proceso("proceso 1", processList.size()+"");
+        Proceso proceso2 = new Proceso("proceso 2", processList.size()+"");
+        processList.add(proceso1);
+        processList.add(proceso2);
+
+        //-------------------------------------
+        Actividad actividad1 = new Actividad("actividad 1", "descripcion actividad 1", true);
+        Actividad actividad2 = new Actividad("actividad 2", "descripcion actividad 2", true);
+        Actividad actividad3 = new Actividad("actividad 3", "descripcion actividad 3", true);
+
+        try {
+            proceso1.getListaActividades().add(actividad2);
+            proceso1.getListaActividades().add(actividad1);
+            proceso2.getListaActividades().add(actividad3);
+        } catch (ActivityAlreadyExistException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     public boolean verificarPermisos(String nombreUsuario){

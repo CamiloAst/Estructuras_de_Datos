@@ -19,17 +19,11 @@ public class Proceso {
     private ActivityList<Actividad> listaActividades;
 
 
-    public Proceso(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax) {
-        this.nombre = nombre;
-        this.id = id;
-        this.tiempoDuracionMin = tiempoDuracionMin;
-        this.tiempoDuracionMax = tiempoDuracionMax;
-        listaActividades = new ActivityList<>();
-    }
     public Proceso(String nombre, String id) {
         super();
         this.nombre = nombre;
         this.id = id;
+        listaActividades = new ActivityList<>();
     }
 
 
