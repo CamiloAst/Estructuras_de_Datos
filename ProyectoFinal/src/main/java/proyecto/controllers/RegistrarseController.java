@@ -25,6 +25,8 @@ public class RegistrarseController {
 
     @FXML
     private TextField txtNombreUsuario;
+    @FXML
+    private TextField txtEmail;
 
 
 
@@ -34,11 +36,12 @@ public class RegistrarseController {
     void registrarseAction(ActionEvent event) {
         String nombreUsuario = txtNombreUsuario.getText();
         String contrasenia = txtContrasenia.getText();
+        String email = txtEmail.getText();
 
         if (nombreUsuario.isEmpty() || contrasenia.isEmpty()) {
             ShowMessage.mostrarMensaje("Error", "Campos vacios", "Por favor ingrese todos los datos");
         } else {
-            herramienta.createUser(nombreUsuario, contrasenia, TipoUsuario.REGULAR);
+            herramienta.createUser(nombreUsuario, contrasenia, TipoUsuario.REGULAR, email);
             ShowMessage.mostrarMensaje("Exito", "Usuario registrado", "El usuario se ha registrado exitosamente");
             aplicacion.mostrarVentanaIniciarHerramienta();
         }
@@ -47,9 +50,6 @@ public class RegistrarseController {
 
     @FXML
     void initialize() {
-        assert btnRegistrarse != null : "fx:id=\"btnRegistrarse\" was not injected: check your FXML file 'Registrarse.fxml'.";
-        assert txtContrasenia != null : "fx:id=\"txtContrasenia\" was not injected: check your FXML file 'Registrarse.fxml'.";
-        assert txtNombreUsuario != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Registrarse.fxml'.";
 
     }
     public void setAplicacion(Aplicacion aplicacion) {

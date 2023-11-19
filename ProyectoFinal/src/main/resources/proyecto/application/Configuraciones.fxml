@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,9 +17,6 @@
                   <Font name="Sitka Text" size="26.0" />
                </font>
             </Label>
-            <Label fx:id="nombreUsuario" layoutX="54.0" layoutY="193.0" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #ffff;" textFill="#fcf7f7" />
-            <Label fx:id="contrasenia" layoutX="55.0" layoutY="250.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #ffff;" />
-            <Label fx:id="tipoUsuario" layoutX="55.0" layoutY="307.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #ffff;" textFill="WHITE" />
             <Label layoutX="15.0" layoutY="85.0" prefHeight="18.0" prefWidth="252.0" text="Usamos esta información para verificar ">
                <font>
                   <Font name="Sitka Text" size="13.0" />
@@ -39,6 +37,10 @@
                   <Image url="@../../images/login.png" />
                </image>
             </ImageView>
+            <ComboBox fx:id="comboBoxTipoUsuario" layoutX="54.0" layoutY="304.0" prefHeight="31.0" prefWidth="150.0" promptText="Tipo de Usuario" style="-fx-background-color: #00c7c7;" />
+            <TextField fx:id="txtnombre" layoutX="54.0" layoutY="185.0" promptText="nombre" />
+            <TextField fx:id="txtPassword" layoutX="54.0" layoutY="260.0" promptText="contraseña" />
+            <TextField fx:id="txtCorreo" layoutX="54.0" layoutY="220.0" promptText="Correo electronico" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="480.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">

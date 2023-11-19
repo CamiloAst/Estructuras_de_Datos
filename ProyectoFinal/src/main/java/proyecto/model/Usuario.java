@@ -1,24 +1,23 @@
 package proyecto.model;
 
-import javafx.event.EventType;
-import javafx.scene.input.MouseEvent;
-
 import java.util.Objects;
 
 public class Usuario {
 
     private TipoUsuario tipoUsuario;
     private String nombreUsuario;
-
     private String contrasenia;
+    private TipoNotificacion tipoNotificacion = TipoNotificacion.CORREO;
+    private String correo;
 
-    private TipoNotificacion tipoNotificacion;
 
 
-    public Usuario(TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia) {
+
+    public Usuario(TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia, String correo) {
         this.tipoUsuario = tipoUsuario;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
+        this.correo = correo;
     }
     public Usuario(){
         super();
@@ -48,6 +47,18 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public TipoNotificacion getTipoNotificacion() {
+        return tipoNotificacion;
+    }
+
     public void setTipoNotificacion(TipoNotificacion tipoNotificacion) {
         this.tipoNotificacion = tipoNotificacion;
     }
@@ -74,7 +85,4 @@ public class Usuario {
     }
 
 
-}
-enum TipoNotificacion{
-    CORREO, APLICACION
 }

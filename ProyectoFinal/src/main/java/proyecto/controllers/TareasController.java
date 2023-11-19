@@ -3,16 +3,27 @@ package proyecto.controllers;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import proyecto.application.Aplicacion;
 import proyecto.model.Actividad;
+import proyecto.model.Proceso;
 import proyecto.model.Tarea;
 import proyecto.utils.ShowMessage;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import static proyecto.controllers.AppController.INSTANCE;
 
@@ -118,30 +129,47 @@ public class TareasController {
         }
         INSTANCE.getProcesoActual().calcularTiempos();
     }
-    public void setAplicacion(Aplicacion aplicacion) {
-        this.aplicacion = aplicacion;
+
+    public void exportExcel(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como archivo Excel");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivo Excel (*.xlsx)", "*.xlsx"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            exportarTablaAExcel(file);
+        }
+    }
+    private void exportarTablaAExcel(File file) {
+        try (Workbook workbook = new XSSFWorkbook(); FileOutputStream fileOut = new FileOutputStream(file)) {
+            Sheet sheet = workbook.createSheet("Datos");
+
+            // Encabezados de columna
+            Row headerRow = sheet.createRow(0);
+            for (int i = 0; i < tableTareas.getColumns().size(); i++) {
+                headerRow.createCell(i).setCellValue(tableTareas.getColumns().get(i).getText());
+            }
+
+            // Datos de la tabla
+            ObservableList<Tarea> items = tableTareas.getItems();
+            for (int i = 0; i < items.size(); i++) {
+                Row row = sheet.createRow(i + 1);
+                row.createCell(0).setCellValue(items.get(i).getNombre());
+                row.createCell(1).setCellValue(items.get(i).getDescripcion());
+                row.createCell(2).setCellValue(items.get(i).getTiempoDuracion());
+                row.createCell(3).setCellValue(items.get(i).getObigatoria());
+            }
+
+            workbook.write(fileOut);
+            System.out.println("Exportación exitosa a Excel.");
+        } catch (IOException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al exportar a Excel", "No se pudo exportar la tabla a Excel.");
+        }
     }
 
     @FXML
     void initialize() {
-        assert actualizarProceso != null : "fx:id=\"actualizarProceso\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert cerrarSesion != null : "fx:id=\"cerrarSesion\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert columnDescripcion != null : "fx:id=\"columnId\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert columnNombre != null : "fx:id=\"columnNombre\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert columnTiempo != null : "fx:id=\"columnTiempoMaximo\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert comboBoxObligatoria != null : "fx:id=\"comboBoxObligatoria\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert crearTarea != null : "fx:id=\"crearTarea\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert eliminarTarea != null : "fx:id=\"eliminarTarea\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert iconActualizar != null : "fx:id=\"iconActualizar\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert iconCerrarSesion != null : "fx:id=\"iconCerrarSesion\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert iconCrear != null : "fx:id=\"iconCrear\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert iconEliminar != null : "fx:id=\"iconEliminar\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert nombreUsuario != null : "fx:id=\"nombreUsuario\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert tableTareas != null : "fx:id=\"tableProcesos\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert txtDescripcion != null : "fx:id=\"txtIdProceso\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert txtNombre != null : "fx:id=\"txtNombreProceso\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert txtTiempo != null : "fx:id=\"txtTiempoMaximo\" was not injected: check your FXML file 'Tareas.fxml'.";
-        assert columnIsObligatoria != null : "fx:id=\"columnIsObligatoria\" was not injected: check your FXML file 'Tareas.fxml'.";
+        nombreUsuario = new Label(actividad.getNombre());
 
         loadTable();
 
@@ -174,6 +202,10 @@ public class TareasController {
     private void rechargeTable(){
         ObservableList<Tarea> updatedTableData = FXCollections.observableArrayList(actividad.getListaTareas().getTableData());
         tableTareas.setItems(updatedTableData);
+    }
+
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
     }
 
 }

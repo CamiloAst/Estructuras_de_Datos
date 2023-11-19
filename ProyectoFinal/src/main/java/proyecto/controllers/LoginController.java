@@ -23,13 +23,6 @@ import static proyecto.controllers.AppController.INSTANCE;
 public class LoginController {
 
     Herramienta herramienta = INSTANCE.getHerramienta();
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
     @FXML
     private Button btnIngresar;
 
@@ -43,8 +36,6 @@ public class LoginController {
     private TextField txtNombreAdministrador;
     private Aplicacion aplicacion;
 
-    @FXML
-    private ImageView atras;
 
 
     @FXML
@@ -53,16 +44,16 @@ public class LoginController {
     }
     @FXML
     void actionIngresar(ActionEvent event) {
-    String nombre = "";
+    String correo = "";
     String contrasenia = "";
 
-    nombre = txtNombreAdministrador.getText();
+    correo = txtNombreAdministrador.getText();
     contrasenia = txtContrasenia.getText();
 
     try {
-        if (datosValidos(nombre, contrasenia)) {
-            if (herramienta.userExist(nombre) && herramienta.searchUser(nombre).getContrasenia().equals(contrasenia)) {
-                INSTANCE.setUsuarioActual(herramienta.searchUser(nombre));
+        if (datosValidos(correo, contrasenia)) {
+            if (herramienta.searchUser(correo).getContrasenia().equals(contrasenia)) {
+                INSTANCE.setUsuarioActual(herramienta.searchUser(correo));
                 aplicacion.mostrarVentanaProcesosAdmin();
             } else {
                 throw new UserDoesntExistException();

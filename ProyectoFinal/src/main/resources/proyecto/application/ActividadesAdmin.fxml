@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -120,10 +121,11 @@
             <Image url="@../../images/cerrarSesion.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtBuscar" layoutX="297.0" layoutY="425.0" onInputMethodTextChanged="#searchActivity" promptText="Buscar">
+      <TextField fx:id="txtBuscar" layoutX="391.0" layoutY="425.0" onInputMethodTextChanged="#searchActivity" prefHeight="35.0" prefWidth="168.0" promptText="Buscar">
          <font>
             <Font name="Sitka Small Italic" size="19.0" />
          </font>
       </TextField>
+      <Button layoutX="273.0" layoutY="430.0" mnemonicParsing="false" onAction="#exportExcel" text="Exportar" />
    </children>
 </AnchorPane>
