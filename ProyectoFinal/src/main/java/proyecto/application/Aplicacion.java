@@ -6,10 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import proyecto.controllers.*;
-import proyecto.model.Actividad;
 import proyecto.model.Herramienta;
-import proyecto.model.Proceso;
-import proyecto.model.Usuario;
 
 import java.io.IOException;
 
@@ -47,6 +44,8 @@ public class Aplicacion extends Application {
             loader.setLocation(Aplicacion.class.getResource("Acceder.fxml"));
 
             AnchorPane rootLayout = loader.load();
+
+            INSTANCE.setUsuarioActual(null);
 
             Scene scene = new Scene(rootLayout);
             changeWindow(scene);
@@ -111,8 +110,8 @@ public class Aplicacion extends Application {
 
             AnchorPane rootLayout = loader.load();
 
-            ProcesosAdminController procesosAdminController = loader.getController();
-            procesosAdminController.setAplicacion(this);
+            ProcesosController procesosController = loader.getController();
+            procesosController.setAplicacion(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -132,8 +131,8 @@ public class Aplicacion extends Application {
 
             AnchorPane rootLayout = loader.load();
 
-            ActividadesAdminController actividadesAdminController = loader.getController();
-            actividadesAdminController.setAplicacion(this);
+            ActividadesController actividadesController = loader.getController();
+            actividadesController.setAplicacion(this);
 
 
             Scene scene = new Scene(rootLayout);
@@ -151,12 +150,12 @@ public class Aplicacion extends Application {
 
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Aplicacion.class.getResource("TareasAdmin.fxml"));
+            loader.setLocation(Aplicacion.class.getResource("Tareas.fxml"));
 
             AnchorPane rootLayout = loader.load();
 
-            TareasAdminController tareasAdminController = loader.getController();
-            tareasAdminController.setAplicacion(this);
+            TareasController tareasController = loader.getController();
+            tareasController.setAplicacion(this);
 
             Scene scene = new Scene(rootLayout);
             changeWindow(scene);

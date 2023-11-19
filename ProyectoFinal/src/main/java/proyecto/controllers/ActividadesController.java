@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import proyecto.application.Aplicacion;
 import proyecto.exceptions.ActivityAlreadyExistException;
@@ -17,10 +18,12 @@ import proyecto.model.Actividad;
 import proyecto.model.Proceso;
 import proyecto.utils.ShowMessage;
 
+import java.util.stream.Collectors;
+
 import static proyecto.controllers.AppController.INSTANCE;
 
 
-public class ActividadesAdminController {
+public class ActividadesController {
 
     Proceso proceso = INSTANCE.getProcesoActual();
 
@@ -39,6 +42,10 @@ public class ActividadesAdminController {
     @FXML
     public TableColumn<Actividad, Boolean> columnObligatoriaActvidad;
 
+    public TableColumn<Actividad, Integer> columnTiempoMinimo;
+
+    public TableColumn<Actividad, Integer> ColumnTiempoTotal;
+
     @FXML
     private ComboBox<Boolean> comboBoxObligatoria;
 
@@ -53,7 +60,7 @@ public class ActividadesAdminController {
 
 
     @FXML
-    private TextField txtDescripcionActividad;
+    private TextField txtDescripcion;
 
     @FXML
     private TextField txtNombre;
@@ -63,6 +70,8 @@ public class ActividadesAdminController {
 
     @FXML
     private TextField tztTiempoMaximoActividad;
+    @FXML
+    public TextField txtBuscar;
 
     @FXML
     private Label verTareas;
@@ -94,34 +103,50 @@ public class ActividadesAdminController {
 
     @FXML
     void cerrarSesionAction(MouseEvent event) {
-
         aplicacion.mostrarVentanaIniciarHerramienta();
     }
 
     @FXML
     void actualizarActividadAction(MouseEvent event) {
-
+        if(actividadSeleccion != null){
+            try {
+                if(!txtNombre.getText().isEmpty() && !txtDescripcion.getText().isEmpty())
+                    proceso.actualizarActividad(txtNombre.getText(), txtDescripcion.getText());
+                else
+                    throw new IncompleteDataException();
+            } catch (IncompleteDataException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al actualizar actividad", "Faltan datos");
+            }
+        }
+        rechargeTable();
     }
 
     @FXML
     void crearActividadAction(MouseEvent event) {
-        try {
-            if(!txtNombre.getText().isEmpty() && !txtDescripcionActividad.getText().isEmpty())
-                proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), comboBoxObligatoria.getValue()));
-            else
-                throw new IncompleteDataException();
-        } catch (ActivityAlreadyExistException e) {
-            ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
-        } catch (IncompleteDataException e) {
-            ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "Faltan datos");
+
+        if(proceso.getListaActividades().getSize() == 0 || actividadSeleccion == null) {
+            try {
+                if (!txtNombre.getText().isEmpty() && !txtDescripcion.getText().isEmpty())
+                    proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcion.getText(), comboBoxObligatoria.getValue()));
+                else
+                    throw new IncompleteDataException();
+            } catch (ActivityAlreadyExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
+            } catch (IncompleteDataException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "Faltan datos");
+            }
+        }else{
+            crearActividadSecuencia();
         }
+        rechargeTable();
     }
 
     void crearActividadSecuencia(){
-        if (!txtNombre.getText().isEmpty() && !txtDescripcionActividad.getText().isEmpty())
-            proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcionActividad.getText(), comboBoxObligatoria.getValue()), "Actividad 1");
+        if (!txtNombre.getText().isEmpty() && !txtDescripcion.getText().isEmpty())
+            proceso.agregarActividad(new Actividad(txtNombre.getText(), txtDescripcion.getText(), comboBoxObligatoria.getValue()), ((Actividad) actividadSeleccion).getNombre());
         else
             ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "Faltan datos");
+
     }
 
     @FXML
@@ -132,7 +157,20 @@ public class ActividadesAdminController {
             } catch (ActivityDontExistException e) {
                 ShowMessage.mostrarMensaje("Error", "Error al eliminar actividad", "La actividad no existe");
             }
+        } else if (proceso.getListaActividades().getSize() == 1){
+            try {
+                proceso.eliminarActividad(proceso.getListaActividades().getFirstNode().getValue());
+            } catch (ActivityDontExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al eliminar actividad", "La actividad no existe");
+            }
+        }else if (!txtNombre.getText().isEmpty()){
+            try {
+                proceso.eliminarActividad(txtNombre.getText());
+            } catch (ActivityDontExistException e) {
+                ShowMessage.mostrarMensaje("Error", "Error al eliminar actividad", "La actividad no existe");
+            }
         }
+        rechargeTable();
     }
 
     @FXML
@@ -153,7 +191,7 @@ public class ActividadesAdminController {
         assert eliminarActividad != null : "fx:id=\"eliminarActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert iconLogin != null : "fx:id=\"iconLogin\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert tableActividades != null : "fx:id=\"tableActividades\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert txtDescripcionActividad != null : "fx:id=\"txtDescripcionActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
+        assert txtDescripcion != null : "fx:id=\"txtDescripcionActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert txtTiempoMinimo != null : "fx:id=\"txtTiempoMinimo\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
         assert tztTiempoMaximoActividad != null : "fx:id=\"tztTiempoMaximoActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
@@ -177,6 +215,9 @@ public class ActividadesAdminController {
             }
         });
 
+        txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            searchActivity();
+        });
     }
 
     private void loadTable() {
@@ -184,10 +225,19 @@ public class ActividadesAdminController {
         columnDescripcionActvidad.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         columnObligatoriaActvidad.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue().getIsObligatoria()));
         columnObligatoriaActvidad.setCellFactory(CheckBoxTableCell.forTableColumn(columnObligatoriaActvidad));
+        columnTiempoMinimo.setCellValueFactory(new PropertyValueFactory<>("tiempoMinimo"));
+        ColumnTiempoTotal.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracion"));
 
         ObservableList<Actividad> listaActividadesData = FXCollections.observableArrayList(proceso.getListaActividades().getTableData());
         tableActividades.setItems(listaActividadesData);
 
+    }
+
+    private void rechargeTable(){
+        ObservableList<Actividad> listaActividadesData = FXCollections.observableArrayList(proceso.getListaActividades().getTableData());
+        tableActividades.setItems(listaActividadesData);
+        txtNombre.setText("");
+        txtDescripcion.setText("");
     }
 
 
@@ -195,4 +245,12 @@ public class ActividadesAdminController {
         this.aplicacion = aplicacion;
     }
 
+    public void searchActivity() {
+        String text = txtBuscar.getText().toLowerCase();
+        ObservableList<Actividad> filteredList = proceso.getListaActividades().getTableData().stream()
+                .filter(actividad -> actividad.getNombre().toLowerCase().contains(text))
+                .collect(Collectors.collectingAndThen(Collectors.toList(), FXCollections::observableArrayList));
+
+        tableActividades.setItems(filteredList);
+    }
 }

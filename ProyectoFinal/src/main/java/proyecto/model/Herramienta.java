@@ -121,7 +121,7 @@ public class Herramienta {
         userList.add(usuario1);
 
         Usuario usuario2 = new Usuario();
-        usuario2.setNombreUsuario("Juan ");
+        usuario2.setNombreUsuario("Juan");
         usuario2.setContrasenia("Velez");
         usuario2.setTipoUsuario(TipoUsuario.REGULAR);
 
@@ -129,10 +129,17 @@ public class Herramienta {
 
         //---------------------------------
 
-        Proceso proceso1 = new Proceso("proceso 1", processList.size()+"");
-        Proceso proceso2 = new Proceso("proceso 2", processList.size()+"");
-        processList.add(proceso1);
-        processList.add(proceso2);
+        Tarea tarea1 = new Tarea("tarea 1", "descripcion tarea 1", true, 20);
+        Tarea tarea2 = new Tarea("tarea 2", "descripcion tarea 2", false, 20);
+        Tarea tarea3 = new Tarea("tarea 3", "descripcion tarea 3", true, 20);
+        Tarea tarea4 = new Tarea("tarea 4", "descripcion tarea 4", false, 20);
+        Tarea tarea5 = new Tarea("tarea 5", "descripcion tarea 5", true, 20);
+        Tarea tarea6 = new Tarea("tarea 6", "descripcion tarea 6", false, 20);
+        Tarea tarea7 = new Tarea("tarea 7", "descripcion tarea 7", true, 20);
+        Tarea tarea8 = new Tarea("tarea 8", "descripcion tarea 8", false, 20);
+        Tarea tarea9 = new Tarea("tarea 9", "descripcion tarea 9", true, 20);
+
+
 
         //-------------------------------------
         Actividad actividad1 = new Actividad("actividad 1", "descripcion actividad 1", true);
@@ -140,14 +147,30 @@ public class Herramienta {
         Actividad actividad3 = new Actividad("actividad 3", "descripcion actividad 3", true);
 
         try {
-            proceso1.getListaActividades().add(actividad2);
-            proceso1.getListaActividades().add(actividad1);
-            proceso2.getListaActividades().add(actividad3);
+            actividad1.crearTarea(tarea1);
+            actividad1.crearTarea(tarea2);
+            actividad1.crearTarea(tarea3);
+            actividad2.crearTarea(tarea4);
+            actividad2.crearTarea(tarea5);
+            actividad2.crearTarea(tarea6);
+            actividad3.crearTarea(tarea7);
+            actividad3.crearTarea(tarea8);
+            actividad3.crearTarea(tarea9);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        //-----------------------------------------
+        Proceso proceso1 = new Proceso("proceso 1", processList.size()+"");
+        processList.add(proceso1);
+        Proceso proceso2 = new Proceso("proceso 2", processList.size()+"");
+        processList.add(proceso2);
+        try {
+            proceso1.agregarActividad(actividad2);
+            proceso1.agregarActividad(actividad1);
+            proceso2.agregarActividad(actividad3);
         } catch (ActivityAlreadyExistException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public boolean verificarPermisos(String nombreUsuario){

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static proyecto.controllers.AppController.INSTANCE;
+
 public class AccederController {
     private final Aplicacion aplicacion = new Aplicacion();
 
@@ -31,6 +33,7 @@ public class AccederController {
 
     @FXML
     void ingresarAdminAction(ActionEvent event) {
+        INSTANCE.setUsuarioActual(null);
         aplicacion.mostrarVentanaLoginAdmin();
 
     }

@@ -10,25 +10,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="469.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.ActividadesAdminController">
+<AnchorPane prefHeight="491.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.ActividadesController">
    <children>
-      <TableView fx:id="tableActividades" layoutX="219.0" layoutY="114.0" prefHeight="281.0" prefWidth="492.0">
+      <TableView fx:id="tableActividades" layoutX="244.0" layoutY="117.0" prefHeight="281.0" prefWidth="630.0">
         <columns>
           <TableColumn fx:id="columnNombreActividad" prefWidth="131.0" text="Nombre" />
           <TableColumn fx:id="columnDescripcionActvidad" prefWidth="126.0" text="Descripcion " />
             <TableColumn fx:id="columnObligatoriaActvidad" prefWidth="150.0" text="Obligatoria" />
+            <TableColumn fx:id="columnTiempoMinimo" prefWidth="112.0" text="Tiempo minimo" />
+            <TableColumn fx:id="ColumnTiempoTotal" prefWidth="110.0" text="Tiempo total" />
         </columns>
       </TableView>
-      <Label layoutX="370.0" layoutY="80.0" text="Actividades" textFill="#00c7c7">
+      <Label layoutX="476.0" layoutY="80.0" text="Actividades" textFill="#00c7c7">
          <font>
             <Font name="Sitka Text" size="22.0" />
          </font>
       </Label>
-      <AnchorPane prefHeight="56.0" prefWidth="712.0" style="-fx-background-color: #00c7c7;">
+      <AnchorPane prefHeight="56.0" prefWidth="888.0" style="-fx-background-color: #00c7c7;">
          <children>
-            <ImageView fitHeight="36.0" fitWidth="54.0" layoutX="662.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="54.0" layoutX="827.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../Downloads/login.png" />
+                  <Image url="@../../images/login.png" />
                </image>
             </ImageView>
             <Label fx:id="nombreProceso" layoutX="21.0" layoutY="15.0" prefHeight="31.0" prefWidth="151.0" textFill="WHITE">
@@ -38,31 +40,29 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="56.0" prefHeight="436.0" prefWidth="220.0" style="-fx-background-color: #CCABD8;">
+      <AnchorPane layoutY="56.0" prefHeight="436.0" prefWidth="241.0" style="-fx-background-color: #CCABD8;">
          <children>
             <Label layoutX="8.0" layoutY="33.0" text="Crear Actividad" textFill="WHITE">
                <font>
                   <Font name="Sitka Text" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNombreProceso" layoutX="25.0" layoutY="82.0" prefHeight="31.0" prefWidth="151.0" promptText="Nombre">
+            <TextField fx:id="txtNombre" layoutX="35.0" layoutY="123.0" prefHeight="31.0" prefWidth="151.0" promptText="Nombre">
                <font>
                   <Font name="Sitka Text Italic" size="19.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtIdProceso" layoutX="25.0" layoutY="123.0" prefHeight="31.0" prefWidth="151.0" promptText="Descripcion">
+            <TextField fx:id="txtDescripcion" layoutX="35.0" layoutY="178.0" prefHeight="31.0" prefWidth="151.0" promptText="Descripcion">
                <font>
                   <Font name="Sitka Text" size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtTiempoMinimo1" layoutX="25.0" layoutY="165.0" prefHeight="31.0" prefWidth="151.0" promptText="Tiempo Minimo" />
-            <TextField fx:id="txtTiempoMaximo" layoutX="27.0" layoutY="202.0" prefHeight="31.0" prefWidth="151.0" promptText="Tiempo Maximo " />
             <Label fx:id="abrirTareas" layoutX="35.0" layoutY="397.0" onMouseClicked="#abrirTareasAction" text="Abrir Tareas " textFill="#fff6f6" underline="true">
                <font>
                   <Font name="Sitka Text" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="eliinarActividad" layoutX="59.0" layoutY="337.0" onMouseClicked="#eliminarActividadAction" text="Eliminar " textFill="#fff6f6" underline="true">
+            <Label fx:id="eliminarActividad" layoutX="59.0" layoutY="337.0" onMouseClicked="#eliminarActividadAction" text="Eliminar " textFill="#fff6f6" underline="true">
                <font>
                   <Font name="Sitka Text" size="20.0" />
                </font>
@@ -79,46 +79,51 @@
             </Label>
             <ImageView fx:id="iconCrear" fitHeight="26.0" fitWidth="30.0" layoutX="46.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/agregar.png" />
+                  <Image url="@../../images/agregar.png" />
                </image>
             </ImageView>
             <ImageView fx:id="iconEliminar" fitHeight="23.0" fitWidth="23.0" layoutX="35.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/eliminar.png" />
+                  <Image url="@../../images/eliminar.png" />
                </image>
             </ImageView>
             <ImageView fx:id="iconActualizar" fitHeight="26.0" fitWidth="30.0" layoutX="25.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/actualizar.png" />
+                  <Image url="@../../images/actualizar.png" />
                </image>
             </ImageView>
             <ImageView fx:id="iconAbrir" fitHeight="23.0" fitWidth="26.0" layoutX="14.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/ver.png" />
+                  <Image url="@../../images/ver.png" />
                </image>
             </ImageView>
             <ComboBox fx:id="comboBoxObligatoria" layoutX="28.0" layoutY="252.0" prefWidth="150.0" promptText="Obligatoria" style="-fx-background-color: #00c7c7;" />
-            <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="169.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="198.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../Downloads/actividad.png" />
+                  <Image url="@../../images/actividad.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="500.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="606.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/actividades.png" />
+            <Image url="@../../images/actividades.png" />
          </image>
       </ImageView>
-      <Label fx:id="cerrarSesion" layoutX="570.0" layoutY="441.0" onMouseClicked="#cerrarSesionAction" text="Cerrar Sesión">
+      <Label fx:id="cerrarSesion" layoutX="688.0" layoutY="442.0" onMouseClicked="#cerrarSesionAction" text="Cerrar Sesión">
          <font>
             <Font name="Sitka Text" size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="iconCerrarSesion" fitHeight="30.0" fitWidth="54.0" layoutX="536.0" layoutY="438.0" onMouseClicked="#cerrarSesionAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iconCerrarSesion" fitHeight="30.0" fitWidth="54.0" layoutX="626.0" layoutY="439.0" onMouseClicked="#cerrarSesionAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/cerrarSesion.png" />
+            <Image url="@../../images/cerrarSesion.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtBuscar" layoutX="297.0" layoutY="425.0" onInputMethodTextChanged="#searchActivity" promptText="Buscar">
+         <font>
+            <Font name="Sitka Small Italic" size="19.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
