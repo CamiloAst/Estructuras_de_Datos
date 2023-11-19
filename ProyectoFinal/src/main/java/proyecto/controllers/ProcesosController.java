@@ -2,6 +2,7 @@ package proyecto.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -10,6 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.*;
 import proyecto.application.Aplicacion;
 import proyecto.exceptions.AccesDeniedException;
 import proyecto.model.Herramienta;
@@ -17,6 +23,10 @@ import proyecto.model.Proceso;
 import proyecto.model.TipoUsuario;
 import proyecto.model.Usuario;
 import proyecto.utils.ShowMessage;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import static proyecto.controllers.AppController.INSTANCE;
 
@@ -48,18 +58,18 @@ public class ProcesosController {
 
     @FXML
     private TableColumn<Proceso, Integer> columnTiempoMinimo;
+    @FXML
+    private TableView<Proceso> tableProcesos;
 
     @FXML
     private Label crearProceso;
 
     @FXML
-    private Label eliinarProceso;
+    private Label eliminarProceso;
 
     @FXML
     private ImageView iconCerrarSesion;
 
-    @FXML
-    private TableView<Proceso> tableProcesos;
 
     @FXML
     private TextField txtNombreProceso;
@@ -67,28 +77,8 @@ public class ProcesosController {
     @FXML
     private Label nombreUsuario;
 
-    @FXML
-    private ImageView iconAbrir;
-
-    @FXML
-    private ImageView iconActualizar;
-
-    @FXML
-    private ImageView iconCrear;
-
-    @FXML
-    private ImageView iconEliminar;
-
-    @FXML
-    private ImageView iconConfiguracion;
-
     Object procesoSeleccion;
     ObservableList<Proceso> listaProcesosData = FXCollections.observableArrayList();
-
-    private void obtenerNombreVendedor(){
-        String nombre= INSTANCE.getUsuarioActual().getNombreUsuario();
-        nombreUsuario.setText(nombre);
-    }
 
     @FXML
     void abiriActiviadesAction(MouseEvent event) {
@@ -113,6 +103,7 @@ public class ProcesosController {
         } catch (AccesDeniedException e) {
             ShowMessage.mostrarMensaje("Error", "Error al crear proceso", "No tiene permisos para crear procesos");
         }
+        notificarAlCorreo("Se ha creado un proceso ");
         rechargeTable();
     }
 
@@ -128,6 +119,7 @@ public class ProcesosController {
         } catch (AccesDeniedException e) {
             throw new RuntimeException(e);
         }
+        notificarAlCorreo("Se ha eliminado un proceso ");
         rechargeTable();
     }
 
@@ -141,27 +133,53 @@ public class ProcesosController {
             return true;
         throw new AccesDeniedException();
     }
+
+    public void exportExcel(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como archivo Excel");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivo Excel (*.xlsx)", "*.xlsx"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            exportarTablaAExcel(file);
+        }
+    }
+    private void exportarTablaAExcel(File file) {
+        try (Workbook workbook = new XSSFWorkbook(); FileOutputStream fileOut = new FileOutputStream(file)) {
+            Sheet sheet = workbook.createSheet("Datos");
+
+            // Encabezados de columna
+            Row headerRow = sheet.createRow(0);
+            for (int i = 0; i < tableProcesos.getColumns().size(); i++) {
+                headerRow.createCell(i).setCellValue(tableProcesos.getColumns().get(i).getText());
+            }
+
+            // Datos de la tabla
+            ObservableList<Proceso> items = tableProcesos.getItems();
+            for (int i = 0; i < items.size(); i++) {
+                Row row = sheet.createRow(i + 1);
+                row.createCell(0).setCellValue(items.get(i).getId());
+                row.createCell(1).setCellValue(items.get(i).getNombre());
+                row.createCell(2).setCellValue(items.get(i).getTiempoDuracionMin());
+                row.createCell(3).setCellValue(items.get(i).getTiempoDuracionMax());
+            }
+
+            workbook.write(fileOut);
+            System.out.println("Exportación exitosa a Excel.");
+        } catch (IOException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al exportar a Excel", "No se pudo exportar la tabla a Excel.");
+        }
+    }
+
     @FXML
     void initialize() {
-        assert abrirActividades != null : "fx:id=\"abrirActividades\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert actualizarProceso != null : "fx:id=\"actualizarProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert cerrarSesion != null : "fx:id=\"cerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert columnId != null : "fx:id=\"columnId\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert columnNombre != null : "fx:id=\"columnNombre\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert columnTiempoMaximo != null : "fx:id=\"columnTiempoMaximo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert columnTiempoMinimo != null : "fx:id=\"columnTiempoMinimo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert crearProceso != null : "fx:id=\"crearProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert eliinarProceso != null : "fx:id=\"eliinarProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert iconCerrarSesion != null : "fx:id=\"iconCerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert tableProcesos != null : "fx:id=\"tableProcesos\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert txtNombreProceso != null : "fx:id=\"txtNombreProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-
         loadTable();
         tableProcesos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if(newSelection != null){
                 procesoSeleccion = newSelection;
             }
         });
+        notificarAlCorreo("Se ha iniciado sesion");
     }
 
     private void loadTable() {
@@ -176,17 +194,20 @@ public class ProcesosController {
 
         System.out.println(herramienta.getListaProcesos().get(0).getTiempoDuracionMax());
     }
-
     private void rechargeTable(){
         listaProcesosData.clear();
         listaProcesosData.addAll(herramienta.getListaProcesos());
         tableProcesos.setItems(listaProcesosData);
     }
+
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public void notificarAlCorreo(String mensaje){
+        herramienta.notifyUser(mensaje);
     }
 }

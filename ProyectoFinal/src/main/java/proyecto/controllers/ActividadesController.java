@@ -3,6 +3,7 @@ package proyecto.controllers;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
@@ -10,6 +11,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import proyecto.application.Aplicacion;
 import proyecto.exceptions.ActivityAlreadyExistException;
 import proyecto.exceptions.ActivityDontExistException;
@@ -18,6 +24,9 @@ import proyecto.model.Actividad;
 import proyecto.model.Proceso;
 import proyecto.utils.ShowMessage;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.stream.Collectors;
 
 import static proyecto.controllers.AppController.INSTANCE;
@@ -201,7 +210,7 @@ public class ActividadesController {
         comboBoxObligatoria.getItems().addAll(true, false);
 
 
-
+        nombreProceso = new Label(proceso.getNombre());
         loadTable();
 
 
@@ -218,6 +227,43 @@ public class ActividadesController {
         txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
             searchActivity();
         });
+    }
+    public void exportExcel(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como archivo Excel");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivo Excel (*.xlsx)", "*.xlsx"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            exportarTablaAExcel(file);
+        }
+    }
+    private void exportarTablaAExcel(File file) {
+        try (Workbook workbook = new XSSFWorkbook(); FileOutputStream fileOut = new FileOutputStream(file)) {
+            Sheet sheet = workbook.createSheet("Datos");
+
+            // Encabezados de columna
+            Row headerRow = sheet.createRow(0);
+            for (int i = 0; i < tableActividades.getColumns().size(); i++) {
+                headerRow.createCell(i).setCellValue(tableActividades.getColumns().get(i).getText());
+            }
+
+            // Datos de la tabla
+            ObservableList<Actividad> items = tableActividades.getItems();
+            for (int i = 0; i < items.size(); i++) {
+                Row row = sheet.createRow(i + 1);
+                row.createCell(0).setCellValue(items.get(i).getNombre());
+                row.createCell(1).setCellValue(items.get(i).getDescripcion());
+                row.createCell(2).setCellValue(items.get(i).getIsObligatoria());
+                row.createCell(3).setCellValue(items.get(i).getTiempoMinimo());
+                row.createCell(4).setCellValue(items.get(i).getTiempoDuracion());
+            }
+
+            workbook.write(fileOut);
+            System.out.println("Exportación exitosa a Excel.");
+        } catch (IOException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al exportar a Excel", "No se pudo exportar la tabla a Excel.");
+        }
     }
 
     private void loadTable() {

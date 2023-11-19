@@ -6,52 +6,62 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="451.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.RegistrarseController">
+<AnchorPane prefHeight="542.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.RegistrarseController">
    <children>
-      <Label layoutX="120.0" layoutY="25.0" prefHeight="54.0" prefWidth="203.0" text="Registro " textFill="#ccabd8">
+      <Label layoutX="146.0" layoutY="25.0" prefHeight="55.0" prefWidth="214.0" text="Registro " textFill="#ccabd8">
          <font>
             <Font name="Sitka Text" size="47.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="170.0" text="Datos de ingreso " textFill="#ccabd8">
+      <Label layoutX="31.0" layoutY="151.0" text="Datos de ingreso " textFill="#ccabd8">
          <font>
             <Font name="Sitka Text" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="208.0" text="Usuario ">
+      <Label layoutX="31.0" layoutY="198.0" text="Nombre">
          <font>
             <Font name="Sitka Text" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="312.0" text="Conraseña">
+      <Label layoutX="31.0" layoutY="302.0" text="Conraseña">
          <font>
             <Font name="Sitka Text" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnRegistrarse" layoutX="301.0" layoutY="390.0" mnemonicParsing="false" onAction="#registrarseAction" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #00c7c7;" text="Resgistrarse">
+      <Button fx:id="btnRegistrarse" layoutX="371.0" layoutY="476.0" mnemonicParsing="false" onAction="#registrarseAction" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #00c7c7;" text="Resgistrarse">
          <font>
             <Font name="Sitka Text" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="txtNombreUsuario" layoutX="26.0" layoutY="248.0" prefHeight="38.0" prefWidth="203.0" promptText="*Nombre de usuario" style="-fx-background-color: transparent; -fx-border-color: #aaaaaa; -fx-border-width: 0 0 1 0;">
+      <TextField fx:id="txtNombreUsuario" layoutX="34.0" layoutY="238.0" prefHeight="38.0" prefWidth="203.0" promptText="*Nombre de usuario" style="-fx-background-color: transparent; -fx-border-color: #aaaaaa; -fx-border-width: 0 0 1 0;">
          <font>
             <Font name="Tw Cen MT" size="21.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtContrasenia" layoutX="26.0" layoutY="351.0" prefHeight="38.0" prefWidth="203.0" promptText="*Contraseña " style="-fx-background-color: transparent; -fx-border-color: #aaaaaa; -fx-border-width: 0 0 1 0;">
+      <TextField fx:id="txtContrasenia" layoutX="34.0" layoutY="341.0" prefHeight="38.0" prefWidth="203.0" promptText="*Contraseña " style="-fx-background-color: transparent; -fx-border-color: #aaaaaa; -fx-border-width: 0 0 1 0;">
          <font>
             <Font name="Tw Cen MT" size="21.0" />
          </font>
       </TextField>
-      <Label layoutX="55.0" layoutY="91.0" text="Con esta informacion ya quedaras registrado " textFill="#00c7c7">
+      <Label layoutX="80.0" layoutY="94.0" text="Con esta informacion ya quedaras registrado " textFill="#00c7c7">
          <font>
             <Font name="Sitka Text" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="120.0" text="en nuestra herramienta" textFill="#00c7c7">
+      <Label layoutX="163.0" layoutY="121.0" text="en nuestra herramienta" textFill="#00c7c7">
          <font>
             <Font name="Sitka Text" size="15.0" />
          </font>
       </Label>
+      <Label layoutX="31.0" layoutY="405.0" text="Correo">
+         <font>
+            <Font name="Sitka Text" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmail" layoutX="34.0" layoutY="445.0" prefHeight="38.0" prefWidth="203.0" promptText="*Correo Electronico" style="-fx-background-color: transparent; -fx-border-color: #aaaaaa; -fx-border-width: 0 0 1 0;">
+         <font>
+            <Font name="Tw Cen MT" size="21.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

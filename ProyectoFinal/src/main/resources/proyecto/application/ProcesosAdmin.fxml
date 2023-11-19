@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -34,7 +35,7 @@
                <font>
                   <Font name="Sitka Text" size="20.0" />
                </font></Label>
-            <Label fx:id="eliinarProceso" layoutX="59.0" layoutY="337.0" onMouseClicked="#elimiarProcesoAction" text="Eliminar " textFill="#fff6f6" underline="true">
+            <Label fx:id="eliminarProceso" layoutX="59.0" layoutY="337.0" onMouseClicked="#elimiarProcesoAction" text="Eliminar " textFill="#fff6f6" underline="true">
                <font>
                   <Font name="Sitka Text" size="20.0" />
                </font></Label>
@@ -98,12 +99,12 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fx:id="iconCerrarSesion" fitHeight="30.0" fitWidth="54.0" layoutX="528.0" layoutY="384.0" onMouseClicked="#cerrarSesionAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iconCerrarSesion" fitHeight="30.0" fitWidth="54.0" layoutX="503.0" layoutY="385.0" onMouseClicked="#cerrarSesionAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/cerrarSesion.png" />
          </image>
       </ImageView>
-      <Label fx:id="cerrarSesion" layoutX="573.0" layoutY="389.0" onMouseClicked="#cerrarSesionAction" text="Cerrar Sesión">
+      <Label fx:id="cerrarSesion" layoutX="547.0" layoutY="388.0" onMouseClicked="#cerrarSesionAction" text="Cerrar Sesión">
          <font>
             <Font name="Sitka Text" size="20.0" />
          </font>
@@ -116,5 +117,6 @@
             <TableColumn fx:id="columnTiempoMaximo" prefWidth="132.79998779296875" text="Tiempo Maximo " />
          </columns>
       </TableView>
+      <Button layoutX="263.0" layoutY="387.0" mnemonicParsing="false" onAction="#exportExcel" text="Exportar" />
    </children>
 </AnchorPane>
