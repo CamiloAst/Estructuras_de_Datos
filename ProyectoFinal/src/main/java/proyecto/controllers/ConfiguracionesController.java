@@ -15,17 +15,12 @@ public class ConfiguracionesController {
     Aplicacion aplicacion;
 
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private ImageView atras;
 
     @FXML
-    private ComboBox<?> comboBoxNotificacion;
+    private ComboBox<String> comboBoxNotificacion;
 
     @FXML
     private Label contrasenia;
@@ -41,6 +36,7 @@ public class ConfiguracionesController {
 
     @FXML
     void atrasEvent(MouseEvent event) {
+        aplicacion.mostrarVentanaIniciarHerramienta();
     }
 
     @FXML
@@ -57,9 +53,9 @@ public class ConfiguracionesController {
         assert nombreUsuario != null : "fx:id=\"nombreUsuario\" was not injected: check your FXML file 'Configuraciones.fxml'.";
         assert tipoUsuario != null : "fx:id=\"tipoUsuario\" was not injected: check your FXML file 'Configuraciones.fxml'.";
 
+        comboBoxNotificacion.getItems().addAll("Por correo", "En la aplicacion");
+
     }
-
-
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }

@@ -12,6 +12,8 @@ public class Usuario {
 
     private String contrasenia;
 
+    private TipoNotificacion tipoNotificacion;
+
 
     public Usuario(TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia) {
         this.tipoUsuario = tipoUsuario;
@@ -46,6 +48,9 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
+    public void setTipoNotificacion(TipoNotificacion tipoNotificacion) {
+        this.tipoNotificacion = tipoNotificacion;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,8 +73,8 @@ public class Usuario {
                 '}';
     }
 
-    public void addEventHandler(EventType<MouseEvent> mouseClicked, Object o) {
 
-    }
-
+}
+enum TipoNotificacion{
+    CORREO, APLICACION
 }

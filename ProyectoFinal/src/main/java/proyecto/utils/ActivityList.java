@@ -200,4 +200,19 @@ public class ActivityList <E> extends Observable implements Iterable<E>{
     public LinkedListIterator iterator() {
         return new LinkedListIterator();
     }
+
+    public void clear(){
+        firstNode = null;
+        lastNode = null;
+        size = 0;
+    }
+    public String toString(){
+        String result = "";
+        ActivityNode<E> aux = firstNode;
+        while(aux != null){
+            result += aux.getValue().toString() + "\n";
+            aux = aux.getNextNode();
+        }
+        return result;
+    }
 }

@@ -19,17 +19,11 @@ public class Proceso {
     private ActivityList<Actividad> listaActividades;
 
 
-    public Proceso(String nombre, String id, int tiempoDuracionMin, int tiempoDuracionMax) {
-        this.nombre = nombre;
-        this.id = id;
-        this.tiempoDuracionMin = tiempoDuracionMin;
-        this.tiempoDuracionMax = tiempoDuracionMax;
-        listaActividades = new ActivityList<>();
-    }
     public Proceso(String nombre, String id) {
         super();
         this.nombre = nombre;
         this.id = id;
+        listaActividades = new ActivityList<>();
     }
 
 
@@ -46,6 +40,7 @@ public class Proceso {
                 ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
             }
         }
+        calcularTiempos();
     }
 
     public void agregarActividad(Actividad actividad, String nombreActividadAnterior){
@@ -64,9 +59,10 @@ public class Proceso {
                 ShowMessage.mostrarMensaje("Error", "Error al agregar actividad", "La actividad ya existe");
             }
         }
+        calcularTiempos();
     }
 
-    private Actividad buscarActividadPorNombre(String nombreActividadAnterior) {
+    public Actividad buscarActividadPorNombre(String nombreActividadAnterior) {
         for (Actividad actividad : listaActividades) {
             if(actividad.getNombre().equals(nombreActividadAnterior)){
                 return actividad;
@@ -76,10 +72,12 @@ public class Proceso {
     }
     public void eliminarActividad(Actividad actividad) throws ActivityDontExistException {
         listaActividades.remove(actividad);
+        calcularTiempos();
     }
 
     public void eliminarActividad(String nombreActividad) throws ActivityDontExistException {
         listaActividades.remove(buscarActividadPorNombre(nombreActividad));
+        calcularTiempos();
     }
 
     public int calcularTiempoMin(){
@@ -97,6 +95,12 @@ public class Proceso {
         return tiempoTotal;
     }
 
+    public void actualizarActividad(String nombre, String descripcion) {
+        Actividad actividad = buscarActividadPorNombre(nombre);
+        if(actividad != null){
+            actividad.setDescripcion(descripcion);
+        }
+    }
     //----------------------------------------------------------------------------------------
     // Getters y Setters
     public void setNombre(String nombre) {
@@ -133,6 +137,11 @@ public class Proceso {
 
     public ActivityList<Actividad> getListaActividades() {
         return listaActividades;
+    }
+
+    public void calcularTiempos(){
+        tiempoDuracionMin = calcularTiempoMin();
+        tiempoDuracionMax = calcularTiempoTotal();
     }
 
     @Override

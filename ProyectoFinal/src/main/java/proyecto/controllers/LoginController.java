@@ -3,7 +3,10 @@ package proyecto.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import proyecto.application.Aplicacion;
@@ -12,10 +15,10 @@ import proyecto.exceptions.UserDoesntExistException;
 import proyecto.model.Herramienta;
 import proyecto.utils.ShowMessage;
 
-import static proyecto.controllers.AppController.INSTANCE;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static proyecto.controllers.AppController.INSTANCE;
 
 public class LoginController {
 
@@ -29,7 +32,6 @@ public class LoginController {
 
     @FXML
     private Button btnIngresar;
-
 
     @FXML
     private Label olvidoContrasenia;
@@ -47,34 +49,32 @@ public class LoginController {
 
     @FXML
     void atrasAction(MouseEvent event) {
-
         aplicacion.mostrarVentanaIniciarHerramienta();
-
     }
     @FXML
-        void actionIngresar(ActionEvent event) {
-        String usuario = "";
-        String contrasenia = "";
+    void actionIngresar(ActionEvent event) {
+    String nombre = "";
+    String contrasenia = "";
 
-        usuario = txtNombreAdministrador.getText();
-        contrasenia = txtContrasenia.getText();
+    nombre = txtNombreAdministrador.getText();
+    contrasenia = txtContrasenia.getText();
 
-        try {
-            if (datosValidos(usuario, contrasenia)) {
-
-                if (herramienta.userExist(usuario) && herramienta.isAdmin(usuario)) {
-                    aplicacion.mostrarVentanaProcesosAdmin(herramienta.searchUser(usuario));
-                } else {
-                    throw new UserDoesntExistException();
-                }
+    try {
+        if (datosValidos(nombre, contrasenia)) {
+            if (herramienta.userExist(nombre) && herramienta.searchUser(nombre).getContrasenia().equals(contrasenia)) {
+                INSTANCE.setUsuarioActual(herramienta.searchUser(nombre));
+                aplicacion.mostrarVentanaProcesosAdmin();
             } else {
-                throw new IncompleteDataException();
+                throw new UserDoesntExistException();
             }
-        } catch (UserDoesntExistException e) {
-            ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "Los datos ingresados no corresponde a un usuario valido");
-        } catch (IncompleteDataException e) {
-            ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario");
+        } else {
+            throw new IncompleteDataException();
         }
+    } catch (IncompleteDataException e) {
+        ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario");
+    } catch (UserDoesntExistException e) {
+        ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "El usuario no existe o la contrasenia es incorrecta");
+    }
 
     }
 
@@ -84,25 +84,25 @@ public class LoginController {
     }
 
 
-        @FXML
-        void olvidoContraseniaAction(MouseEvent event) {
-            olvidoContrasenia.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->{
-                aplicacion.mostrarVentanaRecuperarContrasenia();
-            });
-        }
+    @FXML
+    void olvidoContraseniaAction(MouseEvent event) {
+        olvidoContrasenia.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->{
+            aplicacion.mostrarVentanaRecuperarContrasenia();
+        });
+    }
 
 
 
-        @FXML
-        void initialize() {
-            assert btnIngresar != null : "fx:id=\"btnIngresar\" was not injected: check your FXML file 'Login.fxml'.";
-            assert olvidoContrasenia != null : "fx:id=\"olvidoContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
-            assert txtContrasenia != null : "fx:id=\"txtContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
-            assert txtNombreAdministrador != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Login.fxml'.";
+    @FXML
+    void initialize() {
+        assert btnIngresar != null : "fx:id=\"btnIngresar\" was not injected: check your FXML file 'Login.fxml'.";
+        assert olvidoContrasenia != null : "fx:id=\"olvidoContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
+        assert txtContrasenia != null : "fx:id=\"txtContrasenia\" was not injected: check your FXML file 'Login.fxml'.";
+        assert txtNombreAdministrador != null : "fx:id=\"txtNombreUsuario\" was not injected: check your FXML file 'Login.fxml'.";
 
-        }
+    }
 
-        public void setAplicacion(Aplicacion aplicacion) {
+    public void setAplicacion(Aplicacion aplicacion) {
             this.aplicacion = aplicacion;
         }
 

@@ -1,10 +1,13 @@
 package proyecto.utils;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import proyecto.exceptions.TaskAlreadyExistException;
 
 import java.util.Iterator;
+import java.util.Observable;
 
-public class TaskQueue<E> implements Iterable<E> {
+public class TaskQueue<E> extends Observable implements Iterable<E> {
     public TaskNode<E> firstNode, lastNode;
     public int size;
 
@@ -85,6 +88,17 @@ public class TaskQueue<E> implements Iterable<E> {
         }
         return false;
     }
+    public int searchIndex(E value){
+        TaskNode<E> aux = firstNode;
+        int index = 0;
+        while(aux != null){
+            if(aux.getValue().equals(value))
+                return index;
+            aux = aux.getNextNode();
+            index++;
+        }
+        return -1;
+    }
     public TaskNode<E> getFirstNode() {
         return firstNode;
     }
@@ -133,5 +147,12 @@ public class TaskQueue<E> implements Iterable<E> {
             aux = aux.getNextNode();
             return value;
         }
+    }
+    public ObservableList<E> getTableData() {
+        ObservableList<E> tableData = FXCollections.observableArrayList();
+        for (E element : this) {
+            tableData.add(element);
+        }
+        return tableData;
     }
 }

@@ -31,7 +31,7 @@
          <children>
             <ImageView fx:id="atras" fitHeight="35.0" fitWidth="33.0" layoutX="367.0" layoutY="13.0" onMouseClicked="#atrasAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/atras.png" />
+                  <Image url="@../../images/atras.png" />
                </image>
             </ImageView>
          </children></AnchorPane>

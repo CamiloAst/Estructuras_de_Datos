@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="428.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.ProcesosAdminController">
+<AnchorPane prefHeight="428.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.controllers.ProcesosController">
    <children>
       <HBox layoutX="206.0" layoutY="92.0" />
       <AnchorPane layoutY="-2.0" prefHeight="436.0" prefWidth="220.0" style="-fx-background-color: #CCABD8;">
@@ -20,23 +20,16 @@
                   <Font name="Sitka Text" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNombreProceso" layoutX="25.0" layoutY="133.0" prefHeight="31.0" prefWidth="151.0" promptText="Nombre">
+            <TextField fx:id="txtNombreProceso" layoutX="28.0" layoutY="194.0" prefHeight="31.0" prefWidth="151.0" promptText="Nombre">
                <font>
                   <Font name="Sitka Text Italic" size="19.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtIdProceso" layoutX="25.0" layoutY="171.0" prefHeight="31.0" prefWidth="151.0" promptText="Id">
-               <font>
-                  <Font name="Sitka Text" size="16.0" />
-               </font>
-            </TextField>
             <ImageView fitHeight="36.0" fitWidth="45.0" layoutX="170.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../Downloads/procesos.png" />
+                  <Image url="@../../images/procesos.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtTiempoMinimo" layoutX="25.0" layoutY="212.0" prefHeight="31.0" prefWidth="151.0" promptText="Tiempo Minimo" />
-            <TextField fx:id="txtTiempoMaximo" layoutX="25.0" layoutY="250.0" prefHeight="31.0" prefWidth="151.0" promptText="Tiempo Maximo " />
             <Label fx:id="abrirActividades" layoutX="35.0" layoutY="397.0" onMouseClicked="#abiriActiviadesAction" text="Abrir actividades " textFill="#fff6f6" underline="true">
                <font>
                   <Font name="Sitka Text" size="20.0" />
@@ -56,22 +49,22 @@
             </Label>
             <ImageView fx:id="iconCrear" fitHeight="26.0" fitWidth="30.0" layoutX="46.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/agregar.png" />
+                  <Image url="@../../images/agregar.png" />
                </image>
             </ImageView>
             <ImageView fx:id="iconEliminar" fitHeight="23.0" fitWidth="23.0" layoutX="35.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/eliminar.png" />
+                  <Image url="@../../images/eliminar.png" />
                </image>
             </ImageView>
             <ImageView fx:id="iconActualizar" fitHeight="26.0" fitWidth="30.0" layoutX="25.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/actualizar.png" />
+                  <Image url="@../../images/actualizar.png" />
                </image>
             </ImageView>
             <ImageView fx:id="iconAbrir" fitHeight="23.0" fitWidth="26.0" layoutX="14.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imágenes/ver.png" />
+                  <Image url="@../../images/ver.png" />
                </image>
             </ImageView>
          </children>
@@ -83,14 +76,14 @@
       </Label>
       <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="467.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/proceso.png" />
+            <Image url="@../../images/procesos.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="-5.0" layoutY="-1.0" prefHeight="56.0" prefWidth="712.0" style="-fx-background-color: #00c7c7;">
          <children>
             <ImageView fitHeight="36.0" fitWidth="54.0" layoutX="617.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../Downloads/login.png" />
+                  <Image url="@../../images/login.png" />
                </image>
             </ImageView>
             <Label fx:id="nombreUsuario" layoutX="21.0" layoutY="15.0" prefHeight="31.0" prefWidth="151.0" textFill="WHITE">
@@ -100,14 +93,14 @@
             </Label>
             <ImageView fx:id="iconConfiguracion" fitHeight="36.0" fitWidth="43.0" layoutX="662.0" layoutY="10.0" onMouseClicked="#configuracionAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../Downloads/configuracion.png" />
+                  <Image url="@../../images/configuracion.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
       <ImageView fx:id="iconCerrarSesion" fitHeight="30.0" fitWidth="54.0" layoutX="528.0" layoutY="384.0" onMouseClicked="#cerrarSesionAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/cerrarSesion.png" />
+            <Image url="@../../images/cerrarSesion.png" />
          </image>
       </ImageView>
       <Label fx:id="cerrarSesion" layoutX="573.0" layoutY="389.0" onMouseClicked="#cerrarSesionAction" text="Cerrar Sesión">

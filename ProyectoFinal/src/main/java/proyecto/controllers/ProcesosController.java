@@ -11,29 +11,22 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import proyecto.application.Aplicacion;
+import proyecto.exceptions.AccesDeniedException;
 import proyecto.model.Herramienta;
 import proyecto.model.Proceso;
+import proyecto.model.TipoUsuario;
 import proyecto.model.Usuario;
-
-import javax.swing.*;
-import java.net.URL;
-import java.util.ResourceBundle;
+import proyecto.utils.ShowMessage;
 
 import static proyecto.controllers.AppController.INSTANCE;
 
 
-public class ProcesosAdminController {
+public class ProcesosController {
 
     Aplicacion aplicacion;
 
     Herramienta herramienta = INSTANCE.getHerramienta();
     Usuario usuario;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Label abrirActividades;
@@ -69,16 +62,7 @@ public class ProcesosAdminController {
     private TableView<Proceso> tableProcesos;
 
     @FXML
-    private TextField txtIdProceso;
-
-    @FXML
     private TextField txtNombreProceso;
-
-    @FXML
-    private TextField txtTiempoMaximo;
-
-    @FXML
-    private TextField txtTiempoMinimo;
 
     @FXML
     private Label nombreUsuario;
@@ -98,20 +82,13 @@ public class ProcesosAdminController {
     @FXML
     private ImageView iconConfiguracion;
 
-
     Object procesoSeleccion;
     ObservableList<Proceso> listaProcesosData = FXCollections.observableArrayList();
 
-
-
-
-/* Para que aparezca el nombre del usuario en la ventana de procesos jiji, pero eso esa todo raro con herramiento y aplicacion
-    private void obtenerNombreVendedor(String documento){
-        String nombre= aplicacion.obtenerUsuario(documento);
+    private void obtenerNombreVendedor(){
+        String nombre= INSTANCE.getUsuarioActual().getNombreUsuario();
         nombreUsuario.setText(nombre);
     }
-
- */
 
     @FXML
     void abiriActiviadesAction(MouseEvent event) {
@@ -129,32 +106,40 @@ public class ProcesosAdminController {
 
     @FXML
     void crearProcesoAction(MouseEvent event) {
-        herramienta.createProcess(txtNombreProceso.getText(),
-                String.valueOf(herramienta.getListaProcesos().size()),
-                Integer.parseInt(txtTiempoMinimo.getText()),
-                Integer.parseInt(txtTiempoMaximo.getText()));
+        try {
+            if (verificarPermisos())
+                herramienta.createProcess(txtNombreProceso.getText(),
+                    String.valueOf(herramienta.getListaProcesos().size()));
+        } catch (AccesDeniedException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al crear proceso", "No tiene permisos para crear procesos");
+        }
         rechargeTable();
     }
 
     @FXML
     void elimiarProcesoAction(MouseEvent event) {
-        if(procesoSeleccion != null)
-            herramienta.deleteProcess(((Proceso) procesoSeleccion).getNombre());
-        else
-            herramienta.deleteProcess(txtNombreProceso.getText());
+        try {
+            if(verificarPermisos()) {
+                if(procesoSeleccion != null)
+                    herramienta.deleteProcess(((Proceso) procesoSeleccion).getNombre());
+                else
+                    herramienta.deleteProcess(txtNombreProceso.getText());
+            }
+        } catch (AccesDeniedException e) {
+            throw new RuntimeException(e);
+        }
         rechargeTable();
-    }
-
-    void mostrarTiempos(String nombreProceso){
-        Proceso proceso = herramienta.searchProcess(nombreProceso);
-        txtTiempoMinimo.setText(String.valueOf(proceso.getTiempoDuracionMin()));
-        txtTiempoMaximo.setText(String.valueOf(proceso.getTiempoDuracionMax()));
     }
 
     @FXML
     void configuracionAction(MouseEvent event) {
         aplicacion.mostrarVentanaConfiguracion();
 
+    }
+    public Boolean verificarPermisos() throws AccesDeniedException {
+        if(INSTANCE.getUsuarioActual().getTipoUsuario().equals(TipoUsuario.ADMINISTRADOR))
+            return true;
+        throw new AccesDeniedException();
     }
     @FXML
     void initialize() {
@@ -169,10 +154,7 @@ public class ProcesosAdminController {
         assert eliinarProceso != null : "fx:id=\"eliinarProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
         assert iconCerrarSesion != null : "fx:id=\"iconCerrarSesion\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
         assert tableProcesos != null : "fx:id=\"tableProcesos\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert txtIdProceso != null : "fx:id=\"txtIdProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
         assert txtNombreProceso != null : "fx:id=\"txtNombreProceso\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert txtTiempoMaximo != null : "fx:id=\"txtTiempoMaximo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
-        assert txtTiempoMinimo != null : "fx:id=\"txtTiempoMinimo\" was not injected: check your FXML file 'ProcesosAdmin.fxml'.";
 
         loadTable();
         tableProcesos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -183,14 +165,16 @@ public class ProcesosAdminController {
     }
 
     private void loadTable() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        columnNombre.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         columnTiempoMinimo.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracionMin"));
         columnTiempoMaximo.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracionMax"));
 
         listaProcesosData.clear();
         listaProcesosData.addAll(herramienta.getListaProcesos());
         tableProcesos.setItems(listaProcesosData);
+
+        System.out.println(herramienta.getListaProcesos().get(0).getTiempoDuracionMax());
     }
 
     private void rechargeTable(){

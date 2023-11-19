@@ -6,18 +6,21 @@ import proyecto.utils.TaskQueue;
 
 import java.util.Objects;
 
+import static proyecto.controllers.AppController.INSTANCE;
+
 public class Actividad {
 
     private String nombre;
     private String descripcion;
     private Boolean isObligatoria;
+    private int tiempoDuracion = 0;
+    private int tiempoMinimo = 0;
     private TaskQueue<Tarea> listaTareas = new TaskQueue<>();
 
     public Actividad(String nombre, String descripcion, Boolean isObligatoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.isObligatoria = isObligatoria;
-
     }
     public Actividad(String nombre){
         super();
@@ -40,11 +43,26 @@ public class Actividad {
         } catch (TaskAlreadyExistException e) {
             ShowMessage.mostrarMensaje("Error", "Error al crear tarea", "La tarea ya existe");
         }
+        calcularTiempos();
+    }
+    public void crearTarea(Tarea tarea){
+        try {
+            listaTareas.add(tarea);
+        } catch (TaskAlreadyExistException e) {
+            ShowMessage.mostrarMensaje("Error", "Error al crear tarea", "La tarea ya existe");
+        }
+        calcularTiempos();
     }
     public void completarTarea(String nombreTarea){
         Tarea tarea = buscarTareaPorNombre(nombreTarea);
         if(tarea != null)
             tarea.setComplete();
+        calcularTiempos();
+    }
+
+    public void eliminarTarea(Tarea tarea){
+        listaTareas.remove(listaTareas.searchIndex(tarea));
+        calcularTiempos();
     }
 
     public int obtenerTiempoTotal(){
@@ -61,6 +79,11 @@ public class Actividad {
                 tiempoTotal += tarea.getTiempoDuracion();
         }
         return tiempoTotal;
+    }
+
+    private void calcularTiempos(){
+        tiempoDuracion = obtenerTiempoTotal();
+        tiempoMinimo = obtenerTiempoMin();
     }
 
     public String getNombre() {
@@ -97,6 +120,14 @@ public class Actividad {
 
     public void setListaTareas(TaskQueue<Tarea> listaTareas) {
         this.listaTareas = listaTareas;
+    }
+
+    public int getTiempoDuracion() {
+        return tiempoDuracion;
+    }
+
+    public int getTiempoMinimo() {
+        return tiempoMinimo;
     }
 
     @Override
