@@ -88,23 +88,6 @@ public class ActividadesController {
 
     Object actividadSeleccion;
 
-    @FXML
-    private Label cerrarSesion;
-
-    @FXML
-    private ImageView iconAbrir;
-
-    @FXML
-    private ImageView iconActualizar;
-
-    @FXML
-    private ImageView iconCerrarSesion;
-
-    @FXML
-    private ImageView iconCrear;
-
-    @FXML
-    private ImageView iconEliminar;
 
     @FXML
     private Label nombreProceso;
@@ -192,25 +175,11 @@ public class ActividadesController {
 
     @FXML
     void initialize() {
-        assert actualizarActividad != null : "fx:id=\"actualizarActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert columnDescripcionActvidad != null : "fx:id=\"columnDescripcionActvidad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert columnNombreActividad != null : "fx:id=\"columnNombreActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert comboBoxObligatoria != null : "fx:id=\"comboBoxObligatoria\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert crearActividad != null : "fx:id=\"crearActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert eliminarActividad != null : "fx:id=\"eliminarActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert iconLogin != null : "fx:id=\"iconLogin\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert tableActividades != null : "fx:id=\"tableActividades\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert txtDescripcion != null : "fx:id=\"txtDescripcionActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert txtTiempoMinimo != null : "fx:id=\"txtTiempoMinimo\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert tztTiempoMaximoActividad != null : "fx:id=\"tztTiempoMaximoActividad\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-        assert verTareas != null : "fx:id=\"verTareas\" was not injected: check your FXML file 'ActividadesAdmin.fxml'.";
-
 
         comboBoxObligatoria.getItems().addAll(true, false);
 
 
-        nombreProceso = new Label(proceso.getNombre());
+        nombreProceso.setText(proceso.getNombre());
         loadTable();
 
 
@@ -294,7 +263,7 @@ public class ActividadesController {
     public void searchActivity() {
         String text = txtBuscar.getText().toLowerCase();
         ObservableList<Actividad> filteredList = proceso.getListaActividades().getTableData().stream()
-                .filter(actividad -> actividad.getNombre().toLowerCase().contains(text))
+                .filter(actividad -> actividad.getNombre().toLowerCase().contains(text.toLowerCase()))
                 .collect(Collectors.collectingAndThen(Collectors.toList(), FXCollections::observableArrayList));
 
         tableActividades.setItems(filteredList);

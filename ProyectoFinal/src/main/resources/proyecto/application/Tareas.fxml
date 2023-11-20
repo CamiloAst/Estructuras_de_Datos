@@ -114,6 +114,11 @@
             <Image url="@../../images/tarea.png" />
          </image>
       </ImageView>
-      <Button layoutX="273.0" layoutY="414.0" mnemonicParsing="false" onAction="#exportExcel" text="Exportar" />
+      <Button layoutX="251.0" layoutY="414.0" mnemonicParsing="false" onAction="#exportExcel" text="Exportar" />
+      <TextField fx:id="txtBuscar" layoutX="336.0" layoutY="410.0" onInputMethodTextChanged="#searchTask" prefHeight="35.0" prefWidth="168.0" promptText="Buscar">
+         <font>
+            <Font name="Sitka Small Italic" size="19.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

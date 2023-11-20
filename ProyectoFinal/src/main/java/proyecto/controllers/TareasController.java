@@ -24,6 +24,7 @@ import proyecto.utils.ShowMessage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import static proyecto.controllers.AppController.INSTANCE;
 
@@ -87,6 +88,8 @@ public class TareasController {
 
     Object tareaSelection;
 
+    @FXML
+    private TextField txtBuscar;
 
     @FXML
     void cerrarSesionAction(MouseEvent event) {
@@ -169,7 +172,7 @@ public class TareasController {
 
     @FXML
     void initialize() {
-        nombreUsuario = new Label(actividad.getNombre());
+        nombreUsuario.setText(actividad.getNombre());
 
         loadTable();
 
@@ -185,6 +188,19 @@ public class TareasController {
             }
         });
 
+        txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            searchTask();
+        });
+    }
+
+    @FXML
+    private void searchTask() {
+        String text = txtBuscar.getText();
+        ObservableList<Tarea> filteredList = actividad.getListaTareas().getTableData().stream()
+                .filter(tarea -> tarea.getNombre().toLowerCase().contains(text.toLowerCase()))
+                .collect(Collectors.collectingAndThen(Collectors.toList(), FXCollections::observableArrayList));
+
+        tableTareas.setItems(filteredList);
     }
 
     private void loadTable(){

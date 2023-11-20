@@ -61,9 +61,9 @@ public class Herramienta {
         }else
             throw new UserAlreadyExistException();
     }
-    public void createUser(String nombreUsuario, String contrasenia, TipoUsuario tipoUsuario, String correo){
+    public void createUser(String nombreUsuario, String contrasenia, TipoUsuario tipoUsuario, String correo, TipoNotificacion tipoNotificacion){
         try {
-            addUser(new Usuario(tipoUsuario, nombreUsuario, contrasenia, correo));
+            addUser(new Usuario(tipoUsuario, nombreUsuario, contrasenia, correo, tipoNotificacion));
         } catch (UserAlreadyExistException e) {
             ShowMessage.mostrarMensaje("Error", "Error al crear usuario", "El usuario ya existe");
         }

@@ -173,6 +173,7 @@ public class ProcesosController {
 
     @FXML
     void initialize() {
+        nombreUsuario.setText(INSTANCE.getUsuarioActual().getNombreUsuario());
         loadTable();
         tableProcesos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if(newSelection != null){

@@ -13,11 +13,12 @@ public class Usuario {
 
 
 
-    public Usuario(TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia, String correo) {
+    public Usuario(TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia, String correo, TipoNotificacion tipoNotificacion) {
         this.tipoUsuario = tipoUsuario;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.correo = correo;
+        this.tipoNotificacion = tipoNotificacion;
     }
     public Usuario(){
         super();
