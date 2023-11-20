@@ -101,15 +101,15 @@ public class ActividadesController {
     @FXML
     void actualizarActividadAction(MouseEvent event) {
         if(actividadSeleccion != null){
-            try {
-                if(!txtNombre.getText().isEmpty() && !txtDescripcion.getText().isEmpty())
-                    proceso.actualizarActividad(txtNombre.getText(), txtDescripcion.getText());
-                else
-                    throw new IncompleteDataException();
-            } catch (IncompleteDataException e) {
-                ShowMessage.mostrarMensaje("Error", "Error al actualizar actividad", "Faltan datos");
-            }
-        }
+            Actividad actividad = (Actividad) actividadSeleccion;
+            if(!txtNombre.getText().isEmpty())
+                actividad.setNombre(txtNombre.getText());
+            if(!txtDescripcion.getText().isEmpty())
+                actividad.setDescripcion(txtDescripcion.getText());
+            if(comboBoxObligatoria.getValue() != null)
+                actividad.setObligatoria(comboBoxObligatoria.getValue());
+        }else
+            ShowMessage.mostrarMensaje("Error", "Error al actualizar actividad", "No se ha seleccionado ninguna actividad");
         rechargeTable();
     }
 
@@ -249,6 +249,7 @@ public class ActividadesController {
     }
 
     private void rechargeTable(){
+        tableActividades.getItems().clear();
         ObservableList<Actividad> listaActividadesData = FXCollections.observableArrayList(proceso.getListaActividades().getTableData());
         tableActividades.setItems(listaActividadesData);
         txtNombre.setText("");

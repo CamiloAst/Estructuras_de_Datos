@@ -39,7 +39,7 @@
                <font>
                   <Font name="Sitka Text" size="20.0" />
                </font></Label>
-            <Label fx:id="actualizarProceso" layoutX="55.0" layoutY="367.0" text="Actualizar" textFill="WHITE" underline="true">
+            <Label fx:id="actualizarProceso" layoutX="55.0" layoutY="367.0" onMouseClicked="#update" text="Actualizar" textFill="WHITE" underline="true">
                <font>
                   <Font name="Sitka Text" size="20.0" />
                </font></Label>

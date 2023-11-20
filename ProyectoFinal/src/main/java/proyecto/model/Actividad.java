@@ -106,7 +106,7 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public void setNoObligatoria(Boolean isObligatoria) {
+    public void setNoObligatoria() {
         isObligatoria = false;
     }
 
@@ -128,6 +128,10 @@ public class Actividad {
 
     public int getTiempoMinimo() {
         return tiempoMinimo;
+    }
+
+    public void setObligatoria(Boolean obligatoria) {
+        isObligatoria = obligatoria;
     }
 
     @Override

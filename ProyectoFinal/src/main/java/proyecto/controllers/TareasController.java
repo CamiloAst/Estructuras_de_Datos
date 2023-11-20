@@ -37,13 +37,6 @@ public class TareasController {
     private ComboBox<String> comboBoxObligatoria;
 
     @FXML
-    private Label actualizarProceso;
-
-    @FXML
-    private Label cerrarSesion;
-
-
-    @FXML
     private TableColumn<Tarea, String> columnNombre;
     @FXML
     private TableColumn<Tarea, String> columnDescripcion;
@@ -53,23 +46,6 @@ public class TareasController {
     public TableColumn<Tarea, Boolean> columnIsObligatoria;
 
 
-    @FXML
-    private Label crearTarea;
-
-    @FXML
-    private Label eliminarTarea;
-
-    @FXML
-    private ImageView iconActualizar;
-
-    @FXML
-    private ImageView iconCerrarSesion;
-
-    @FXML
-    private ImageView iconCrear;
-
-    @FXML
-    private ImageView iconEliminar;
 
     @FXML
     private Label nombreUsuario;
@@ -216,6 +192,7 @@ public class TareasController {
     }
 
     private void rechargeTable(){
+        tableTareas.getItems().clear();
         ObservableList<Tarea> updatedTableData = FXCollections.observableArrayList(actividad.getListaTareas().getTableData());
         tableTareas.setItems(updatedTableData);
     }
@@ -224,4 +201,19 @@ public class TareasController {
         this.aplicacion = aplicacion;
     }
 
+    public void update(MouseEvent mouseEvent) {
+        if(tareaSelection != null){
+            Tarea tarea = (Tarea) tareaSelection;
+            if(!txtNombre.getText().isEmpty())
+                tarea.setNombre(txtNombre.getText());
+            if(!txtDescripcion.getText().isEmpty())
+                tarea.setDescripcion(txtDescripcion.getText());
+            if(!txtTiempo.getText().isEmpty())
+                tarea.setTiempoDuracion(Integer.parseInt(txtTiempo.getText()));
+            if(comboBoxObligatoria.getValue() != null)
+                tarea.setObigatoria(comboBoxObligatoria.getValue().equals("Si"));
+            rechargeTable();
+        }
+        INSTANCE.getProcesoActual().calcularTiempos();
+    }
 }

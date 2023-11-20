@@ -211,4 +211,13 @@ public class ProcesosController {
     public void notificarAlCorreo(String mensaje){
         herramienta.notifyUser(mensaje);
     }
+
+    public void update(MouseEvent mouseEvent) {
+        if(procesoSeleccion != null){
+            Proceso proceso = (Proceso) procesoSeleccion;
+            if(!txtNombreProceso.getText().isEmpty())
+                proceso.setNombre(txtNombreProceso.getText());
+            rechargeTable();
+        }
+    }
 }
