@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94bb85d9-7b35-4bf7-bf7e-4183f01efd09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ConfiguracionesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/configuracion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/notificacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/Configuraciones.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/application/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/application/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/AccederController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/AccederController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/ProcesosAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/RegistrarseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/RegistrarseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/controllers/TareasAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/controllers/TareasAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/Acceder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/Acceder.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/application/ProcesosAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/model/Herramienta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/model/Herramienta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +107,8 @@
       <workItem from="1699818202947" duration="1278000" />
       <workItem from="1700182311430" duration="227000" />
       <workItem from="1700182564994" duration="12067000" />
-      <workItem from="1700228725413" duration="4101000" />
+      <workItem from="1700228725413" duration="4729000" />
+      <workItem from="1700443454209" duration="1272000" />
     </task>
     <servers />
   </component>

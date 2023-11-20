@@ -152,6 +152,8 @@ public class Herramienta {
         Usuario usuario2 = new Usuario();
         usuario2.setNombreUsuario("Juan");
         usuario2.setContrasenia("Velez");
+        usuario2.setCorreo("anamendoza270704@gmail.com");
+        usuario2.setTipoNotificacion(TipoNotificacion.CORREO);
         usuario2.setTipoUsuario(TipoUsuario.REGULAR);
 
         userList.add(usuario2);
