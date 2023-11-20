@@ -35,9 +35,7 @@ import static proyecto.controllers.AppController.INSTANCE;
 public class ActividadesController {
 
     Proceso proceso = INSTANCE.getProcesoActual();
-
-    @FXML
-    private Label actualizarActividad;
+    
 
     @FXML
     private TableView<Actividad> tableActividades;
@@ -58,14 +56,6 @@ public class ActividadesController {
     @FXML
     private ComboBox<Boolean> comboBoxObligatoria;
 
-    @FXML
-    private Label crearActividad;
-
-    @FXML
-    private Label eliminarActividad;
-
-    @FXML
-    private ImageView iconLogin;
 
 
     @FXML
@@ -75,15 +65,8 @@ public class ActividadesController {
     private TextField txtNombre;
 
     @FXML
-    private TextField txtTiempoMinimo;
-
-    @FXML
-    private TextField tztTiempoMaximoActividad;
-    @FXML
     public TextField txtBuscar;
 
-    @FXML
-    private Label verTareas;
     private Aplicacion aplicacion;
 
     Object actividadSeleccion;
